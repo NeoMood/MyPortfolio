@@ -7,6 +7,7 @@ export const projects = [
     {
         title : "Ft_Transcendance",
         image: "/images/transcendance.png",
+        url: "https://github.com/NeoMood/ft_transcendence",
     }
 ];
 
@@ -15,7 +16,7 @@ const Project = (props) => {
 
     return (
         <group {...props} position={[0, 1.05, -0.067]} rotation-x={-Math.PI/12}>
-            <mesh position-z={-0.001} >
+            <mesh position-z={-0.001} onClick={() => window.open(project.url, "_blank")}>
                 <planeGeometry args={[0.15, 0.07]}/>
                 <meshBasicMaterial color="balck" transparent opacity={0.4}/>       
             </mesh>

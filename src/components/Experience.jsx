@@ -24,7 +24,7 @@ export const Experience = () => {
       {/* <Grid /> */}
 
       {/* <OrbitControls/> */}
-      <MovingSpot depthBuffer={depthBuffer} color="#0c8cbf" position={[3, 3, 2]} />
+      {/* <MovingSpot depthBuffer={depthBuffer} color="#0c8cbf" position={[3, 3, 2]} /> */}
       {/* <MovingSpot depthBuffer={depthBuffer} color="#b00c3f" position={[1, 3, 0]} /> */}
       <PresentationControls
         config={{ mass: 2, tension: 500 }}
