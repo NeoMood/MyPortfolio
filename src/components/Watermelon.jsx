@@ -15,7 +15,7 @@ export function Watermelon(props) {
       receiveShadow 
       geometry={nodes.mesh_char_89.geometry} 
       material={materials._089_Watermelon} 
-      scale={10} 
+      scale={5} 
       rotation={[0, Math.PI*2, 0]}
     />
     </group>
