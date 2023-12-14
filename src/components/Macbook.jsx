@@ -10,7 +10,7 @@ export function Macbook(props) {
   const { nodes, materials } = useGLTF('/models/macbook.gltf')
   return (
     <group {...props} dispose={null}>
-      <group position={[0, 1, 0]} scale={0.005}>
+      <group position={[0, 0, 0]} scale={0.005}>
         <mesh geometry={nodes.Circle001.geometry} material={materials['Frame.001']} />
         <mesh geometry={nodes.Circle001_1.geometry} material={materials['Frame.001']} />
         <mesh geometry={nodes.Circle001_2.geometry} material={materials.HeadPhoneHole} />

@@ -5,7 +5,7 @@ import {Layout } from "./components/Layout";
 function App() {
   return (
     <>
-    <Canvas dpr={[1, 2]} shadows camera={{ fov: 60 }}>
+    <Canvas dpr={[1, 2]} shadows camera={{ fov: 60, position:[-0.2,0.10,0.2]}}>
       <color attach="background" args={['#87CEEB']} />
       <Experience />
     </Canvas>

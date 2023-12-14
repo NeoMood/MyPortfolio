@@ -20,40 +20,42 @@ export const Experience = () => {
 
   return (
     <>
-      <fog attach="fog" args={['#87CEEB', 5, 20]} />
+      <fog attach="fog" args={['#87CEEB', 2, 20]} />
       {/* <Grid /> */}
 
-      {/* <OrbitControls/> */}
-      {/* <MovingSpot depthBuffer={depthBuffer} color="#0c8cbf" position={[3, 3, 2]} /> */}
-      {/* <MovingSpot depthBuffer={depthBuffer} color="#b00c3f" position={[1, 3, 0]} /> */}
+      {/* <OrbitControls/>
+      <MovingSpot depthBuffer={depthBuffer} color="#0c8cbf" position={[0, 1, 0.4]} />
+      <MovingSpot depthBuffer={depthBuffer} color="#b00c3f" position={[1, 1, -0.4]} /> */}
       <PresentationControls
         config={{ mass: 2, tension: 500 }}
-        // snap={{ mass: 4, tension: 1500 }}
-        rotation={[0, 0.3, 0]}
-        polar={[-Math.PI / 3, Math.PI / 3]}
+        snap={{ mass: 3, tension: 200 }}
+        rotation={[0, 0, 0]}
+        polar={[0, Math.PI / 2]}
         azimuth={[-Math.PI / 1.4, Math.PI / 2]}
-        >
+      >
           {/* <Lamp/> */}
-          <Avatar  position={[0,-0.12,0.1]} rotation-y={Math.PI}/>
-          <Stage environment={"dawn"} intensity={0.1} shadows={"contact"}>
+          <Avatar  position={[0,0,0.1]} rotation-y={Math.PI}/>
+          {/* <Stage environment={"dawn"} intensity={0.1} shadows={"contact"}> */}
             <Float
               speed={2}
               rotationIntensity={0.01}
               floatIntensity={0.1} 
               floatingRange={[0, 0.2]}
             >
-              <Macbook/>
-            <Projects/>
+              <group position-y={0.01}>
+                <Macbook/>
+                <Projects/>
+              </group>
             </Float>
-          </Stage>
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -1, 0]}>
+          {/* </Stage> */}
+          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
             <planeGeometry args={[170, 170]} />
             <MeshReflectorMaterial
               blur={[300, 100]}
               resolution={2048}
-              mixBlur={1}
+              mixBlur={0.3}
               mixStrength={40}
-              roughness={1}
+              roughness={0.3}
               depthScale={1.2}
               minDepthThreshold={0.4}
               maxDepthThreshold={1.4}
@@ -62,7 +64,9 @@ export const Experience = () => {
               />
           </mesh>
           </PresentationControls>
-      {/* <axesHelper args={[5]} /> */}
+
+          <Environment preset="dawn"/>
+      <axesHelper args={[2]} />
     </>
   );
 };
