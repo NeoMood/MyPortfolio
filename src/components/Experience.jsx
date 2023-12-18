@@ -66,7 +66,7 @@ export const Experience = () => {
           </PresentationControls>
 
           <Environment preset="dawn"/>
-      <axesHelper args={[2]} />
+      {/* <axesHelper args={[2]} /> */}
     </>
   );
 };
