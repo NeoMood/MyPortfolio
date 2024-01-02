@@ -5,6 +5,7 @@ import { Macbook } from "./Macbook";
 import { Avatar } from "./Avatar";
 import {MovingSpot} from "./Spotlights";
 import { Projects } from "./projects";
+import { Canvas } from "@react-three/fiber";
 
 
 
@@ -19,7 +20,11 @@ export const Experience = () => {
   const depthBuffer = useDepthBuffer({ frames: 1 })
 
   return (
-    <>
+    <div className="bg-[#006DAA] w-screen h-screen ">
+      <Canvas dpr={[1, 2]} shadows camera={{ fov: 60, position:[-0.2,0.1,0.2]}}>
+        {/* <ScrollControls pages={4} damping={0.1}></ScrollControls> */}
+       <ambientLight intensity={0.5} />
+       <hemisphereLight intensity={0.5} />
       <fog attach="fog" args={['#87CEEB', 2, 20]} />
       {/* <Grid /> */}
 
@@ -47,8 +52,7 @@ export const Experience = () => {
                 <Projects/>
               </group>
             </Float>
-          {/* </Stage> */}
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+          {/* <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
             <planeGeometry args={[170, 170]} />
             <MeshReflectorMaterial
               blur={[300, 100]}
@@ -62,11 +66,11 @@ export const Experience = () => {
               color="#101010"
               metalness={0.5}
               />
-          </mesh>
+          </mesh> */}
           </PresentationControls>
 
-          <Environment preset="dawn"/>
-      {/* <axesHelper args={[2]} /> */}
-    </>
+          
+      </Canvas>
+    </div>
   );
 };
