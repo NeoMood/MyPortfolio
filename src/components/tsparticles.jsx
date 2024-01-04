@@ -29,71 +29,105 @@ export const Tsparticles = () => {
 
   const options = useMemo(
     () => ({
-      background: {
-        color: {
-          value: "",
-        },
-      },
+      fullscreen: {enable: false},
+      detectRetina: false,
       fpsLimit: 60,
       interactivity: {
+        detectsOn: "canvas",
         events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
           onHover: {
             enable: true,
-            mode: "repulse",
+            mode: "bubble"
           },
+          resize: true
         },
         modes: {
-          push: {
-            quantity: 2,
-          },
-          repulse: {
-            distance: 100,
-            duration: 0.4,
-          },
-        },
+          bubble: {
+            distance: 80,
+            duration: 2,
+            opacity: 1,
+            size: 6
+          }
+        }
       },
       particles: {
         color: {
-          value: "#ffffff",
+          value: "#0ff"
         },
         links: {
-          color: "#ffffff",
-          distance: 150,
+          blink: false,
+          color: "#fff",
+          consent: false,
+          distance: 40,
           enable: true,
-          opacity: 0.5,
-          width: 1,
+          opacity: 0.3,
+          width: 0.6
         },
         move: {
+          attract: {
+            enable: true,
+            rotate: {
+              x: 600,
+              y: 1200
+            }
+          },
+          bounce: false,
           direction: "none",
           enable: true,
-          outModes: {
-            default: "bounce",
-          },
+          outMode: "bounce",
           random: false,
           speed: 1,
-          straight: false,
+          straight: false
         },
         number: {
           density: {
-            enable: true,
+            enable: false,
+            area: 2000
           },
-          value: 100,
+          limit: 0,
+          value: 400
         },
         opacity: {
-          value: 0.4,
+          animation: {
+            enable: false,
+            minimumValue: 0.05,
+            speed: 2,
+            sync: false
+          },
+          random: false,
+          value: 0.5
         },
         shape: {
-          type: "circle",
+          type: "circle"
         },
         size: {
-          value: { min: 0.5, max: 2 },
-        },
+          animation: {
+            enable: false,
+            minimumValue: 0.1,
+            speed: 40,
+            sync: false
+          },
+          random: false,
+          value: 0.5
+        }
       },
-      detectRetina: true,
+      polygon: {
+        draw: {
+          enable: true,
+          lineColor: "rgba(0,255,255,0.2)",
+          lineWidth: 0.5
+        },
+        move: {
+          radius: 20
+        },
+        position: {
+          x: 30,
+          y: 30
+        },
+        inlineArrangement: "equidistant",
+        scale: 10,
+        type: "inline",
+      }
     }),
     [],
   );
@@ -110,3 +144,174 @@ export const Tsparticles = () => {
 
   return <></>;
 };
+
+
+// detectRetina: false,
+// fpsLimit: 60,
+// interactivity: {
+//   detectsOn: "canvas",
+//   events: {
+//     onHover: {
+//       enable: true,
+//       mode: "bubble"
+//     },
+//     resize: true
+//   },
+//   modes: {
+//     bubble: {
+//       distance: 80,
+//       duration: 2,
+//       opacity: 1,
+//       size: 6
+//     }
+//   }
+// },
+// particles: {
+//   color: {
+//     value: "#0ff"
+//   },
+//   links: {
+//     blink: false,
+//     color: "#fff",
+//     consent: false,
+//     distance: 40,
+//     enable: true,
+//     opacity: 0.3,
+//     width: 0.5
+//   },
+//   move: {
+//     attract: {
+//       enable: false,
+//       rotate: {
+//         x: 600,
+//         y: 1200
+//       }
+//     },
+//     bounce: false,
+//     direction: "none",
+//     enable: true,
+//     outMode: "bounce",
+//     random: false,
+//     speed: 1,
+//     straight: false
+//   },
+//   number: {
+//     density: {
+//       enable: false,
+//       area: 2000
+//     },
+//     limit: 0,
+//     value: 400
+//   },
+//   opacity: {
+//     animation: {
+//       enable: false,
+//       minimumValue: 0.05,
+//       speed: 2,
+//       sync: false
+//     },
+//     random: false,
+//     value: 0.5
+//   },
+//   shape: {
+//     type: "circle"
+//   },
+//   size: {
+//     animation: {
+//       enable: false,
+//       minimumValue: 0.1,
+//       speed: 40,
+//       sync: false
+//     },
+//     random: false,
+//     value: 0.5
+//   }
+// },
+// polygon: {
+//   draw: {
+//     enable: true,
+//     lineColor: "rgba(0,255,255,0.2)",
+//     lineWidth: 0.5
+//   },
+//   move: {
+//     radius: 20
+//   },
+//   position: {
+//     x: 30,
+//     y: 30
+//   },
+//   inlineArrangement: "equidistant",
+//   scale: 5,
+//   type: "inline",
+// }
+
+
+
+
+
+// background: {
+//   color: {
+//     value: "",
+//   },
+// },
+// fullscreen: {enable: false},
+// fpsLimit: 60,
+// interactivity: {
+//   events: {
+//     onClick: {
+//       enable: true,
+//       mode: "push",
+//     },
+//     onHover: {
+//       enable: true,
+//       mode: "repulse",
+//     },
+//   },
+//   modes: {
+//     push: {
+//       quantity: 2,
+//     },
+//     repulse: {
+//       distance: 100,
+//       duration: 0.4,
+//     },
+//   },
+// },
+// particles: {
+//   color: {
+//     value: "#ffffff",
+//   },
+//   links: {
+//     color: "#ffffff",
+//     distance: 150,
+//     enable: true,
+//     opacity: 0.5,
+//     width: 1,
+//   },
+//   move: {
+//     direction: "none",
+//     enable: true,
+//     outModes: {
+//       default: "bounce",
+//     },
+//     random: false,
+//     speed: 1,
+//     straight: false,
+//   },
+//   number: {
+//     density: {
+//       enable: true,
+//     },
+//     value: 100,
+//   },
+//   opacity: {
+//     value: 0.4,
+//   },
+//   shape: {
+//     type: "circle",
+//   },
+//   size: {
+//     value: { min: 0.5, max: 2 },
+//   },
+// },
+// detectRetina: true,

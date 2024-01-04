@@ -19,7 +19,7 @@ const Project = (props) => {
         <group {...props} position={[0, 0.05, -0.067]} rotation-x={-Math.PI/12}>
             <mesh position-z={-0.001} onClick={() => window.open(project.url, "_blank")}>
                 <planeGeometry args={[0.15, 0.07]}/>
-                <meshBasicMaterial color="balck" transparent opacity={0.4}/>       
+                <meshBasicMaterial color="black" transparent opacity={0.4}/>       
             </mesh>
             <Image scale={[0.142,0.092,0.092]} url={project.image} toneMapped={false} />
             <Text color={"#151B54"} scale={0.06} fontSize={0.2} position={[-0.13, 0.05, 0]} strokeColor={"black"}>{project.title}</Text>

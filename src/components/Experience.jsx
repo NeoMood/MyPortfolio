@@ -11,14 +11,6 @@ import { Canvas } from "@react-three/fiber";
 
 
 export const Experience = () => {
-  const numWatermelons = 100; 
-  const watermelons = Array.from({ length: numWatermelons }).map((_, i) => {
-    const position = [Math.random() * 20 - 10, Math.random() * 20 - 10, Math.random() * 20 - 10];
-    const rotation = [Math.random() * Math.PI * 2, Math.random() * Math.PI * 2, Math.random() * Math.PI * 2]; // Random rotation
-    return <Watermelon key={i} position={position} rotation={rotation} />;
-  });
-  const depthBuffer = useDepthBuffer({ frames: 1 })
-
   return (
     <div className="bg-[#006DAA] w-screen h-screen ">
       <Canvas dpr={[1, 2]} shadows camera={{ fov: 60, position:[-0.2,0.1,0.2]}}>
