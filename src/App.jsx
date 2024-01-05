@@ -6,6 +6,7 @@ import { Interface } from "./components/Interface";
 
 import { Canvas } from "@react-three/fiber";
 import { Environment, Scroll, ScrollControls} from "@react-three/drei";
+import { Navbar } from "./components/Navbar";
 
 // function App() {
 //   return (
@@ -26,6 +27,7 @@ import { Environment, Scroll, ScrollControls} from "@react-three/drei";
 function App() {
   return (
     <>
+      <Navbar/>
       <Interface/>
     </>
   );

@@ -4,7 +4,7 @@ import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
 
 export function Typing(props) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/models/avatar.glb");
+  const { nodes, materials } = useGLTF("/models/avatar2.glb");
 
   const {animations: typinganimation} = useFBX('/animations/typing.fbx')
   typinganimation[0].name = 'typing';
@@ -22,6 +22,8 @@ export function Typing(props) {
         <group>
           <primitive object={nodes.Hips} />
           <skinnedMesh
+            castShadow
+            receiveShadow
             name="EyeLeft"
             geometry={nodes.EyeLeft.geometry}
             material={materials.Wolf3D_Eye}
@@ -30,6 +32,8 @@ export function Typing(props) {
             morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
             />
           <skinnedMesh
+            castShadow
+            receiveShadow
             name="EyeRight"
             geometry={nodes.EyeRight.geometry}
             material={materials.Wolf3D_Eye}
@@ -38,6 +42,8 @@ export function Typing(props) {
             morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
             />
           <skinnedMesh
+            castShadow
+            receiveShadow
             name="Wolf3D_Head"
             geometry={nodes.Wolf3D_Head.geometry}
             material={materials.Wolf3D_Skin}
@@ -46,6 +52,8 @@ export function Typing(props) {
             morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
             />
           <skinnedMesh
+            castShadow
+            receiveShadow
             name="Wolf3D_Teeth"
             geometry={nodes.Wolf3D_Teeth.geometry}
             material={materials.Wolf3D_Teeth}
@@ -54,26 +62,36 @@ export function Typing(props) {
             morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
             />
           <skinnedMesh
+            castShadow
+            receiveShadow
             geometry={nodes.Wolf3D_Hair.geometry}
             material={materials.Wolf3D_Hair}
             skeleton={nodes.Wolf3D_Hair.skeleton}
             />
           <skinnedMesh
+            castShadow
+            receiveShadow
             geometry={nodes.Wolf3D_Body.geometry}
             material={materials.Wolf3D_Body}
             skeleton={nodes.Wolf3D_Body.skeleton}
             />
           <skinnedMesh
+            castShadow
+            receiveShadow
             geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
             material={materials.Wolf3D_Outfit_Bottom}
             skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
             />
           <skinnedMesh
+            castShadow
+            receiveShadow
             geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
             material={materials.Wolf3D_Outfit_Footwear}
             skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
             />
           <skinnedMesh
+            castShadow
+            receiveShadow
             geometry={nodes.Wolf3D_Outfit_Top.geometry}
             material={materials.Wolf3D_Outfit_Top}
             skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
@@ -85,4 +103,4 @@ export function Typing(props) {
   );
 }
 
-useGLTF.preload("/avatar.glb");
+useGLTF.preload("/avatar2.glb");

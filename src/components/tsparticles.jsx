@@ -29,8 +29,10 @@ export const Tsparticles = () => {
 
   const options = useMemo(
     () => ({
-      fullscreen: {enable: false},
-      detectRetina: false,
+      fullScreen: {
+        enable: false,
+      },
+      detectRetina: true,
       fpsLimit: 60,
       interactivity: {
         detectsOn: "canvas",
@@ -52,7 +54,8 @@ export const Tsparticles = () => {
       },
       particles: {
         color: {
-          value: "#0ff"
+          // value: "#0ff"
+          value: "#CD853F"
         },
         links: {
           blink: false,
@@ -61,11 +64,11 @@ export const Tsparticles = () => {
           distance: 40,
           enable: true,
           opacity: 0.3,
-          width: 0.6
+          width: 0.5
         },
         move: {
           attract: {
-            enable: true,
+            enable: false,
             rotate: {
               x: 600,
               y: 1200
@@ -125,7 +128,7 @@ export const Tsparticles = () => {
           y: 30
         },
         inlineArrangement: "equidistant",
-        scale: 10,
+        scale: 5,
         type: "inline",
       }
     }),
@@ -134,11 +137,14 @@ export const Tsparticles = () => {
 
   if (init) {
     return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-      />
+      <div className="absolute ">
+
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={options}
+          />
+        </div>
     );
   }
 
