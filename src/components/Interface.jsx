@@ -56,7 +56,19 @@ export const About = () => {
                         backgroundSize: 'cover' 
                     }}
                     ></div> */}
-                <div className="bg-gradiant flex items-center justify-start space-x-10 w-screen h-screen overflow-hidden" >
+
+                    <div className="absolute bottom-0 " 
+                    style={{
+                        bottom: '-15px',
+                        backgroundImage: `url(/wave-under.svg)`, 
+                        aspectRatio: 960/300, 
+                        width: '100%', 
+                        backgroundRepeat: 'no-repeat', 
+                        backgroundPosition: 'center', 
+                        backgroundSize: 'cover' 
+                    }}
+                    ></div>
+                <div className="bg-gradiant flex items-center justify-start  w-screen h-screen overflow-hidden" >
                         <div className="pl-20">
                             <motion.h1 
                                 className="pl-10 text-6xl font-extrabold leading-snug text-white"
@@ -82,7 +94,7 @@ export const About = () => {
                         </div>
                         
                         {/* <div className='w-1/2 h-screen'> */}
-                        <div className='absolute overflow-hidden w-screen h-screen'>
+                        <div className='ml-0 absolute w-full h-full'>
                             <Deskscene/>
                         </div>
 
@@ -140,20 +152,40 @@ const TextEffect = () => {
   }, []);
 
   return (
-    <div className='flex items-center flex-col  bg-gradient-to-r from-[#0353A4] to-[#061A40] w-screen h-screen'>
-        <div className="">
+    <div className='flex items-center flex-col  bg-gradiant w-screen h-screen overflow-hidden'>
+        <div className="mx-30 text-6xl font-extrabold leading-snug text-white">
             <h1 className=''> SKILLS </h1>
         </div>
         
-        <div className="w-screen h-screen ">
-            <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-            <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
-            <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-            <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
-            <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-            <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
-            <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-            <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+        <div className='flex'>
+
+            <div className="flex-wrap px-16  w-1/2 space-y-4">
+                <h1 className='text-white text-center'> Coding Languages </h1>
+                <h1 className="textanimation">C<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">C++<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">Javascript<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+            </div>
+            <div className="flex-wrap px-16   w-1/2 space-y-4">
+                <h1 className='text-white text-center'> Technologies </h1>
+                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+            </div>
+            <div className="flex-wrap px-16   w-1/2 space-y-4">
+                <h1 className='text-white text-center'> Coding Languages </h1>
+                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+            </div>
         </div>
     </div>
   );
