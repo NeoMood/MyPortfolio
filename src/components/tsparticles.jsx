@@ -30,7 +30,10 @@ export const Tsparticles = () => {
   const options = useMemo(
     () => ({
       fullScreen: {
-        enable: false,
+        enable: true,
+      },
+      style: {
+        position: "absolute",
       },
       detectRetina: true,
       fpsLimit: 60,
@@ -39,23 +42,23 @@ export const Tsparticles = () => {
         events: {
           onHover: {
             enable: true,
-            mode: "bubble"
+            mode: "bubble",
           },
-          resize: true
+          resize: true,
         },
         modes: {
           bubble: {
             distance: 80,
             duration: 2,
             opacity: 1,
-            size: 6
-          }
-        }
+            size: 6,
+          },
+        },
       },
       particles: {
         color: {
           // value: "#0ff"
-          value: "#CD853F"
+          value: "#CD853F",
         },
         links: {
           blink: false,
@@ -64,15 +67,15 @@ export const Tsparticles = () => {
           distance: 40,
           enable: true,
           opacity: 0.3,
-          width: 0.5
+          width: 0.5,
         },
         move: {
           attract: {
             enable: false,
             rotate: {
               x: 600,
-              y: 1200
-            }
+              y: 1200,
+            },
           },
           bounce: false,
           direction: "none",
@@ -80,77 +83,76 @@ export const Tsparticles = () => {
           outMode: "bounce",
           random: false,
           speed: 1,
-          straight: false
+          straight: false,
         },
         number: {
           density: {
             enable: false,
-            area: 2000
+            area: 2000,
           },
           limit: 0,
-          value: 400
+          value: 400,
         },
         opacity: {
           animation: {
             enable: false,
             minimumValue: 0.05,
             speed: 2,
-            sync: false
+            sync: false,
           },
           random: false,
-          value: 0.5
+          value: 0.5,
         },
         shape: {
-          type: "circle"
+          type: "circle",
         },
         size: {
           animation: {
             enable: false,
             minimumValue: 0.1,
             speed: 40,
-            sync: false
+            sync: false,
           },
           random: false,
-          value: 0.5
-        }
+          value: 0.5,
+        },
       },
       polygon: {
         draw: {
           enable: true,
           lineColor: "rgba(0,255,255,0.2)",
-          lineWidth: 0.5
+          lineWidth: 0.5,
         },
         move: {
-          radius: 20
+          radius: 20,
         },
         position: {
           x: 30,
-          y: 30
+          y: 30,
         },
         inlineArrangement: "equidistant",
         scale: 5,
         type: "inline",
-      }
+      },
     }),
-    [],
+    []
   );
 
   if (init) {
     return (
-      <div className="absolute ">
-
+      <div className="absolute w-full h-full ">
         <Particles
           id="tsparticles"
           particlesLoaded={particlesLoaded}
           options={options}
-          />
-        </div>
+
+        />
+      </div>
     );
   }
 
   return <></>;
 };
-
 
 // detectRetina: false,
 // fpsLimit: 60,
@@ -250,10 +252,6 @@ export const Tsparticles = () => {
 //   scale: 5,
 //   type: "inline",
 // }
-
-
-
-
 
 // background: {
 //   color: {

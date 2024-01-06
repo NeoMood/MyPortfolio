@@ -48,6 +48,25 @@ html {
   width: 100%;
 }
 
+.menu a{
+  text-decoration: none;
+}
+
+.menu a::before{
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ffffff;
+  transition: .3s;
+}
+
+.menu a:hover::before{
+  width: 100%;
+}
+
 .header{
   position: fixed;
   top: 0;
@@ -76,7 +95,7 @@ html {
   font-family: 'Barlow', sans-serif;
   /* font-family: 'Poppins', sans-serif; */
   /* font-family: 'Dancing Script', cursive; */
-  font-size: 6vw;
+  font-size: 5.5rem;
   font-weight: bold;
   letter-spacing: -.03em;
   line-height: 100%;

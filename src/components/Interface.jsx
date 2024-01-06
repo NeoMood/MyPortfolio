@@ -1,4 +1,4 @@
-import React, { Suspense, useRef } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import { Experience } from './Experience';
 import { motion } from 'framer-motion';
 import Typist from 'react-typist-component';
@@ -7,6 +7,7 @@ import Deskscene from './Deskscene';
 import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Menu } from "./Menu";
 
 
 const Section = (props) => {
@@ -20,6 +21,7 @@ const Section = (props) => {
 }
 
 export const Interface = () => {
+    // const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <>
             <div className='flex flex-col items-center w-screen'>
@@ -34,6 +36,7 @@ export const Interface = () => {
                         <h1>Contact</h1>
                     </div>
                 </Section>
+                {/* <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/> */}
             </div>
         </>
     )
@@ -43,20 +46,13 @@ export const About = () => {
     const containerRef = useRef(null);
     return (
         <>
+                <div className='ml-0 absolute w-full h-full'>
+                        <Deskscene/>
+                </div>
             <Section id="about">
-                <Tsparticles container={containerRef} />
-            <div ref={containerRef}>
-                {/* <div className="absolute top-0 left-0" 
-                    style={{ 
-                        backgroundImage: `url(/layered-waves.svg)`, 
-                        aspectRatio: 960/300, 
-                        width: '100%', 
-                        backgroundRepeat: 'no-repeat', 
-                        backgroundPosition: 'center', 
-                        backgroundSize: 'cover' 
-                    }}
-                    ></div> */}
+                {/* <Tsparticles container={containerRef} /> */}
 
+                <div ref={containerRef}>
                     <div className="absolute bottom-0 " 
                     style={{
                         bottom: '-15px',
@@ -68,10 +64,11 @@ export const About = () => {
                         backgroundSize: 'cover' 
                     }}
                     ></div>
+
                 <div className="bg-gradiant flex items-center justify-start  w-screen h-screen overflow-hidden" >
                         <div className="pl-20">
                             <motion.h1 
-                                className="pl-10 text-6xl font-extrabold leading-snug text-white"
+                                className="pl-10 text-4xl md:text-6xl font-extrabold leading-snug text-white"
                                 initial={{ opacity: 0, y: -50 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 2 }}
@@ -80,7 +77,7 @@ export const About = () => {
                                     Hi, This is
                                 </h1>
                                 <Typist >
-                                    <span className="name text-[100px] text-[#CD853F]">Saâd Gmira</span>
+                                    <span className="name text-[#CD853F]">Saâd Gmira</span>
                                 </Typist>
                             </motion.h1>
                             <motion.p 
@@ -94,12 +91,10 @@ export const About = () => {
                         </div>
                         
                         {/* <div className='w-1/2 h-screen'> */}
-                        <div className='ml-0 absolute w-full h-full'>
-                            <Deskscene/>
-                        </div>
 
                     </div>
                 </div>
+
             </Section>
             {/* <Avatar/> */}
         </>
@@ -152,49 +147,57 @@ const TextEffect = () => {
   }, []);
 
   return (
-    <div className='flex items-center flex-col  bg-gradiant w-screen h-screen overflow-hidden'>
-        <div className="mx-30 text-6xl font-extrabold leading-snug text-white">
-            <h1 className=''> SKILLS </h1>
-        </div>
-        
-        <div className='flex'>
+    <>
+        <div className='relative flex items-center flex-col  bg-gradiant w-screen h-screen overflow-hidden'>
 
-            <div className="flex-wrap px-16  w-1/2 space-y-4">
-                <h1 className='text-white text-center'> Coding Languages </h1>
-                <h1 className="textanimation">C<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">C++<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">Javascript<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+            <Tsparticles  />
+            <div className="mx-30 text-6xl font-extrabold leading-snug text-white">
+                <h1 className=''> SKILLS </h1>
             </div>
-            <div className="flex-wrap px-16   w-1/2 space-y-4">
-                <h1 className='text-white text-center'> Technologies </h1>
-                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
-            </div>
-            <div className="flex-wrap px-16   w-1/2 space-y-4">
-                <h1 className='text-white text-center'> Coding Languages </h1>
-                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
-                <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+            
+            
+            <div className='flex'>
+
+                <div className="flex-wrap px-16  w-1/2 space-y-4">
+                    <h1 className='text-white text-center'> Coding Languages </h1>
+                    <h1 className="textanimation">C<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">C++<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">Javascript<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                </div>
+                <div className="flex-wrap px-16   w-1/2 space-y-4">
+                    <h1 className='text-white text-center'> Technologies </h1>
+                    <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                </div>
+                <div className="flex-wrap px-16   w-1/2 space-y-4">
+                    <h1 className='text-white text-center'> Coding Languages </h1>
+                    <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ThreeJS<span className='spananimation'>90%</span></h1>
+                    <h1 className="textanimation">ReactJS<span className='spananimation'>90%</span></h1>
+                </div>
             </div>
         </div>
-    </div>
+
+    </>
   );
 }
 
 export const Skills = () => {
+    // const containerRef = useRef(null);
     return (
         <Section id="skills">
             <TextEffect/>
+            {/* <Tsparticles container={containerRef}/> */}
         </Section>
     )
 }
