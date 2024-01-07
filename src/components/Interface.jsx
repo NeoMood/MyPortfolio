@@ -63,8 +63,8 @@ export const About = () => {
                     }}
                     ></div>
 
-                <div className="bg-gradiant flex items-center justify-start  w-screen h-screen overflow-hidden" >
-                        <div className="pl-20">
+                <div className="bg-gradiant flex items-center w-screen h-screen overflow-hidden" >
+                        <div className="pl-20 mt-20 md:mt-0">
                             <motion.h1 
                                 className="pl-10 text-4xl md:text-6xl font-extrabold leading-snug text-white"
                                 initial={{ opacity: 0, y: -50 }}

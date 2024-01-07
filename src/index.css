@@ -109,6 +109,15 @@ html {
   text-shadow: 0 0 20px #171720;
 }
 
+@media (max-width: 1300px) {
+  .name {
+    font-size: 4rem; /* Adjust this value as needed */
+  }
+  .thisis{
+    font-size: 3rem;
+  }
+}
+
 .bg-gradiant {
   background: radial-gradient(at 50% 100%, #272730 40%, #171720 80%, #070710 100%);
 }
