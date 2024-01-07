@@ -1,4 +1,4 @@
-import { AccumulativeShadows, ContactShadows, Environment, Float, Grid, MeshReflectorMaterial, OrbitControls, PerspectiveCamera, PresentationControls, RandomizedLight, SpotLight, Stage, useDepthBuffer } from "@react-three/drei";
+import { Image, Text, ContactShadows, Environment, PresentationControls, OrbitControls } from "@react-three/drei";
 import { Watermelon } from "./Watermelon";
 import { Iphonex } from "./Iphonex";
 import { Macbook } from "./Macbook";
@@ -10,11 +10,57 @@ import { Desk } from "./Desk";
 import { Typing } from "./Typing";
 import { Suspense } from "react";
 import { Bloom } from "@react-three/postprocessing";
+import { useThree } from "@react-three/fiber";
+import { motion } from "framer-motion";
+
+// export const projects = [
+//   {
+//       title : "Ft_Transcendance",
+//       image: "/images/transcendance.png",
+//       url: "https://github.com/NeoMood/ft_transcendence",
+//       description: "A modern twist on classic Pong with 3D gameplay,\nprofile creation, friend connection, real-time chat, and\nmultiplayer matches."
+//   }
+// ];
+
+// const Project = (props) => {
+//     const {project} = props;
+
+//     return (
+//         <group {...props} position={[0, 0.05, -0.067]} rotation-x={-Math.PI}>
+//             <mesh position-z={-0.001} onClick={() => window.open(project.url, "_blank")}>
+//                 <planeGeometry args={[0.15, 0.07]}/>
+//                 <meshBasicMaterial color="black" transparent opacity={0.4}/>       
+//             </mesh>
+//             <Image scale={[0.142,0.092,0.092]} url={"/images/transcendance.png"} toneMapped={false} />
+//         </group>
+//     )
+// }
+
+const Screen = () => {
+    return (
+      <>
+        {/* <axesHelper/> */}
+        <group rotation-x={[-Math.PI/12]}  position={[0.06, 0.4, 0.58] } >
+            <mesh  >
+                <planeGeometry args={[0.12, 0.07]} />
+                <meshBasicMaterial transparent opacity={0}/>       
+            </mesh>
+            <Image scale={[0.7,0.4,1]} url={"/images/transcendance.png"} toneMapped={false} />
+        </group>
+      </>
+    );
+  };
+
+
 
 const Deskscene = () => {
-  return (
-    <Canvas shadows camera={{ fov: 60 }}>
 
+  const viewport = useThree((state) => state.viewport);
+  const DeskScalingFactor = window.innerWidth / 1500;
+
+  return (
+    
+     <>
         {/* <ambientLight intensity={0.3} /> */}
         <perspectiveCamera makeDefault position={[1, 0.3, 2]} fov={75} lookAt={[0,0,0]}>
 
@@ -28,10 +74,12 @@ const Deskscene = () => {
         >
             {/* <OrbitControls/> */}
             <Suspense fallback={null}>
-              <group castShadow receiveShadow rotation-x={[Math.PI/9]} rotation-y={[-Math.PI/4]}>
+              <group castShadow receiveShadow rotation-x={[Math.PI/9]} rotation-y={[-Math.PI/4]} scale={DeskScalingFactor}>
+              {/* <group castShadow receiveShadow > */}
                   <Desk position={[0, -1, 0]} rotation-y={[Math.PI]} />
+                  {/* <Desk position={[0, -1, 0]} /> */}
+                  {/* <Screen/> */}
                   <Typing/>
-                  
               </group>
             </Suspense>
             <Environment preset="warehouse"/>
@@ -39,11 +87,9 @@ const Deskscene = () => {
           </PresentationControls>
               {/* </PerspectiveCamera> */}
           </perspectiveCamera>
-          <Bloom
+          <Bloom/>
+        </>
 
-          />
-          
-      </Canvas>
   );
 };
 

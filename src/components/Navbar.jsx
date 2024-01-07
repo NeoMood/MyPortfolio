@@ -40,7 +40,7 @@ export const Navbar = () => {
         <div className="hidden lg:block" ref={ref}>
             {show && (
                 <header className="header backdrop-blur-md">
-                    <a href="#" className="logo">SG</a>
+                    <a href="#about" className="logo">SG</a>
                     <nav className="navbar">
                         <a href="#about">Home</a>
                         <a href="#about">About</a>

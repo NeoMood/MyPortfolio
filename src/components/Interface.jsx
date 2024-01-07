@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Menu } from "./Menu";
+import { Canvas } from '@react-three/fiber';
 
 
 const Section = (props) => {
@@ -24,20 +25,21 @@ export const Interface = () => {
     // const [isMenuOpen, setIsMenuOpen] = useState(false);
     return (
         <>
-            <div className='flex flex-col items-center w-screen'>
-                <About/>
-                <Skills/>
-                <Section id="projects">
-                    {/* <h1>Projects</h1> */}
-                    <Experience/>
-                </Section>
-                <Section id="contact">
-                    <div className="bg-gradient-to-r from-[#0353A4] to-[#061A40] w-screen h-screen ">
-                        <h1>Contact</h1>
-                    </div>
-                </Section>
-                {/* <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/> */}
-            </div>
+                <div className='flex flex-col items-center w-screen'>
+            <Suspense fallback={null}>
+                    <About/>
+            </Suspense>
+                    <Skills/>
+                    <Section id="projects">
+                        <Experience/>
+                    </Section>
+                    <Section id="contact">
+                        <div className="bg-gradient-to-r from-[#0353A4] to-[#061A40] w-screen h-screen ">
+                            <h1>Contact</h1>
+                        </div>
+                    </Section>
+                    {/* <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/> */}
+                </div>
         </>
     )
 }
@@ -46,12 +48,8 @@ export const About = () => {
     const containerRef = useRef(null);
     return (
         <>
-                <div className='ml-0 absolute w-full h-full'>
-                        <Deskscene/>
-                </div>
-            <Section id="about">
-                {/* <Tsparticles container={containerRef} /> */}
 
+            <Section id="about">
                 <div ref={containerRef}>
                     <div className="absolute bottom-0 " 
                     style={{
@@ -76,9 +74,9 @@ export const About = () => {
                                 <h1 className='thisis'>
                                     Hi, This is
                                 </h1>
-                                <Typist >
+                                {/* <Typist > */}
                                     <span className="name text-[#CD853F]">Saâd Gmira</span>
-                                </Typist>
+                                {/* </Typist> */}
                             </motion.h1>
                             <motion.p 
                                 className='pl-10 text-xl text-white '
@@ -86,17 +84,17 @@ export const About = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 2 }}
                                 >
-                                    a software engineering student and a full-stack web developer
+                                    a software engineering student
                             </motion.p>
                         </div>
-                        
-                        {/* <div className='w-1/2 h-screen'> */}
-
                     </div>
                 </div>
-
+                <div className='ml-0 absolute w-full h-full'>
+                <Canvas shadows camera={{ fov: 60 }}>
+                        <Deskscene/>
+                        </Canvas>
+                </div>
             </Section>
-            {/* <Avatar/> */}
         </>
     )
 }
@@ -148,10 +146,10 @@ const TextEffect = () => {
 
   return (
     <>
-        <div className='relative flex items-center flex-col  bg-gradiant w-screen h-screen overflow-hidden'>
+        <div className='relative flex items-center justify-center flex-col  skills-bg-gradiant w-screen h-screen overflow-hidden'>
 
             <Tsparticles  />
-            <div className="mx-30 text-6xl font-extrabold leading-snug text-white">
+            <div className="text-6xl font-extrabold leading-snug text-white">
                 <h1 className=''> SKILLS </h1>
             </div>
             
