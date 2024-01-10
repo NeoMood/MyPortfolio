@@ -5,18 +5,18 @@ import {
   Environment,
   PresentationControls,
   OrbitControls,
+  SoftShadows
 } from "@react-three/drei";
 import { Watermelon } from "./Watermelon";
 import { Iphonex } from "./Iphonex";
 import { Macbook } from "./Macbook";
 import { Avatar } from "./Avatar";
 import { MovingSpot } from "./Spotlights";
-import { Projects } from "./projects";
 import { Canvas } from "@react-three/fiber";
 import { Desk } from "./Desk";
 import { Typing } from "./Typing";
 import { Suspense } from "react";
-import { Bloom } from "@react-three/postprocessing";
+import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";
 import { useThree } from "@react-three/fiber";
 import { motion } from "framer-motion";
 
@@ -103,7 +103,7 @@ const Deskscene = () => {
             </group>
           </Suspense>
           <Environment preset="warehouse" />
-          <ContactShadows
+          {/* <ContactShadows
             frames={1}
             scale={5}
             position={[0, -1, 0]}
@@ -111,11 +111,14 @@ const Deskscene = () => {
             blur={5}
             opacity={0.5}
             color="#204080"
-          />
+          /> */}
         </PresentationControls>
+          {/* <SoftShadows/> */}
         {/* </PerspectiveCamera> */}
       </perspectiveCamera>
-      <Bloom />
+      <EffectComposer disableNormalPass>
+          <Bloom luminanceThreshold={0} mipmapBlur luminanceSmoothing={0.0} intensity={0.2} />
+      </EffectComposer>
     </>
   );
 };

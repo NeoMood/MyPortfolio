@@ -12,9 +12,9 @@ export const Menu = (props) => {
   return(
     <>
         <div className="block lg:hidden">
-            <div className="z-20 logo fixed top-0 left-6 p-4">
+            <a href="#about" className="z-20 logo fixed top-0 left-6 p-4">
                 SG
-            </div>
+            </a>
             <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="z-20 fixed top-6 right-6 p-3 bg-[#CD853F] w-11 h-11 rounded-md">

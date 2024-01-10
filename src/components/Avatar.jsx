@@ -10,7 +10,7 @@ export function Avatar(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/models/avatar.glb");
 
-  const {animations: idleanimation} = useFBX('/animations/idle.fbx')
+  const {animations: idleanimation} = useFBX('/animations/standing_idle.fbx')
   idleanimation[0].name = 'idle';
   const {actions} = useAnimations(idleanimation, group);
 
