@@ -116,9 +116,9 @@ const Deskscene = () => {
           {/* <SoftShadows/> */}
         {/* </PerspectiveCamera> */}
       </perspectiveCamera>
-      <EffectComposer disableNormalPass>
+      {/* <EffectComposer disableNormalPass>
           <Bloom luminanceThreshold={0} mipmapBlur luminanceSmoothing={0.0} intensity={0.2} />
-      </EffectComposer>
+      </EffectComposer> */}
     </>
   );
 };

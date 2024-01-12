@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.12.1",
     "@react-spring/core": "^9.7.3",
     "@react-spring/three": "^9.7.3",
     "@react-three/drei": "9.75.0",
@@ -27,8 +28,11 @@
     "react-animated-cursor": "^2.11.2",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.5.3",
+    "react-scroll": "^1.9.0",
     "react-typist-component": "^1.0.5",
     "react-use": "^17.4.2",
+    "split-type": "^0.3.4",
+    "sweetalert2": "^11.10.2",
     "tailwind": "^4.0.0",
     "three": "^0.153.0"
   },

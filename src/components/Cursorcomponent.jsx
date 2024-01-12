@@ -1,40 +1,64 @@
-import React from "react";
-import AnimatedCursor from "react-animated-cursor"
+import React, { useEffect, useState } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
-export default function Cursor() {
+export default function Cursor({ stickyMouse }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const cursorSize = isHovered ? 80 : 25;
+  const mouse = {
+    x: useMotionValue(0),
+    y: useMotionValue(0),
+  };
+
+  const smoothMouse = {
+    x: useSpring(mouse.x, { stiffness: 300, damping: 30, mass: 0.5 }),
+    y: useSpring(mouse.y, { stiffness: 300, damping: 30, mass: 0.5 }),
+  };
+
+  const getMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    mouse.x.set(clientX - cursorSize / 2);
+    mouse.y.set(clientY - cursorSize / 2);
+  };
+
+  const getMouseOver = () => {
+    setIsHovered(true);
+  };
+
+  const getMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", getMouseMove);
+    stickyMouse.current.addEventListener("mouseover", getMouseOver);
+    stickyMouse.current.addEventListener("mouseleave", getMouseLeave);
+    return () => {
+      window.removeEventListener("mousemove", getMouseMove);
+      stickyMouse.current.removeEventListener("mouseover", getMouseOver);
+      stickyMouse.current.removeEventListener("mouseleave", getMouseLeave);
+    };
+  });
+
+  useEffect(() => {
+    if ('ontouchstart' in window) {
+      document.body.classList.add('touch-device');
+    }
+  }, []);
+
   return (
     <>
-      {/* <AnimatedCursor
-        // color="#fff"
-        color='193, 11, 111'
-        innerSize={8}
-        outerSize={35}
-        innerScale={1}
-        outerScale={1.7}
-        outerAlpha={0}
-        outerStyle={{
-          mixBlendMode: 'exclusion'
+      <motion.div
+        className="w-[25px] h-[25px] bg-[peru] fixed rounded-[100%] pointer-events-none z-[101] touch-device:hidden"
+        style={{
+          left: smoothMouse.x,
+          top: smoothMouse.y,
+          mixBlendMode: "difference",
         }}
-      /> */}
-      <AnimatedCursor
-        innerSize={20}
-        outerSize={10}
-        // color='193, 11, 111'
-        color="#ff0000"
-        innerScale={0.7}
-        outerScale={5}
-        outerAlpha={0.2}
-        // outerStyle={{
-        //   mixBlendMode: 'exclusion'
-        // }}
-        // hasBlendMode={true}
-        // innerStyle={{
-        //   backgroundColor: 'var(#4B0082)'
-        // }}
-        // outerStyle={{
-        //   border: '3px solid var(#4B0082)'
-        // }}
-      />
+        animate={{
+          width: cursorSize,
+          height: cursorSize,
+        }}
+      ></motion.div>
     </>
   );
 }

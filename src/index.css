@@ -109,14 +109,33 @@ html {
   text-shadow: 0 0 20px #171720;
 }
 
-@media (max-width: 1300px) {
+@media (min-width: 901px) {
   .name {
-    font-size: 4rem; /* Adjust this value as needed */
+    font-size: 5vw;
+  }
+  .thisis {
+    font-size: 3vw;
+  }
+}
+
+/* For screens 900px or smaller */
+@media (max-width: 900px) {
+  .name {
+    font-size: 40px; /* adjust as needed */
+  }
+  .thisis {
+    font-size: 40px; /* adjust as needed */
+  }
+}
+
+/* @media (max-width: 1300px) {
+  .name {
+    font-size: 4rem; 
   }
   .thisis{
     font-size: 3rem;
   }
-}
+} */
 
 .bg-gradiant {
   background: radial-gradient(at 50% 100%, #272730 40%, #171720 80%, #070710 100%);
@@ -249,3 +268,51 @@ a {
   margin-bottom: 20px;
 }
 
+.contact_font{
+  font-family: 'Poppins', sans-serif;
+}
+
+.char {
+  transform: translateX(115px);
+  transition: 0.5s;
+}
+
+
+.flip {
+  height:60px;
+  overflow:hidden;
+}
+
+.flip > div > div {
+  font-family: 'Poppins', sans-serif;
+  color: peru;
+  padding:0px 12px;
+  height:50px;
+  margin-bottom:40px;
+  display:inline-block;
+}
+
+.flip div:first-child {
+  animation: show 5s linear infinite;
+}
+/* 
+.flip div div {
+  background:peru;
+}
+.flip div:first-child div {
+  background:peru;
+}
+.flip div:last-child div {
+  background:peru;
+} */
+
+@keyframes show {
+  0% {margin-top:-270px;}
+  5% {margin-top:-180px;}
+  33% {margin-top:-180px;}
+  38% {margin-top:-90px;}
+  66% {margin-top:-90px;}
+  71% {margin-top:0px;}
+  99.99% {margin-top:0px;}
+  100% {margin-top:-270px;}
+}
