@@ -60,9 +60,9 @@ export const Experience = () => {
             <Environment preset="sunset" />
             <Stars radius={5} depth={50} count={1000} factor={2} saturation={0} fade />
             </PresentationControls>
-            <EffectComposer disableNormalPass>
+            {/* <EffectComposer disableNormalPass>
               <Bloom luminanceThreshold={0} mipmapBlur luminanceSmoothing={0.0} intensity={0.4} />
-            </EffectComposer>
+            </EffectComposer> */}
 
 
           </>

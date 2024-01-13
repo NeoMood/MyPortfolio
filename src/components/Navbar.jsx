@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect, forwardRef } from 'react';
 import { useScroll } from 'react-use';
-import { Link, Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
+import { Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
 
 
 const Navbar = forwardRef(function index(props, ref) {

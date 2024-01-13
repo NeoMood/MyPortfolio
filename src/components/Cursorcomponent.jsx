@@ -30,14 +30,19 @@ export default function Cursor({ stickyMouse }) {
 
   useEffect(() => {
     window.addEventListener("mousemove", getMouseMove);
-    stickyMouse.current.addEventListener("mouseover", getMouseOver);
-    stickyMouse.current.addEventListener("mouseleave", getMouseLeave);
+    if (stickyMouse.current) {
+      stickyMouse.current.addEventListener("mouseover", getMouseOver);
+      stickyMouse.current.addEventListener("mouseleave", getMouseLeave);
+    }
+  
     return () => {
       window.removeEventListener("mousemove", getMouseMove);
-      stickyMouse.current.removeEventListener("mouseover", getMouseOver);
-      stickyMouse.current.removeEventListener("mouseleave", getMouseLeave);
+      if (stickyMouse.current) {
+        stickyMouse.current.removeEventListener("mouseover", getMouseOver);
+        stickyMouse.current.removeEventListener("mouseleave", getMouseLeave);
+      }
     };
-  });
+  }, []);
 
   useEffect(() => {
     if ('ontouchstart' in window) {

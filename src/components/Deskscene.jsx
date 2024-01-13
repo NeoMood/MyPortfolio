@@ -64,9 +64,9 @@ const Screen = () => {
 
 const Deskscene = () => {
   const viewport = useThree((state) => state.viewport);
-  const DeskScalingFactor = Math.min(window.innerWidth / 1300, 1);
+  const DeskScalingFactor = Math.min(window.innerWidth / 1500, 0.9);
   const DeskPositionFactor = window.innerWidth / 3000;
-  const isSmallScreen = window.innerWidth < 768;
+  const isSmallScreen = window.innerWidth < 780;
   return (
     <>
       {/* <ambientLight intensity={0.3} /> */}
@@ -76,7 +76,7 @@ const Deskscene = () => {
         fov={75}
         lookAt={[0, 0, 0]}
       >
-        <pointLight position={[0, 3, 0]} intensity={1} />
+        <pointLight position={[0, 3, 0]} intensity={0.6} />
         <PresentationControls
           config={{ mass: 2, tension: 500 }}
           snap={{ mass: 3, tension: 200 }}
@@ -90,28 +90,18 @@ const Deskscene = () => {
               castShadow
               receiveShadow
               position-x={isSmallScreen ? -0.9 : DeskPositionFactor - 0.6}
-              position-y={isSmallScreen ? 0.6 : 0.1}
+              position-y={isSmallScreen ? 0.6 : 0.04}
               rotation-x={[Math.PI / 9]}
               rotation-y={[-Math.PI / 4]}
               scale={DeskScalingFactor}
             >
               {/* <group castShadow receiveShadow > */}
               <Desk position={[0, -1, 0]} rotation-y={[Math.PI]} />
-              {/* <Desk position={[0, -1, 0]} /> */}
               {/* <Screen/> */}
               <Typing />
             </group>
           </Suspense>
           <Environment preset="warehouse" />
-          {/* <ContactShadows
-            frames={1}
-            scale={5}
-            position={[0, -1, 0]}
-            far={1}
-            blur={5}
-            opacity={0.5}
-            color="#204080"
-          /> */}
         </PresentationControls>
           {/* <SoftShadows/> */}
         {/* </PerspectiveCamera> */}

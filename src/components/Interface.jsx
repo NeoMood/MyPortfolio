@@ -14,6 +14,8 @@ import { Image, Text } from "@react-three/drei";
 import Swal from "sweetalert2";
 import emailjs from "@emailjs/browser";
 import SplitType from "split-type";
+import { Home } from "./Home";
+import { Perf } from "r3f-perf";
 // import { SplitText } from 'gsap/SplitText'
 
 const Section = (props) => {
@@ -38,8 +40,13 @@ export const Interface = () => {
   return (
     <>
       {/* <div className='flex flex-col items-center w-screen'> */}
+        {/* <Section id="home">
+          <Test/>
+        </Section> */}
       <Suspense fallback={null}>
-        <Home />
+        <Section id="home">
+          <Home/>
+        </Section>
       </Suspense>
       <AboutMe />
       <Skills />
@@ -55,129 +62,98 @@ export const Interface = () => {
   );
 };
 
-export const Home = () => {
-  const containerRef = useRef(null);
-  const text = "Hi, This is";
-  const splitText = text.split("");
-  const text2 = "Saâd Gmira";
-  const splitText2 = text2.split("");
+// export const Home = () => {
+//   const containerRef = useRef(null);
+//   const text = "Hi, This is";
+//   const splitText = text.split("");
+//   const text2 = "Saâd Gmira";
+//   const splitText2 = text2.split("");
 
-  const staggeredAnimation = {
-    initial: { opacity: 0, y: -100, scaleX: 0 },
-    animate: { opacity: 1, y: 0, scaleX: 1 },
-    transition: { duration: 2, delay: (i) => i * 0.1 },
-  };
+//   const staggeredAnimation = {
+//     initial: { opacity: 0, y: -100, scaleX: 0 },
+//     animate: { opacity: 1, y: 0, scaleX: 1 },
+//     transition: { duration: 2, delay: (i) => i * 0.1 },
+//   };
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
 
-    const textElements = gsap.utils.toArray(".name");
+//   return (
+//     <>
+//       <Section id="home">
+//         <div ref={containerRef}>
+//           <div
+//             className="absolute bottom-0 "
+//             style={{
+//               bottom: "-15px",
+//               backgroundImage: `url(/wave-under.svg)`,
+//               aspectRatio: 960 / 300,
+//               width: "100%",
+//               backgroundRepeat: "no-repeat",
+//               backgroundPosition: "center",
+//               backgroundSize: "cover",
+//             }}
+//           ></div>
 
-    ScrollTrigger.create({
-      trigger: textElements,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: true,
-      onEnter: () => staggeredAnimation.animate(),
-      onEnterBack: () => staggeredAnimation.animate(),
-    });
-  }, []);
+//           {/* <div className="bg-gradiant flex items-center w-screen h-screen overflow-hidden"> */}
+//           <div className="bg-gradiant flex items-center justify-center sm:justify-start w-screen h-screen ">
+//             <div id="mytext" className="md:pl-20 md:mt-20 ">
 
-  return (
-    <>
-      <Section id="home">
-        <div ref={containerRef}>
-          <div
-            className="absolute bottom-0 "
-            style={{
-              bottom: "-15px",
-              backgroundImage: `url(/wave-under.svg)`,
-              aspectRatio: 960 / 300,
-              width: "100%",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          ></div>
+//               {/* <motion.div className="pl-10 text-4xl md:text-6xl font-extrabold leading-snug text-white thisis">
+//                 {splitText.map((char, i) => (
+//                   <motion.span
+//                     initial={staggeredAnimation.initial}
+//                     animate={staggeredAnimation.animate}
+//                     transition={{
+//                       ...staggeredAnimation.transition,
+//                       delay: staggeredAnimation.transition.delay(i),
+//                     }}
+//                     key={i}
+//                   >
+//                     {char}
+//                   </motion.span>
+//                 ))}
+//               </motion.div>
+//               <motion.div className="pl-10 text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-extrabold leading-snug name text-[#CD853F]">
+//                 {splitText2.map((char, i) => (
+//                   <motion.span
+//                     initial={staggeredAnimation.initial}
+//                     animate={staggeredAnimation.animate}
+//                     transition={{
+//                       ...staggeredAnimation.transition,
+//                       delay: staggeredAnimation.transition.delay(i),
+//                     }}
+//                     key={i}
+//                   >
+//                     {char}
+//                   </motion.span>
+//                 ))}
+//               </motion.div> */}
 
-          {/* <div className="bg-gradiant flex items-center w-screen h-screen overflow-hidden"> */}
-          <div className="bg-gradiant flex items-center justify-center sm:justify-start w-screen h-screen ">
-            <div id="mytext" className="md:pl-20 md:mt-20 ">
-              {/* <motion.div
-                className="pl-10 text-4xl md:text-6xl font-extrabold leading-snug text-white"
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 2 }}
-              >
-                <h1 className="thisis">Hi, This is</h1>
-                <span className="name text-[#CD853F]">Saâd Gmira</span>
-              </motion.div> */}
-
-              <motion.div className="pl-10 text-4xl md:text-6xl font-extrabold leading-snug text-white thisis">
-                {splitText.map((char, i) => (
-                  <motion.span
-                    initial={staggeredAnimation.initial}
-                    animate={staggeredAnimation.animate}
-                    transition={{
-                      ...staggeredAnimation.transition,
-                      delay: staggeredAnimation.transition.delay(i),
-                    }}
-                    key={i}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </motion.div>
-              <motion.div className="pl-10 text-4xl md:text-6xl font-extrabold leading-snug name text-[#CD853F]">
-                {splitText2.map((char, i) => (
-                  <motion.span
-                    initial={staggeredAnimation.initial}
-                    animate={staggeredAnimation.animate}
-                    transition={{
-                      ...staggeredAnimation.transition,
-                      delay: staggeredAnimation.transition.delay(i),
-                    }}
-                    key={i}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </motion.div>
-
-              {/* <motion.div
-                className="pl-10 text-xl text-white "
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 2 }}
-              >
-                a software engineering student
-              </motion.div> */}
-              <div className="flex pl-10 text-sm md:text-lg sm:text-md text-start pt-4  h-12 ">
-                <div className=" contact_font text-white ">I'm a</div>
-                <div className="flip">
-                  <div>
-                    <div>Front-End Developer</div>
-                  </div>
-                  <div>
-                    <div>Software engineering student</div>
-                  </div>
-                  <div>
-                    <div>Music Producer</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="ml-0 absolute w-full h-full">
-          <Canvas shadows camera={{ fov: 60 }}>
-            <Deskscene />
-          </Canvas>
-        </div>
-      </Section>
-    </>
-  );
-};
+//               <div className="flex pl-10 text-sm lg:text-xl xl:text:2xl md:text-lg sm:text-md text-start pt-4  h-12 ">
+//                 <div className=" contact_font text-white ">I'm a</div>
+//                 <div className="flip">
+//                   <div>
+//                     <div>Front-End Developer</div>
+//                   </div>
+//                   <div>
+//                     <div>Software engineering student</div>
+//                   </div>
+//                   <div>
+//                     <div>Music Producer</div>
+//                   </div>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//         <div className="ml-0 absolute w-full h-full">
+//           <Canvas shadows camera={{ fov: 60 }}>
+//             <Deskscene />
+//           </Canvas>
+//         </div>
+//       </Section>
+//     </>
+//   );
+// };
 
 const skills = [
   {
@@ -289,7 +265,7 @@ export const AboutMe = () => {
   return (
     <Section id="about">
       <>
-        <div className="relative flex items-start justify-center flex-col px-4 mx-auto sm:px-6 lg:px-8  skills-bg-gradiant w-screen h-screen overflow-hidden">
+        <div className="relative flex items-start justify-center flex-col px-4 mx-auto sm:px-6 lg:px-8 skills-bg-gradiant w-screen h-screen overflow-hidden">
           <div
             className="absolute bottom-0 "
             style={{
@@ -303,12 +279,12 @@ export const AboutMe = () => {
             }}
           ></div>
           <div className="flex-col items-center md:flex-row">
-            <div className="lg:pl-20">
-              <h1 className="text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl contact_font text-center md:text-left">
+            <div className="pl-20">
+              <h1 className="font-bold leading-tight text-white text-5xl sm:text-6xl lg:text-7xl contact_font text-center md:text-left ">
                 {" "}
                 About <span className="text-[peru]">Me</span>
               </h1>
-              <p className="max-w-lg mt-3 text-2xl leading-relaxed text-white md:mt-8">
+              <p className="max-w-lg mt-3 text-2xl text-center md:text-left leading-relaxed text-white md:mt-8">
                 Innovative software engineer skilled in crafting compelling web
                 applications and seamless user interfaces. Proficient in
                 seamlessly integrating captivating 3D environments, with a
@@ -501,6 +477,7 @@ export const ProjectsSection = () => {
         </div>
         <div className="absolute w-full h-full">
           <Canvas shadows camera={{ fov: 78, position: [-1, 2, 7] }}>
+            {/* <Perf position="bottom-right" /> */}
             <Experience />
           </Canvas>
           <button
@@ -604,7 +581,7 @@ export const Contact = () => {
         ></div>
         {/* <div className="flex rounded-lg p-8 w-[400px] h-[400px] flex-col bg-[peru]"> */}
         <div className="flex rounded-lg p-5 w-[400px] h-[400px] flex-col z-10">
-          <h1 className="text-6xl font-extrabold mb-10 text-white text-center contact_font z-[1]">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-10 text-white text-center contact_font z-[1]">
             {" "}
             Let's <span className="text-[peru]">Talk</span>!
           </h1>
