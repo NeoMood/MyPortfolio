@@ -9,6 +9,7 @@ import { useGLTF, useVideoTexture } from "@react-three/drei";
 export function Desk(props) {
   const { nodes, materials } = useGLTF("/models/desk.glb");
   const screentexture = useVideoTexture("/images/vscode.mp4");
+
   return (
     <group {...props} dispose={null}>
       <group position={[0.68, 0.04, 4.36]}>
@@ -413,7 +414,7 @@ export function Desk(props) {
           material={materials["Material.004"]}
           position={[-1.038, 0.913, -4.465]}
           rotation={[-Math.PI / 2, 0, -1.417]}
-          scale={[14736.432, 14736.434, 14736.435]}
+          scale={[14736.431, 14736.432, 14736.433]}
         />
         <mesh
           geometry={nodes.Mousepad.geometry}
@@ -512,13 +513,6 @@ export function Desk(props) {
           material={materials["455A64.003"]}
         />
       </group>
-      <mesh
-        geometry={nodes["1337"].geometry}
-        material={materials["1337"]}
-        position={[0.029, 1.132, -0.572]}
-        rotation={[Math.PI / 2, -0.179, Math.PI / 2]}
-        scale={[0.04, 0.86, 0.05]}
-      />
     </group>
   );
 }

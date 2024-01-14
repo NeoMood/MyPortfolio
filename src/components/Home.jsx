@@ -1,124 +1,144 @@
-import React, { useRef } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import Deskscene from "./Deskscene";
-import { Canvas} from "@react-three/fiber";
-import { AnimatePresence, motion } from "framer-motion";
-
-
-
+import { Canvas } from "@react-three/fiber";
+import { animate, motion } from "framer-motion";
+import Lottie from "lottie-react";
+import { Loader } from "@react-three/drei";
+import { useInView } from "react-intersection-observer";
 
 export const Home = () => {
   const containerRef = useRef(null);
-  const text = "Hi, This is";
-  const splitText = text.split("");
-  const text2 = "Saâd Gmira";
-  const splitText2 = text2.split("");
+  const [animationData, setAnimationData] = useState(null);
 
-  const staggeredAnimation = {
-    initial: { opacity: 0, y: -100, scaleX: 0 },
-    animate: { opacity: 1, y: 0, scaleX: 1 },
-    transition: { duration: 2, delay: (i) => i * 0.1 },
+  useEffect(() => {
+    fetch("/animations/scroll.json")
+      .then((response) => response.json())
+      .then((data) => setAnimationData(data));
+  }, []);
+
+  const textVariants = {
+    initial: {
+      x: -200,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+        staggerChildren: 1,
+      },
+    },
   };
 
-  const revealAnimation = {
-    hidden: { scaleX: 1 },
-    show: { scaleX: 1, transition: { duration: 0.5 } },
+  const lottievariants = {
+    initial2: {
+      opacity: 0,
+    },
+    animate2: {
+      opacity: 1,
+      transition: {
+        duration: 6,
+      },
+    },
   };
-  
+
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      animate("animate");
+      console.log("in view");
+    }
+  }, [inView]);
+
+  const handleScroll = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight/5,
+      behavior: 'smooth'
+    });
+  };
+
 
   return (
     <>
-        <div ref={containerRef}>
-          <div
-            className="absolute bottom-0 "
-            style={{
-              bottom: "-15px",
-              backgroundImage: `url(/wave-under.svg)`,
-              aspectRatio: 960 / 300,
-              width: "100%",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          ></div>
+      <div ref={containerRef}>
+        <div
+          className="absolute bottom-0 "
+          style={{
+            bottom: "-15px",
+            backgroundImage: `url(/wave-under.svg)`,
+            aspectRatio: 960 / 300,
+            width: "100%",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        ></div>
 
-          {/* <div className="bg-gradiant flex items-center w-screen h-screen overflow-hidden"> */}
-          <div className="bg-gradiant flex items-center justify-center sm:justify-start w-screen h-screen ">
-            <div id="mytext" className="md:pl-20 md:mt-20 ">
+        {/* <div className="bg-gradiant flex items-center w-screen h-screen overflow-hidden"> */}
+        <div ref={ref} className="bg-gradiant flex items-center justify-center sm:justify-start w-screen h-screen ">
+          <motion.div
+            initial="initial"
+            animate={inView ? "animate" : "initial"}
+            variants={textVariants}
+            id="mytext"
+            className="md:pl-20 md:mt-20 "
+          >
+            <motion.div className="pl-10 text-4xl md:text-6xl font-extrabold leading-snug text-white thisis">
+              Hi, This is
+            </motion.div>
+            <motion.div
+              className="pl-10 text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-extrabold leading-snug name text-[#CD853F]"
+              initial="initial"
+              animate={inView ? "animate" : "initial"}
+              variants={textVariants}
+            >
+              Saâd Gmira
+            </motion.div>
 
-              {/* <motion.div className="pl-10 text-4xl md:text-6xl font-extrabold leading-snug text-white thisis">
-                {splitText.map((char, i) => (
-                  <motion.span
-                    initial={staggeredAnimation.initial}
-                    animate={staggeredAnimation.animate}
-                    transition={{
-                      ...staggeredAnimation.transition,
-                      delay: staggeredAnimation.transition.delay(i),
-                    }}
-                    key={i}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </motion.div>
-              <motion.div className="pl-10 text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-extrabold leading-snug name text-[#CD853F]">
-                {splitText2.map((char, i) => (
-                  <motion.span
-                    initial={staggeredAnimation.initial}
-                    animate={staggeredAnimation.animate}
-                    transition={{
-                      ...staggeredAnimation.transition,
-                      delay: staggeredAnimation.transition.delay(i),
-                    }}
-                    key={i}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </motion.div> */}
-
-              <AnimatePresence>
-                <motion.div
-                  className="pl-10 text-4xl md:text-6xl font-extrabold leading-snug text-white thisis"
-                  initial="hidden"
-                  animate="show"
-                  variants={revealAnimation}
-                >
-                  Hi, This is
-                </motion.div>
-                <motion.div
-                  className="pl-10 text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-extrabold leading-snug name text-[#CD853F]"
-                  initial="hidden"
-                  animate="show"
-                  variants={revealAnimation}
-                >
-                  Saâd Gmira
-                </motion.div>
-              </AnimatePresence>
-
-              <div className="flex pl-10 text-sm lg:text-xl xl:text:2xl md:text-lg sm:text-md text-start pt-4  h-12 ">
-                <div className=" contact_font text-white ">I'm a</div>
-                <div className="flip">
-                  <div>
-                    <div>Front-End Developer</div>
-                  </div>
-                  <div>
-                    <div>Software engineering student</div>
-                  </div>
-                  <div>
-                    <div>Music Producer</div>
-                  </div>
+            <motion.div
+              initial="initial"
+              animate={inView ? "animate" : "initial"}
+              variants={textVariants}
+              className="flex pl-10 text-sm lg:text-xl xl:text:2xl md:text-lg sm:text-md text-start pt-4  h-12 "
+            >
+              <div className=" contact_font text-white ">I'm a</div>
+              <div className="flip">
+                <div>
+                  <div>Front-End Developer</div>
+                </div>
+                <div>
+                  <div>Software engineering student</div>
+                </div>
+                <div>
+                  <div>Music Producer</div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            initial="initial2"
+            animate="animate2"
+            variants={lottievariants}
+            onClick={handleScroll}
+            
+          >
+            <Lottie
+              animationData={animationData}
+              className="absolute bottom-20 left-1/2 z-10 w-10 transform -translate-x-1/2 cursor-pointer"
+              />
+          </motion.div>
         </div>
-        <div className="ml-0 absolute w-full h-full">
+      </div>
+      <div className="ml-0 absolute w-full h-full">
+        <Suspense fallback={<Loader />} >
           <Canvas shadows camera={{ fov: 60 }}>
             <Deskscene />
             {/* <Perf position="bottom-right" /> */}
           </Canvas>
-        </div>
+        </Suspense>
+      </div>
     </>
   );
 };
-
