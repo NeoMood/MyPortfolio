@@ -50,6 +50,11 @@ export default function Cursor({ stickyMouse }) {
     }
   }, []);
 
+  // useEffect(() => {
+  //   const mouseEventListener = document.addEventListener("mouseover", (e) => {
+  //     ")
+  // }, []);
+
   return (
     <>
       <motion.div

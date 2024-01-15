@@ -25,7 +25,7 @@ export const Home = () => {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 1,
+        duration: 0.6,
         staggerChildren: 1,
       },
     },
@@ -44,13 +44,6 @@ export const Home = () => {
   };
 
   const [ref, inView] = useInView();
-
-  useEffect(() => {
-    if (inView) {
-      animate("animate");
-      console.log("in view");
-    }
-  }, [inView]);
 
   const handleScroll = () => {
     window.scrollTo({
@@ -132,7 +125,7 @@ export const Home = () => {
         </div>
       </div>
       <div className="ml-0 absolute w-full h-full">
-        <Suspense fallback={<Loader />} >
+        <Suspense fallback={null} >
           <Canvas shadows camera={{ fov: 60 }}>
             <Deskscene />
             {/* <Perf position="bottom-right" /> */}

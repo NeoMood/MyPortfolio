@@ -89,3 +89,4 @@ export function Avatar(props) {
 }
 
 useGLTF.preload("/avatar.glb");
+useFBX.preload('/animations/standing_idle.fbx');

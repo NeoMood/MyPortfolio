@@ -10,6 +10,7 @@ import Navbar   from "./components/Navbar";
 import { useRef, useState } from "react";
 import Menu from "./components/Menu";
 import Cursor from "./components/Cursorcomponent";
+import { LoadingScreen } from "./components/LoadingScreen";
 
 // function App() {
 //   return (
@@ -28,15 +29,16 @@ import Cursor from "./components/Cursorcomponent";
 // }
 
 function App() {
-
   const stickyMouse = useRef(null);
+  const [started, setStarted] = useState(false);
 
   return (
     <>
-      <Menu ref={stickyMouse}/>
-      <Navbar ref={stickyMouse}/>
-      <Cursor stickyMouse={stickyMouse}/>
-      <Interface/>
+      <LoadingScreen started={started} setStarted={setStarted}/>
+      {started && <Menu ref={stickyMouse}/>}
+      {started && <Navbar ref={stickyMouse}/>}
+      {started && <Cursor stickyMouse={stickyMouse}/>}
+      {started && <Interface/>}
     </>
   );
 }

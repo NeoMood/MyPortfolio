@@ -24,7 +24,7 @@ html {
   scroll-behavior: smooth;
 }
 
-.navbar a {
+.navbar a:not(:last-child) {
   position: relative;
   font-size: 18px;
   color: #ffffff;
@@ -33,7 +33,7 @@ html {
   margin-left: 60px;
 }
 
-.navbar a::before{
+.navbar a:not(:last-child)::before {
   content: '';
   position: absolute;
   top: 100%;
@@ -44,15 +44,15 @@ html {
   transition: .3s;
 }
 
-.navbar a:hover::before{
+.navbar a:not(:last-child):hover::before {
   width: 100%;
 }
 
-.menu a{
+.menu a:not(:last-child){
   text-decoration: none;
 }
 
-.menu a::before{
+.menu a::before:not(:last-child){
   content: '';
   position: absolute;
   top: 100%;
@@ -63,7 +63,7 @@ html {
   transition: .3s;
 }
 
-.menu a:hover::before{
+.menu a:hover::before:not(:last-child){
   width: 100%;
 }
 

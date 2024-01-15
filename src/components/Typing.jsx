@@ -104,3 +104,4 @@ export function Typing(props) {
 }
 
 useGLTF.preload("/avatar2.glb");
+useFBX.preload('/animations/typing.fbx');

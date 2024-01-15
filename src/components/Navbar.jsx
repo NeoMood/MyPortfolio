@@ -2,8 +2,6 @@
 
 import React, { useRef, useState, useEffect, forwardRef } from 'react';
 import { useScroll } from 'react-use';
-import { Events, animateScroll as scroll, scrollSpy } from 'react-scroll';
-
 
 const Navbar = forwardRef(function index(props, ref) {
     const ref2 = useRef(null);
@@ -24,14 +22,19 @@ const Navbar = forwardRef(function index(props, ref) {
     return (
         <div className="hidden lg:block" ref={ref2}>
             {show && (
-                <header  ref={ref} className="header backdrop-blur-md contact_font">
-                    <a href="#home" ref={ref} className="logo">SG</a>
-                    <nav className="navbar">
+                <header className="header backdrop-blur-md contact_font">
+                    <a href="#home"  className="logo">SG</a>
+                    <nav ref={ref} className="navbar">
                         <a href="#home" >Home</a>
                         <a href="#about">About</a>
                         <a href="#skills">Skills</a>
                         <a href="#projects">Projects</a>
                         <a href="#contact">Contact</a>
+                        <a
+                            href="/Saad_Gmira_resume.pdf"
+                            download
+                            className='text-[peru] ml-[60px] font-thin w-20 px-2 py-1 text-xs rounded-md bg-none border border-[peru] hover:border-green-500 hover:text-green-500 transition duration-500 ease-in-out contact_font'>My resume
+                        </a>
                     </nav>
                 </header>
             )}
