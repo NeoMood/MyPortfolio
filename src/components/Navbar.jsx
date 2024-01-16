@@ -3,8 +3,8 @@
 import React, { useRef, useState, useEffect, forwardRef } from 'react';
 import { useScroll } from 'react-use';
 
-const Navbar = forwardRef(function index(props, ref) {
-    const ref2 = useRef(null);
+export const Navbar = (props) => {
+    const ref = useRef(null);
     const { y } = useScroll(ref);
     const [show, setShow] = useState(true);
 
@@ -20,11 +20,11 @@ const Navbar = forwardRef(function index(props, ref) {
     }, [y]);
 
     return (
-        <div className="hidden lg:block" ref={ref2}>
+        <div className="hidden lg:block" ref={ref}>
             {show && (
                 <header className="header backdrop-blur-md contact_font">
                     <a href="#home"  className="logo">SG</a>
-                    <nav ref={ref} className="navbar">
+                    <nav className="navbar">
                         <a href="#home" >Home</a>
                         <a href="#about">About</a>
                         <a href="#skills">Skills</a>
@@ -40,9 +40,7 @@ const Navbar = forwardRef(function index(props, ref) {
             )}
         </div>
     );
-});
-
-export default Navbar;
+};
 
 
 // export const Navbar = () => {

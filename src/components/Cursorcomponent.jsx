@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function Cursor({ stickyMouse }) {
   const [isHovered, setIsHovered] = useState(false);
-  const cursorSize = isHovered ? 80 : 25;
+  const cursorSizeRef = useRef(25);
+  const cursorSize = isHovered ? 60 : 25;
+  cursorSizeRef.current = cursorSize;
   const mouse = {
     x: useMotionValue(0),
     y: useMotionValue(0),
@@ -16,31 +18,31 @@ export default function Cursor({ stickyMouse }) {
 
   const getMouseMove = (e) => {
     const { clientX, clientY } = e;
-    mouse.x.set(clientX - cursorSize / 2);
-    mouse.y.set(clientY - cursorSize / 2);
+    mouse.x.set(clientX - cursorSizeRef.current / 2);
+    mouse.y.set(clientY - cursorSizeRef.current / 2);
   };
 
-  const getMouseOver = () => {
-    setIsHovered(true);
-  };
+  // const getMouseOver = () => {
+  //   setIsHovered(true);
+  // };
 
-  const getMouseLeave = () => {
-    setIsHovered(false);
-  };
+  // const getMouseLeave = () => {
+  //   setIsHovered(false);
+  // };
 
   useEffect(() => {
     window.addEventListener("mousemove", getMouseMove);
-    if (stickyMouse.current) {
-      stickyMouse.current.addEventListener("mouseover", getMouseOver);
-      stickyMouse.current.addEventListener("mouseleave", getMouseLeave);
-    }
+    // if (stickyMouse.current) {
+    //   stickyMouse.current.addEventListener("mouseover", getMouseOver);
+    //   stickyMouse.current.addEventListener("mouseleave", getMouseLeave);
+    // }
   
     return () => {
       window.removeEventListener("mousemove", getMouseMove);
-      if (stickyMouse.current) {
-        stickyMouse.current.removeEventListener("mouseover", getMouseOver);
-        stickyMouse.current.removeEventListener("mouseleave", getMouseLeave);
-      }
+      // if (stickyMouse.current) {
+      //   stickyMouse.current.removeEventListener("mouseover", getMouseOver);
+      //   stickyMouse.current.removeEventListener("mouseleave", getMouseLeave);
+      // }
     };
   }, []);
 
@@ -50,10 +52,30 @@ export default function Cursor({ stickyMouse }) {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const mouseEventListener = document.addEventListener("mouseover", (e) => {
-  //     ")
-  // }, []);
+  useEffect(() => {
+    const mouseEventListener = document.addEventListener("mouseover", (e) => {
+      if(
+        e.target.tagName.toLowerCase() === "button" ||
+        e.target.tagName.toLowerCase() === "a" ||
+        e.target.tagName.toLowerCase() === "input" ||
+        e.target.tagName.toLowerCase() === "h1" ||
+        e.target.tagName.toLowerCase() === "span" ||
+        e.target.tagName.toLowerCase() === "p" ||
+        e.target.tagName.toLowerCase() === "textarea" ||
+        e.target.parentElement.tagName.toLowerCase() === "button" 
+      )
+      {
+        setIsHovered(true);
+      }
+      else
+      {
+        setIsHovered(false);
+      }
+    });
+    return () => {
+      document.removeEventListener("mouseover", mouseEventListener);
+    };
+  }, []);
 
   return (
     <>

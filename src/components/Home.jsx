@@ -99,7 +99,7 @@ export const Home = () => {
               <div className=" contact_font text-white ">I'm a</div>
               <div className="flip">
                 <div>
-                  <div>Front-End Developer</div>
+                  <div>Full-Stack Developer</div>
                 </div>
                 <div>
                   <div>Software engineering student</div>

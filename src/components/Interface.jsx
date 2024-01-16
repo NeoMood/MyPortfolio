@@ -41,10 +41,7 @@ export const Interface = () => {
       </Section>
       <Skills />
       <Section id="projects">
-        <Suspense fallback={null}>
-          <ProjectsSection />
-          {/* <Loader/> */}
-        </Suspense>
+        <ProjectsSection />
       </Section>
       <Section className="" id="contact">
         <Contact />
@@ -76,6 +73,116 @@ const skills = [
     level: 10,
   },
 ];
+
+const SkillSection = () => {
+  return (
+    <>
+      <div className="skills-bg-gradiant">
+        <Tsparticles />
+        <div class="parent h-screen w-screen px-10 mb-10 ">
+          <div class="div1 text-6xl font-extrabold text-white mt-10 flex items-center justify-center ">
+            <h1>SKILLS</h1>
+          </div>
+          <div class="div2 bg-[#272730] rounded-3xl">
+            <h1 className="skills-titles">Front-end Development</h1>
+            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+            </div>
+          </div>
+          <div class="div3 bg-[#272730] rounded-3xl">
+            <h1 className="skills-titles">Back-end Development</h1>
+            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
+              <div className="bg-blue-500 w-[60px] h-[60px]"></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+            </div>
+          </div>
+          <div class="div4 bg-[#272730] rounded-3xl">
+            <h1 className="skills-titles">Programming Languages</h1>
+            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
+              <div
+                className="w-[60px] h-[60px]"
+                style={{
+                  backgroundImage: `url(/techstack/c.svg)`,
+                  backgroundSize: 'cover',
+                }}
+              ></div>
+              <div
+                className="w-[60px] h-[60px]"
+                style={{
+                  backgroundImage: `url(/techstack/cpp.svg)`,
+                  backgroundSize: 'cover',
+                }}
+              ></div>
+              <div
+                className="w-[60px] h-[60px]"
+                style={{
+                  backgroundImage: `url(/techstack/js.svg)`,
+                  backgroundSize: 'cover',
+                }}
+              ></div>
+              <div
+                className="w-[60px] h-[60px]"
+                style={{
+                  backgroundImage: `url(/techstack/ts.svg)`,
+                  backgroundSize: 'cover',
+                }}
+              ></div>
+              <div
+                className="w-[60px] h-[60px]"
+                style={{
+                  backgroundImage: `url(/techstack/python.svg)`,
+                  backgroundSize: 'cover',
+                }}
+              ></div>
+
+            </div>
+          </div>
+          <div class="div5 bg-[#272730] rounded-3xl">
+            <h1 className="skills-titles">Web Technologies</h1>
+            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
+              <div className="bg-blue-500 w-[60px] h-[60px]"></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+            </div>
+          </div>
+          <div class="div6 bg-[#272730] rounded-3xl">
+            <h1 className="skills-titles">DevOps and Version Control</h1>
+            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
+              <div className="bg-blue-500 w-[60px] h-[60px]"></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+            </div>
+          </div>
+          <div class="div7 bg-[#272730] rounded-3xl">
+            <h1 className="skills-titles">System Proficiency</h1>
+            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
+              <div className="bg-blue-500 w-[60px] h-[60px]"></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
+              <div className="bg-red-500 w-[60px] h-[60px] "></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
 const TextEffect = () => {
   useEffect(() => {
@@ -162,7 +269,8 @@ export const Skills = () => {
   // const containerRef = useRef(null);
   return (
     <Section id="skills">
-      <TextEffect />
+      {/* <TextEffect /> */}
+      <SkillSection />
       {/* <Tsparticles container={containerRef}/> */}
     </Section>
   );
@@ -325,10 +433,11 @@ export const ProjectsSection = () => {
           <h1 className=""> Projects </h1>
         </div>
         <div className="absolute w-full h-full">
-          <Canvas shadows camera={{ fov: 78, position: [-1, 2, 7] }}>
-            {/* <Perf position="bottom-right" /> */}
-            <Experience />
-          </Canvas>
+          <Suspense fallback={null}>
+            <Canvas shadows camera={{ fov: 78, position: [-1, 2, 7] }}>
+              <Experience />
+            </Canvas>
+          </Suspense>
           <button
             onClick={previousProject}
             className="absolute text-xl left-0 top-1/4 transform -translate-y-1/2 hover:backdrop-blur-[10px] text-white font-bold px-4 rounded backdrop-blur-[6px] ml-8"
@@ -372,4 +481,3 @@ export const Projects = () => {
     </group>
   );
 };
-

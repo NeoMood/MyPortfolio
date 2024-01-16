@@ -1,6 +1,6 @@
 import { useState, useEffect, forwardRef } from "react";
 
-const Menu = forwardRef(function index(props, ref) {
+export const Menu = (props) => {
 // export const Menu = (props) => {
   //   const { isMenuOpen, setIsMenuOpen } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +12,7 @@ const Menu = forwardRef(function index(props, ref) {
 
   return (
     <>
-      <div ref={ref} className="block lg:hidden z-[100]">
+      <div className="block lg:hidden z-[100]">
         <a href="#home" className="z-20 logo fixed top-0 left-6 p-4">
           SG
         </a>
@@ -42,7 +42,7 @@ const Menu = forwardRef(function index(props, ref) {
             isMenuOpen ? "w-96 backdrop-blur-lg" : "w-0"
           }`}
         >
-          <div className="menu flex-1 flex items-center justify-center flex-col gap-6 p-8 text-white text-xl contact_font">
+          <div className="menu flex-1 flex items-center justify-center flex-col gap-10 p-8 text-white text-xl contact_font">
             <a href="#home" onClick={() => setIsMenuOpen(false)}>
               Home
             </a>
@@ -68,6 +68,4 @@ const Menu = forwardRef(function index(props, ref) {
       </div>
     </>
   );
-});
-
-export default Menu;
+};

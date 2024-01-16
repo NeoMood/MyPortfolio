@@ -6,9 +6,9 @@ import { Interface } from "./components/Interface";
 
 import { Canvas } from "@react-three/fiber";
 import { Environment, Scroll, ScrollControls} from "@react-three/drei";
-import Navbar   from "./components/Navbar";
+import { Navbar }   from "./components/Navbar";
 import { useRef, useState } from "react";
-import Menu from "./components/Menu";
+import { Menu } from "./components/Menu";
 import Cursor from "./components/Cursorcomponent";
 import { LoadingScreen } from "./components/LoadingScreen";
 
@@ -29,15 +29,14 @@ import { LoadingScreen } from "./components/LoadingScreen";
 // }
 
 function App() {
-  const stickyMouse = useRef(null);
   const [started, setStarted] = useState(false);
 
   return (
     <>
       <LoadingScreen started={started} setStarted={setStarted}/>
-      {started && <Menu ref={stickyMouse}/>}
-      {started && <Navbar ref={stickyMouse}/>}
-      {started && <Cursor stickyMouse={stickyMouse}/>}
+      {started && <Menu />}
+      {started && <Navbar />}
+      {started && <Cursor/>}
       {started && <Interface/>}
     </>
   );
