@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-export default function Cursor({ stickyMouse }) {
+export default function Cursor() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isCursorInWindow, setIsCursorInWindow] = useState(true);
   const cursorSizeRef = useRef(25);
   const cursorSize = isHovered ? 60 : 25;
   cursorSizeRef.current = cursorSize;
@@ -20,35 +21,25 @@ export default function Cursor({ stickyMouse }) {
     const { clientX, clientY } = e;
     mouse.x.set(clientX - cursorSizeRef.current / 2);
     mouse.y.set(clientY - cursorSizeRef.current / 2);
+    setIsCursorInWindow(true);
   };
 
-  // const getMouseOver = () => {
-  //   setIsHovered(true);
-  // };
-
-  // const getMouseLeave = () => {
-  //   setIsHovered(false);
-  // };
+  const getMouseOut = () => {
+    setIsCursorInWindow(false);
+  };
 
   useEffect(() => {
     window.addEventListener("mousemove", getMouseMove);
-    // if (stickyMouse.current) {
-    //   stickyMouse.current.addEventListener("mouseover", getMouseOver);
-    //   stickyMouse.current.addEventListener("mouseleave", getMouseLeave);
-    // }
-  
+    window.addEventListener("mouseout", getMouseOut);
     return () => {
       window.removeEventListener("mousemove", getMouseMove);
-      // if (stickyMouse.current) {
-      //   stickyMouse.current.removeEventListener("mouseover", getMouseOver);
-      //   stickyMouse.current.removeEventListener("mouseleave", getMouseLeave);
-      // }
+      window.removeEventListener("mouseout", getMouseOut);
     };
   }, []);
 
   useEffect(() => {
-    if ('ontouchstart' in window) {
-      document.body.classList.add('touch-device');
+    if ('ontouchstart' in window || window.innerWidth <= 780) {
+      setIsCursorInWindow(false);
     }
   }, []);
 
@@ -79,18 +70,20 @@ export default function Cursor({ stickyMouse }) {
 
   return (
     <>
-      <motion.div
-        className="w-[25px] h-[25px] bg-[peru] fixed rounded-[100%] pointer-events-none z-[101] touch-device:hidden"
-        style={{
-          left: smoothMouse.x,
-          top: smoothMouse.y,
-          mixBlendMode: "difference",
-        }}
-        animate={{
-          width: cursorSize,
-          height: cursorSize,
-        }}
-      ></motion.div>
+      {isCursorInWindow && (
+        <motion.div
+          className="w-[25px] h-[25px] bg-[peru] fixed rounded-[100%] pointer-events-none z-[101]"
+          style={{
+            left: smoothMouse.x,
+            top: smoothMouse.y,
+            mixBlendMode: "difference",
+          }}
+          animate={{
+            width: cursorSize,
+            height: cursorSize,
+          }}
+        ></motion.div>
+      )}
     </>
   );
 }

@@ -81,7 +81,6 @@ export const Contact = () => {
     useEffect(() => {
       if (inView) {
         animate("animate");
-        console.log("in view");
       }
     }, [inView]);
   

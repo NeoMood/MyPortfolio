@@ -340,7 +340,7 @@ a {
 }
 
 .div2, .div3, .div4, .div5, .div6, .div7 {
-  box-shadow: #070710 0px 0px 20px;
+  box-shadow: #070710 0px 0px 10px;
 }
 
 @media (max-width: 768px) {

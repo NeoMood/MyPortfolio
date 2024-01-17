@@ -1,16 +1,14 @@
 import React, { useEffect, Suspense, useRef } from "react";
 import { Experience } from "./Experience";
-import { Tsparticles } from "./tsparticles";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
 import { atom, useAtom } from "jotai";
-import { Image, Loader, Text } from "@react-three/drei";
+import { Image, Text } from "@react-three/drei";
 import { Home } from "./Home";
 import { AboutMe } from "./Aboutme";
 import { Contact } from "./Contact";
+import { SkillSection } from "./Skills";
 
 const Section = (props) => {
   const { children } = props;
@@ -30,251 +28,111 @@ const Section = (props) => {
 };
 
 export const Interface = () => {
-  // const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
       <Section id="home">
         <Home />
       </Section>
+      
       <Section id="about">
         <AboutMe />
       </Section>
-      <Skills />
+
+      <Section id="skills">
+        <SkillSection />
+      </Section>
+
       <Section id="projects">
         <ProjectsSection />
       </Section>
-      <Section className="" id="contact">
+
+      <Section id="contact">
         <Contact />
       </Section>
     </>
   );
 };
 
-const skills = [
-  {
-    title: "C",
-    level: 90,
-  },
-  {
-    title: "C++",
-    level: 80,
-  },
-  {
-    title: "Javascript",
-    level: 60,
-  },
-  {
-    title: "Next.js",
-    level: 50,
-  },
+// const TextEffect = () => {
+//   useEffect(() => {
+//     gsap.registerPlugin(ScrollTrigger);
 
-  {
-    title: "MongoDB",
-    level: 10,
-  },
-];
+//     const textElements = gsap.utils.toArray(".textanimation");
 
-const SkillSection = () => {
-  return (
-    <>
-      <div className="skills-bg-gradiant">
-        <Tsparticles />
-        <div class="parent h-screen w-screen px-10 mb-10 ">
-          <div class="div1 text-6xl font-extrabold text-white mt-10 flex items-center justify-center ">
-            <h1>SKILLS</h1>
-          </div>
-          <div class="div2 bg-[#272730] rounded-3xl">
-            <h1 className="skills-titles">Front-end Development</h1>
-            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-            </div>
-          </div>
-          <div class="div3 bg-[#272730] rounded-3xl">
-            <h1 className="skills-titles">Back-end Development</h1>
-            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
-              <div className="bg-blue-500 w-[60px] h-[60px]"></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-            </div>
-          </div>
-          <div class="div4 bg-[#272730] rounded-3xl">
-            <h1 className="skills-titles">Programming Languages</h1>
-            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
-              <div
-                className="w-[60px] h-[60px]"
-                style={{
-                  backgroundImage: `url(/techstack/c.svg)`,
-                  backgroundSize: 'cover',
-                }}
-              ></div>
-              <div
-                className="w-[60px] h-[60px]"
-                style={{
-                  backgroundImage: `url(/techstack/cpp.svg)`,
-                  backgroundSize: 'cover',
-                }}
-              ></div>
-              <div
-                className="w-[60px] h-[60px]"
-                style={{
-                  backgroundImage: `url(/techstack/js.svg)`,
-                  backgroundSize: 'cover',
-                }}
-              ></div>
-              <div
-                className="w-[60px] h-[60px]"
-                style={{
-                  backgroundImage: `url(/techstack/ts.svg)`,
-                  backgroundSize: 'cover',
-                }}
-              ></div>
-              <div
-                className="w-[60px] h-[60px]"
-                style={{
-                  backgroundImage: `url(/techstack/python.svg)`,
-                  backgroundSize: 'cover',
-                }}
-              ></div>
+//     textElements.forEach((text) => {
+//       gsap.fromTo(
+//         text,
+//         { backgroundSize: "100%" },
+//         {
+//           backgroundSize: "0%",
+//           ease: "none",
+//           scrollTrigger: {
+//             trigger: text,
+//             start: "top top",
+//             end: "bottom bottom",
+//             scrub: true,
+//           },
+//         }
+//       );
+//     });
+//   }, []);
 
-            </div>
-          </div>
-          <div class="div5 bg-[#272730] rounded-3xl">
-            <h1 className="skills-titles">Web Technologies</h1>
-            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
-              <div className="bg-blue-500 w-[60px] h-[60px]"></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-            </div>
-          </div>
-          <div class="div6 bg-[#272730] rounded-3xl">
-            <h1 className="skills-titles">DevOps and Version Control</h1>
-            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
-              <div className="bg-blue-500 w-[60px] h-[60px]"></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-            </div>
-          </div>
-          <div class="div7 bg-[#272730] rounded-3xl">
-            <h1 className="skills-titles">System Proficiency</h1>
-            <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
-              <div className="bg-blue-500 w-[60px] h-[60px]"></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-              <div className="bg-blue-500 w-[60px] h-[60px] "></div>
-              <div className="bg-red-500 w-[60px] h-[60px] "></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
+//   return (
+//     <>
+//       <div className="relative flex items-center justify-center flex-col  skills-bg-gradiant w-screen h-screen overflow-hidden">
+//         <Tsparticles />
+//         <div className="text-6xl font-extrabold leading-snug text-white">
+//           <h1 className=""> SKILLS </h1>
+//         </div>
 
-const TextEffect = () => {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    const textElements = gsap.utils.toArray(".textanimation");
-
-    textElements.forEach((text) => {
-      gsap.fromTo(
-        text,
-        { backgroundSize: "100%" },
-        {
-          backgroundSize: "0%",
-          ease: "none",
-          scrollTrigger: {
-            trigger: text,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-          },
-        }
-      );
-    });
-  }, []);
-
-  return (
-    <>
-      <div className="relative flex items-center justify-center flex-col  skills-bg-gradiant w-screen h-screen overflow-hidden">
-        <Tsparticles />
-        <div className="text-6xl font-extrabold leading-snug text-white">
-          <h1 className=""> SKILLS </h1>
-        </div>
-
-        <div className="flex">
-          <div className="flex-wrap px-16  w-1/2 space-y-4">
-            <h1 className="text-white text-center"> Coding Languages </h1>
-            <h1 className="textanimation">
-              C<span className="spananimation">C 90%</span>
-            </h1>
-            <h1 className="textanimation">
-              C++<span className="spananimation">90%</span>
-            </h1>
-            <h1 className="textanimation">
-              Javascript<span className="spananimation">90%</span>
-            </h1>
-            <h1 className="textanimation">
-              ReactJS<span className="spananimation">90%</span>
-            </h1>
-            <h1 className="textanimation">
-              ThreeJS<span className="spananimation">90%</span>
-            </h1>
-            <h1 className="textanimation">
-              ReactJS<span className="spananimation">90%</span>
-            </h1>
-          </div>
-          <div className="flex-wrap px-16   w-1/2 space-y-4">
-            <h1 className="text-white text-center"> Technologies </h1>
-            <h1 className="textanimation">
-              ThreeJS<span className="spananimation">90%</span>
-            </h1>
-            <h1 className="textanimation">
-              ReactJS<span className="spananimation">90%</span>
-            </h1>
-            <h1 className="textanimation">
-              ThreeJS<span className="spananimation">90%</span>
-            </h1>
-            <h1 className="textanimation">
-              ReactJS<span className="spananimation">90%</span>
-            </h1>
-            <h1 className="textanimation">
-              ThreeJS<span className="spananimation">90%</span>
-            </h1>
-            <h1 className="textanimation">
-              ReactJS<span className="spananimation">90%</span>
-            </h1>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export const Skills = () => {
-  // const containerRef = useRef(null);
-  return (
-    <Section id="skills">
-      {/* <TextEffect /> */}
-      <SkillSection />
-      {/* <Tsparticles container={containerRef}/> */}
-    </Section>
-  );
-};
+//         <div className="flex">
+//           <div className="flex-wrap px-16  w-1/2 space-y-4">
+//             <h1 className="text-white text-center"> Coding Languages </h1>
+//             <h1 className="textanimation">
+//               C<span className="spananimation">C 90%</span>
+//             </h1>
+//             <h1 className="textanimation">
+//               C++<span className="spananimation">90%</span>
+//             </h1>
+//             <h1 className="textanimation">
+//               Javascript<span className="spananimation">90%</span>
+//             </h1>
+//             <h1 className="textanimation">
+//               ReactJS<span className="spananimation">90%</span>
+//             </h1>
+//             <h1 className="textanimation">
+//               ThreeJS<span className="spananimation">90%</span>
+//             </h1>
+//             <h1 className="textanimation">
+//               ReactJS<span className="spananimation">90%</span>
+//             </h1>
+//           </div>
+//           <div className="flex-wrap px-16   w-1/2 space-y-4">
+//             <h1 className="text-white text-center"> Technologies </h1>
+//             <h1 className="textanimation">
+//               ThreeJS<span className="spananimation">90%</span>
+//             </h1>
+//             <h1 className="textanimation">
+//               ReactJS<span className="spananimation">90%</span>
+//             </h1>
+//             <h1 className="textanimation">
+//               ThreeJS<span className="spananimation">90%</span>
+//             </h1>
+//             <h1 className="textanimation">
+//               ReactJS<span className="spananimation">90%</span>
+//             </h1>
+//             <h1 className="textanimation">
+//               ThreeJS<span className="spananimation">90%</span>
+//             </h1>
+//             <h1 className="textanimation">
+//               ReactJS<span className="spananimation">90%</span>
+//             </h1>
+//           </div>
+//         </div>
+//       </div>
+//     </>
+//   );
+// };
 
 export const projects = [
   {
@@ -405,10 +263,6 @@ export const Project = (props) => {
           </Text>
         </>
       )}
-      {/* <Text3D>
-                {project.title}
-                <meshNormalMaterial />
-            </Text3D> */}
     </group>
   );
 };

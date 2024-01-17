@@ -75,6 +75,7 @@ const Deskscene = () => {
         position={[1, 0.3, 2]}
         fov={75}
         lookAt={[0, 0, 0]}
+        near={0.01}
       >
         <pointLight position={[0, 3, 0]} intensity={0.6} />
         <PresentationControls
