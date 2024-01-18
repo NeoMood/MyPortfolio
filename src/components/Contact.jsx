@@ -11,7 +11,6 @@ export const Contact = () => {
     const [message, setMessage] = useState("");
   
     const form = useRef();
-    // console.log(process.env.EMAILJS_SERVICE, process.env.EMAILJS_TEMPLATE, process.env.EMAILJS_PUBLICKEY);
   
     const sendEmail = (e) => {
       e.preventDefault();
@@ -153,7 +152,7 @@ export const Contact = () => {
                 className={`text-white rounded-xl block py-2 bg-[peru] w-[10rem] contact_font transition duration-500 ease-in-out ${
                   !name || !email || !message
                     ? "hover:bg-slate-700 cursor-not-allowed"
-                    : "hover:bg-green-500"
+                    : "hover:bg-[#ffcd9b] hover:text-black"
                 }`}
                 disabled={!name || !email || !message}
               >

@@ -61,7 +61,7 @@ export const Menu = (props) => {
             <a
               href="/Saad_Gmira_resume.pdf"
               download
-              className='text-[peru] font-thin  px-2 py-1 text-xs rounded-md bg-none border border-[peru] hover:border-green-500 hover:text-green-500 transition duration-500 ease-in-out contact_font'>My resume
+              className='text-[peru] font-thin  px-2 py-1 text-xs rounded-md bg-none border border-[peru] hover:border-[#ffcd9b] hover:text-[#ffcd9b] transition duration-500 ease-in-out contact_font'>My resume
             </a>
           </div>
         </div>

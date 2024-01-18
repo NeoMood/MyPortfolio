@@ -26,7 +26,6 @@ export const AboutMe = () => {
     useEffect(() => {
     if (inView) {
         animate("animate");
-        console.log("in view");
     }
     }, [inView]);
 
@@ -34,9 +33,9 @@ export const AboutMe = () => {
         <>
           <div className="relative flex items-start justify-center flex-col px-4 mx-auto sm:px-6 lg:px-8 skills-bg-gradiant w-screen h-screen">
             <div
-              className="absolute bottom-0 "
+              className="absolute bottom-0 left-0"
               style={{
-                bottom: "-15px",
+                // bottom: "-15px",
                 backgroundImage: `url(/wave-under2.svg)`,
                 aspectRatio: 960 / 300,
                 width: "100%",
@@ -65,7 +64,7 @@ export const AboutMe = () => {
                 <p  className="mt-4 text-sm text-white contact_font md:mt-8"></p>
                   <a
                     href="#contact"
-                    className={`text-white text-center text-md rounded-xl block py-2 bg-[peru] w-[8rem] contact_font hover:bg-green-500 mx-auto md:mx-0`}
+                    className={`text-white text-center text-md rounded-xl block py-2 bg-[peru] w-[8rem] contact_font hover:bg-[#ffcd9b] hover:text-black transition duration-500 ease-in-out mx-auto md:mx-0`}
                   >
                   Let's Talk!
                 </a>

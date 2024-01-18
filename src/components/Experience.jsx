@@ -1,9 +1,6 @@
 import { Environment, Float, Grid, MeshReflectorMaterial, OrbitControls, PresentationControls, SpotLight, Stage, Stars, useDepthBuffer } from "@react-three/drei";
-import { Watermelon } from "./Watermelon";
-import { Iphonex } from "./Iphonex";
 import { Macbook } from "./Macbook";
 import { Avatar } from "./Avatar";
-import {MovingSpot} from "./Spotlights";
 import { Projects } from "./Interface";
 import { Canvas, useThree } from "@react-three/fiber";
 import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";

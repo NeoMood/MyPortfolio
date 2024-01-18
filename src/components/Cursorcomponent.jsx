@@ -52,8 +52,8 @@ export default function Cursor() {
         e.target.tagName.toLowerCase() === "h1" ||
         e.target.tagName.toLowerCase() === "span" ||
         e.target.tagName.toLowerCase() === "p" ||
-        e.target.tagName.toLowerCase() === "textarea" ||
-        e.target.parentElement.tagName.toLowerCase() === "button" 
+        e.target.tagName.toLowerCase() === "textarea" 
+        // e.target.parentElement.tagName.toLowerCase() === "button" 
       )
       {
         setIsHovered(true);

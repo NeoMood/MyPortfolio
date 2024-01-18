@@ -57,9 +57,9 @@ export const Home = () => {
     <>
       <div ref={containerRef}>
         <div
-          className="absolute bottom-0 "
+          className="absolute bottom-0 left-0"
           style={{
-            bottom: "-15px",
+            // bottom: "-15px",
             backgroundImage: `url(/wave-under.svg)`,
             aspectRatio: 960 / 300,
             width: "100%",
@@ -126,7 +126,7 @@ export const Home = () => {
       </div>
       <div className="ml-0 absolute w-full h-full">
         <Suspense fallback={null} >
-          <Canvas shadows camera={{ fov: 60 }}>
+          <Canvas shadows >
             <Deskscene />
             {/* <Perf position="bottom-right" /> */}
           </Canvas>

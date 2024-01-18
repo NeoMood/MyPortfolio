@@ -29,7 +29,7 @@ export const SkillSection = () => {
 
   return (
     <>
-      <div className="skills-bg-gradiant">
+      <div className="skills-bg-gradiant2">
         <Tsparticles />
         <motion.div
           variants={variants}

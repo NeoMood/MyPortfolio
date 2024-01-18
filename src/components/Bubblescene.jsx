@@ -71,7 +71,7 @@ export default function Scene({ setBg }) {
 
   return (
     <>
-      <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={75} near={0.01}>
+      <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={75} near={0.01} far={100}>
         <a.ambientLight intensity={ambient} />
         <a.pointLight
           ref={light}

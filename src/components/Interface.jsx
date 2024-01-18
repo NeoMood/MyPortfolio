@@ -283,6 +283,19 @@ export const ProjectsSection = () => {
   return (
     <>
       <div className="flex justify-center bg-gradiant w-screen h-screen">
+        {/* <div
+          className="absolute bottom-0 left-0"
+          style={{
+            // bottom: "-15px",
+            // backgroundImage: `url(/wave-top.svg)`,
+            backgroundColor: "#fff",
+            aspectRatio: 960 / 300,
+            width: "100%",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        ></div> */}
         <div className="text-6xl pt-20 font-extrabold leading-snug drop-shadow-xl text-white">
           <h1 className=""> Projects </h1>
         </div>

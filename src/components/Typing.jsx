@@ -4,10 +4,11 @@ import { useAnimations, useFBX, useGLTF } from "@react-three/drei";
 
 export function Typing(props) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/models/avatar2.glb");
+  const { nodes, materials } = useGLTF("/models/avatar_prj.glb");
 
   const {animations: typinganimation} = useFBX('/animations/typing.fbx')
   typinganimation[0].name = 'typing';
+  // console.log(typinganimation)
 
   const {actions} = useAnimations(typinganimation, group);
 
@@ -103,5 +104,5 @@ export function Typing(props) {
   );
 }
 
-useGLTF.preload("/avatar2.glb");
+useGLTF.preload("/models/avatar_prj.glb");
 useFBX.preload('/animations/typing.fbx');

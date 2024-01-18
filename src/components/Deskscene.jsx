@@ -7,41 +7,13 @@ import {
   OrbitControls,
   SoftShadows
 } from "@react-three/drei";
-import { Watermelon } from "./Watermelon";
-import { Iphonex } from "./Iphonex";
-import { Macbook } from "./Macbook";
-import { Avatar } from "./Avatar";
-import { MovingSpot } from "./Spotlights";
-import { Canvas } from "@react-three/fiber";
 import { Desk } from "./Desk";
 import { Typing } from "./Typing";
+// import { Typing } from "./test";
 import { Suspense } from "react";
 import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";
 import { useThree } from "@react-three/fiber";
 import { motion } from "framer-motion";
-
-// export const projects = [
-//   {
-//       title : "Ft_Transcendance",
-//       image: "/images/transcendance.png",
-//       url: "https://github.com/NeoMood/ft_transcendence",
-//       description: "A modern twist on classic Pong with 3D gameplay,\nprofile creation, friend connection, real-time chat, and\nmultiplayer matches."
-//   }
-// ];
-
-// const Project = (props) => {
-//     const {project} = props;
-
-//     return (
-//         <group {...props} position={[0, 0.05, -0.067]} rotation-x={-Math.PI}>
-//             <mesh position-z={-0.001} onClick={() => window.open(project.url, "_blank")}>
-//                 <planeGeometry args={[0.15, 0.07]}/>
-//                 <meshBasicMaterial color="black" transparent opacity={0.4}/>
-//             </mesh>
-//             <Image scale={[0.142,0.092,0.092]} url={"/images/transcendance.png"} toneMapped={false} />
-//         </group>
-//     )
-// }
 
 const Screen = () => {
   return (
@@ -73,9 +45,10 @@ const Deskscene = () => {
       <perspectiveCamera
         makeDefault
         position={[1, 0.3, 2]}
-        fov={75}
+        fov={80}
         lookAt={[0, 0, 0]}
         near={0.01}
+        far={100}
       >
         <pointLight position={[0, 3, 0]} intensity={0.6} />
         <PresentationControls
