@@ -387,3 +387,7 @@ a {
     font-size: 14px;
   }
 }
+
+.scale_img{
+  scale: 1;
+}

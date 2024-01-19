@@ -9,7 +9,7 @@ import {
 } from "@react-three/drei";
 import { Desk } from "./Desk";
 import { Typing } from "./Typing";
-// import { Typing } from "./test";
+// import { Typing } from "./test2";
 import { Suspense } from "react";
 import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";
 import { useThree } from "@react-three/fiber";
@@ -36,7 +36,7 @@ const Screen = () => {
 
 const Deskscene = () => {
   const viewport = useThree((state) => state.viewport);
-  const DeskScalingFactor = Math.min(window.innerWidth / 1500, 0.9);
+  const DeskScalingFactor = Math.min(window.innerWidth / 1500, 1);
   const DeskPositionFactor = window.innerWidth / 3000;
   const isSmallScreen = window.innerWidth < 780;
   return (
@@ -45,10 +45,10 @@ const Deskscene = () => {
       <perspectiveCamera
         makeDefault
         position={[1, 0.3, 2]}
-        fov={80}
+        fov={75}
         lookAt={[0, 0, 0]}
-        near={0.01}
-        far={100}
+        // near={0.01}
+        // far={100}
       >
         <pointLight position={[0, 3, 0]} intensity={0.6} />
         <PresentationControls
@@ -63,7 +63,7 @@ const Deskscene = () => {
             <group
               castShadow
               receiveShadow
-              position-x={isSmallScreen ? -0.9 : DeskPositionFactor - 0.6}
+              position-x={isSmallScreen ? -1 : DeskPositionFactor - 0.4}
               position-y={isSmallScreen ? 0.6 : 0.04}
               rotation-x={[Math.PI / 9]}
               rotation-y={[-Math.PI / 4]}

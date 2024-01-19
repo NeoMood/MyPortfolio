@@ -9,7 +9,7 @@ import { useGLTF, useAnimations } from "@react-three/drei";
 export function Typing(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/models/avatartyping.gltf");
-  const { actions, names } = useAnimations(animations, group);
+  // const { actions, names } = useAnimations(animations, group);
   // console.log(names);
   // console.log(actions);
 

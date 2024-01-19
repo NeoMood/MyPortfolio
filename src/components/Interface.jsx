@@ -267,7 +267,8 @@ export const Project = (props) => {
   );
 };
 
-export const currentProjectAtom = atom(Math.floor(projects.length / 2));
+// export const currentProjectAtom = atom(Math.floor(projects.length / 2));
+export const currentProjectAtom = atom(0);
 
 export const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useAtom(currentProjectAtom);
@@ -301,7 +302,7 @@ export const ProjectsSection = () => {
         </div>
         <div className="absolute w-full h-full">
           <Suspense fallback={null}>
-            <Canvas shadows camera={{ fov: 78, position: [-1, 2, 7] }}>
+            <Canvas shadows camera={{ fov: 75, position: [-1, 2, 7] }}>
               <Experience />
             </Canvas>
           </Suspense>
