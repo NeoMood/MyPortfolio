@@ -18,9 +18,10 @@ const Section = (props) => {
     <section
       id={id}
       className={`
-    h-screen w-screen 
-    flex flex-col justify-center items-start 
+     w-full 
+    flex flex-col justify-center items-start
     `}
+    style={{        height: "100vh", scrollSnapAlign: "center" }}
     >
       {children}
     </section>

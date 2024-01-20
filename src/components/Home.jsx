@@ -55,11 +55,11 @@ export const Home = () => {
 
   return (
     <>
-      <div ref={containerRef}>
+      <div ref={containerRef} >
         <div
           className="absolute bottom-0 left-0"
           style={{
-            // bottom: "-15px",
+            bottom: "-2px",
             backgroundImage: `url(/wave-under.svg)`,
             aspectRatio: 960 / 300,
             width: "100%",
