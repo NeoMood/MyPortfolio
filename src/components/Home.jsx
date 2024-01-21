@@ -47,30 +47,18 @@ export const Home = () => {
 
   const handleScroll = () => {
     window.scrollTo({
-      top: document.body.scrollHeight/5,
-      behavior: 'smooth'
+      top: document.body.scrollHeight / 5,
+      behavior: "smooth",
     });
   };
 
-
   return (
     <>
-      <div ref={containerRef} >
-        <div
-          className="absolute bottom-0 left-0"
-          style={{
-            bottom: "-2px",
-            backgroundImage: `url(/wave-under.svg)`,
-            aspectRatio: 960 / 300,
-            width: "100%",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          }}
-        ></div>
-
-        {/* <div className="bg-gradiant flex items-center w-screen h-screen overflow-hidden"> */}
-        <div ref={ref} className="bg-gradiant flex items-center justify-center sm:justify-start w-screen h-screen ">
+      <div
+        ref={ref}
+        className="relative bg-gradiant flex items-center justify-center sm:justify-start w-screen h-[1100px] "
+      >
+        <div ref={containerRef}>
           <motion.div
             initial="initial"
             animate={inView ? "animate" : "initial"}
@@ -115,18 +103,29 @@ export const Home = () => {
             animate="animate2"
             variants={lottievariants}
             onClick={handleScroll}
-            
           >
             <Lottie
               animationData={animationData}
               className="absolute bottom-20 left-1/2 z-10 w-10 transform -translate-x-1/2 cursor-pointer"
-              />
+            />
           </motion.div>
         </div>
+        <div
+          className="absolute bottom-0 left-0"
+          style={{
+            bottom: "-2px",
+            backgroundImage: `url(/wave-under.svg)`,
+            aspectRatio: 960 / 300,
+            width: "100%",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        ></div>
       </div>
-      <div className="ml-0 absolute w-full h-full">
-        <Suspense fallback={null} >
-          <Canvas shadows >
+      <div className="ml-0 absolute w-full h-[1100px]">
+        <Suspense fallback={null}>
+          <Canvas shadows>
             <Deskscene />
             {/* <Perf position="bottom-right" /> */}
           </Canvas>

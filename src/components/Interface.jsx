@@ -19,9 +19,9 @@ const Section = (props) => {
       id={id}
       className={`
      w-full 
-    flex flex-col justify-center items-start
+    flex flex-col justify-center items-start overflow-y
     `}
-    style={{        height: "100vh", scrollSnapAlign: "center" }}
+      style={{ height: "fit-content" }}
     >
       {children}
     </section>
@@ -32,9 +32,9 @@ export const Interface = () => {
   return (
     <>
       <Section id="home">
-        <Home />
-      </Section>
-      
+          <Home />
+        </Section>
+
       <Section id="about">
         <AboutMe />
       </Section>
@@ -284,7 +284,7 @@ export const ProjectsSection = () => {
 
   return (
     <>
-      <div className="flex justify-center bg-gradiant w-screen h-screen">
+      <div className="flex justify-center bg-gradiant w-screen h-[1100px]">
         {/* <div
           className="absolute bottom-0 left-0"
           style={{
@@ -301,7 +301,7 @@ export const ProjectsSection = () => {
         <div className="text-6xl pt-20 font-extrabold leading-snug drop-shadow-xl text-white">
           <h1 className=""> Projects </h1>
         </div>
-        <div className="absolute w-full h-full">
+        <div className="absolute w-full h-[1100px]">
           <Suspense fallback={null}>
             <Canvas shadows camera={{ fov: 75, position: [-1, 2, 7] }}>
               <Experience />

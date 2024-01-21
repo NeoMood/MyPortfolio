@@ -36,7 +36,7 @@ export const SkillSection = () => {
           initial={"initial"}
           animate={inView ? "animate" : "initial"}
           ref={ref}
-          className="parent h-screen w-screen px-10 mb-10 "
+          className="parent w-screen px-10 mb-10 h-[900px]"
         >
           <motion.div className="div1 text-6xl font-extrabold text-white mt-10 flex items-center justify-center ">
             <h1>SKILLS</h1>

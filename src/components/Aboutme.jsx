@@ -28,12 +28,12 @@ export const AboutMe = () => {
   }, [inView]);
 
   return (
-    <div className="relative flex items-start  flex-col px-4 mx-auto sm:px-6 lg:px-8 skills-bg-gradiant w-screen h-screen overflow-hidden">
+    <div className="relative flex items-start flex-col px-4 mx-auto sm:px-6 lg:px-8 skills-bg-gradiant w-screen h-[1000px]">
       <div
         ref={ref}
-        className="relative flex flex-col-reverse w-full md:flex-row items-center justify-around z-50 "
+        className="relative flex flex-col-reverse w-full md:flex-row items-center justify-around z-500"
       >
-        <div className="flex justify-center">
+        <div className="flex justify-center z-50">
           <motion.div
             variants={textVariants}
             initial="initial"
@@ -65,14 +65,14 @@ export const AboutMe = () => {
             {/* <p className="mt-4 text-sm text-white contact_font md:mt-8"></p> */}
             <a
               href="#contact"
-              className={`text-white text-center text-md rounded-xl block py-2 bg-[peru] w-[8rem] mt-5 contact_font hover:bg-[#ffcd9b] hover:text-black transition duration-500 ease-in-out mx-auto md:mx-0`}
+              className={`text-white text-center text-md rounded-xl block py-2 bg-[peru] w-[8rem] mt-5 contact_font hover:bg-[#ffcd9b] hover:text-black transition duration-500 ease-in-out mx-auto md:mx-0 z-[102]`}
             >
               Let's Talk!
             </a>
           </motion.div>
         </div>
         {/* <div className="absolute scale-img md:relative md:scale-img md:w-1/2 overflow-hidden"> */}
-        <div className="relative pt-[0px] md:pt-[100px] lg:pt-[100px] xl:pt-[100px] pb-0 2xl:pb-[170px] z-0">
+        <div className="relative pt-[0px] md:pt-[100px] lg:pt-[100px] xl:pt-[100px] pb-0 2xl:pb-[100px] z-0">
           <img
             src="/images/saad_no_bg2.png"
             alt=""
@@ -82,7 +82,7 @@ export const AboutMe = () => {
         </div>
       </div>
       <div
-        className="absolute bottom-0 left-0  "
+        className="absolute bottom-0 left-0"
         style={{
           backgroundImage: `url(/wave-under2.svg)`,
           aspectRatio: 960 / 300,

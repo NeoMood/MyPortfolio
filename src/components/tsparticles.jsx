@@ -34,6 +34,7 @@ export const Tsparticles = () => {
       },
       style: {
         position: "absolute",
+        height: "900px",
       },
       detectRetina: true,
       fpsLimit: 60,

@@ -85,7 +85,7 @@ export const Contact = () => {
   
     return (
       <>
-        <div className="relative flex justify-center items-center sm:pl-40 sm:justify-start skills-bg-gradiant w-screen h-screen">
+        <div className="relative flex justify-center items-center sm:pl-40 sm:justify-start skills-bg-gradiant w-screen h-[1100px]">
           <div
             className="absolute top-0 left-0"
             style={{
