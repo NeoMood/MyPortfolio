@@ -1,6 +1,7 @@
 import { motion, animate } from "framer-motion";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import Lottie from "lottie-react";
 
 export const AboutMe = () => {
   const textVariants = {
@@ -18,6 +19,13 @@ export const AboutMe = () => {
     },
   };
 
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch("/animations/blobs.json")
+      .then((response) => response.json())
+      .then((data) => setAnimationData(data));
+  }, []);
 
   const [ref, inView] = useInView();
 
@@ -28,7 +36,7 @@ export const AboutMe = () => {
   }, [inView]);
 
   return (
-    <div className="relative flex items-start flex-col px-4 mx-auto sm:px-6 lg:px-8 skills-bg-gradiant w-screen h-[1000px]">
+    <div className="relative flex items-start flex-col px-4 mx-auto sm:px-6 lg:px-8 skills-bg-gradiant w-screen ">
       <div
         ref={ref}
         className="relative flex flex-col-reverse w-full md:flex-row items-center justify-around z-500"
@@ -42,42 +50,45 @@ export const AboutMe = () => {
           >
             <motion.h1
               variants={textVariants}
-              className="font-bold leading-tight text-white text-5xl sm:text-6xl lg:text-7xl contact_font text-center md:text-left "
+              className="font-bold leading-tight text-white text-4xl sm:text-6xl lg:text-7xl contact_font text-center md:text-left "
             >
               About <span className="text-[peru]">Me</span>
             </motion.h1>
             <motion.p
               variants={textVariants}
-              className="max-w-lg mt-3 text-lg md:text-xl lg:text-2xl text-center md:text-left leading-relaxed text-white md:mt-8"
+              className="max-w-lg mt-3 text-sm sm:text-sm md:text-xl lg:text-2xl contact_font text-center md:text-left leading-relaxed text-white md:mt-8"
             >
-              Innovative software engineer skilled in crafting compelling web
+              Innovative software engineering student at 1337 coding school (42Network) skilled in crafting compelling web
               applications and seamless user interfaces. Proficient in
               seamlessly integrating captivating 3D environments, with a passion
               for applying front-end or full-stack skills to cutting-edge
               projects.
               <br />
               <span className="text-[peru]">
-                I'm actively seeking an internship for hands-on experience in a
+                Actively seeking an internship for hands-on experience in a
                 professional setting.
               </span>
             </motion.p>
 
             {/* <p className="mt-4 text-sm text-white contact_font md:mt-8"></p> */}
-            <a
-              href="#contact"
-              className={`text-white text-center text-md rounded-xl block py-2 bg-[peru] w-[8rem] mt-5 contact_font hover:bg-[#ffcd9b] hover:text-black transition duration-500 ease-in-out mx-auto md:mx-0 z-[102]`}
-            >
-              Let's Talk!
-            </a>
+            <div className="pb-20">
+              <a
+                href="#contact"
+                className={`text-white text-center text-md rounded-xl block py-2 bg-[peru] w-[8rem] mt-5 contact_font hover:bg-[#ffcd9b] hover:text-black transition duration-500 ease-in-out mx-auto md:mx-0 z-[102]`}
+              >
+                Let's Talk!
+              </a>
+            </div>
           </motion.div>
         </div>
         {/* <div className="absolute scale-img md:relative md:scale-img md:w-1/2 overflow-hidden"> */}
         <div className="relative pt-[0px] md:pt-[100px] lg:pt-[100px] xl:pt-[100px] pb-0 2xl:pb-[100px] z-0">
+          <Lottie animationData={animationData} className="absolute " style={{ transform: 'scale(1.2)', bottom: "80px"}}/>
           <img
             src="/images/saad_no_bg2.png"
             alt=""
-            className="relative w-auto max-w-[250px] sm:max-w-[300px] md:max-w-[500px] 2xl:max-w-[600px] min-w-[100px] h-auto"
-            style={{ zIndex: -1, overflow: "hidden" }}
+            className="relative w-auto max-w-[200px] sm:max-w-[300px] md:max-w-[500px] 2xl:max-w-[600px] min-w-[150px] h-auto"
+            style={{ zIndex: 1, overflow: "hidden" }}
           />
         </div>
       </div>

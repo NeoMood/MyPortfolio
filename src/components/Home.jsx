@@ -56,7 +56,7 @@ export const Home = () => {
     <>
       <div
         ref={ref}
-        className="relative bg-gradiant flex items-center justify-center sm:justify-start w-screen h-[1100px] "
+        className="relative bg-gradiant flex items-center justify-center sm:justify-start w-screen min-h-[600px] h-[100vh]"
       >
         <div ref={containerRef}>
           <motion.div

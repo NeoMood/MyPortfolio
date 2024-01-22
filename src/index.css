@@ -389,3 +389,111 @@ a {
     font-size: 14px;
   }
 }
+
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 0 0.5rem;
+  margin-top: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.social-icon:hover {
+  color: #fff;
+}
+.social-icon:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -150%);
+}
+.social-icon:active {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5) inset;
+}
+.social-icon--linkedin {
+  background: #464660;
+  color: #fff;
+}
+.social-icon--linkedin .tooltip {
+  background: #464660;
+  color: currentColor;
+}
+.social-icon--linkedin .tooltip:after {
+  border-top-color: #464660;
+}
+.social-icon--twitter {
+  background: #464660;
+  color: #fff;
+}
+.social-icon--twitter .tooltip {
+  background: #464660;
+  color: currentColor;
+}
+.social-icon--twitter .tooltip:after {
+  border-top-color: #464660;
+}
+.social-icon--instagram {
+  background: #464660;
+  color: #fff;
+}
+.social-icon--instagram .tooltip {
+  background: #464660;
+  color: currentColor;
+}
+.social-icon--instagram .tooltip:after {
+  border-top-color: #464660;
+}
+.social-icon--github {
+  background: #464660;
+  color: #fff;
+}
+.social-icon--github .tooltip {
+  background: #464660;
+  color: currentColor;
+}
+.social-icon--github .tooltip:after {
+  border-top-color: #464660;
+}
+.social-icon i {
+  position: relative;
+  top: 1px;
+}
+/* Tooltips */
+.tooltip {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  padding: 0.8rem 1rem;
+  border-radius: 40px;
+  font-size: 0.6rem;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  text-transform: uppercase;
+  transform: translate(-50%, -100%);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.tooltip:after {
+  display: block;
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  content: "";
+  border: solid;
+  border-width: 10px 10px 0 10px;
+  border-color: transparent;
+  transform: translate(-50%, 100%);
+}
+

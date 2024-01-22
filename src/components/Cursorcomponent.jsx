@@ -52,7 +52,8 @@ export default function Cursor() {
         e.target.tagName.toLowerCase() === "h1" ||
         e.target.tagName.toLowerCase() === "span" ||
         e.target.tagName.toLowerCase() === "p" ||
-        e.target.tagName.toLowerCase() === "textarea" 
+        e.target.tagName.toLowerCase() === "textarea" ||
+        e.target instanceof SVGElement
         // e.target.parentElement.tagName.toLowerCase() === "button" 
       )
       {

@@ -284,7 +284,7 @@ export const ProjectsSection = () => {
 
   return (
     <>
-      <div className="flex justify-center bg-gradiant w-screen h-[1100px]">
+      <div className="flex justify-center bg-gradiant w-screen min-h-[600px] h-[100vh]">
         {/* <div
           className="absolute bottom-0 left-0"
           style={{
@@ -301,7 +301,7 @@ export const ProjectsSection = () => {
         <div className="text-6xl pt-20 font-extrabold leading-snug drop-shadow-xl text-white">
           <h1 className=""> Projects </h1>
         </div>
-        <div className="absolute w-full h-[1100px]">
+        <div className="absolute w-full min-h-[600px] h-[100vh]">
           <Suspense fallback={null}>
             <Canvas shadows camera={{ fov: 75, position: [-1, 2, 7] }}>
               <Experience />
