@@ -82,13 +82,13 @@ export const Contact = () => {
     },
   };
 
-  const [ref, inView] = useInView();
+  // const [ref, inView] = useInView();
 
-  useEffect(() => {
-    if (inView) {
-      animate("animate");
-    }
-  }, [inView]);
+  // useEffect(() => {
+  //   if (inView) {
+  //     animate("animate");
+  //   }
+  // }, [inView]);
 
   return (
     <>
@@ -105,19 +105,17 @@ export const Contact = () => {
           }}
         ></div>
         <motion.div
-          ref={ref}
+          // ref={ref}
           initial="initial"
-          animate={inView ? "animate" : "initial"}
+          // animate={inView ? "animate" : "initial"}
+          animate="animate"
           variants={aboutVariants}
           className="flex rounded-lg p-5 w-[500px] xs:w-[200px] h-[400px] flex-col z-10"
         >
-          <motion.h1
-            variants={aboutVariants}
-            className="text-6xl sm:text-7xl lg:text-7xl font-extrabold mb-10 text-white text-center contact_font z-[1]"
-          >
+          <h1 className="text-6xl sm:text-7xl lg:text-7xl font-extrabold mb-10 text-white text-center contact_font z-[1]">
             {" "}
             Let's <span className="text-[peru]">Talk</span>!
-          </motion.h1>
+          </h1>
           <form onSubmit={sendEmail} ref={form}>
             <div className="mb-3">
               <label className="font-bold text-sm block mb-3 pl-1 text-white contact_font">

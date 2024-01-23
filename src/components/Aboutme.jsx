@@ -27,25 +27,26 @@ export const AboutMe = () => {
       .then((data) => setAnimationData(data));
   }, []);
 
-  const [ref, inView] = useInView();
+  // const [ref, inView] = useInView();
 
-  useEffect(() => {
-    if (inView) {
-      animate("animate");
-    }
-  }, [inView]);
+  // useEffect(() => {
+  //   if (inView) {
+  //     animate("animate");
+  //   }
+  // }, [inView]);
 
   return (
     <div className="relative flex items-center justify-center flex-col px-4 mx-auto sm:px-6 lg:px-8 skills-bg-gradiant w-screen h-[1080px]">
       <div
-        ref={ref}
+        // ref={ref}
         className="relative flex flex-col-reverse w-full md:flex-row items-center justify-around z-500 overflow-hidden"
       >
         <div className="flex justify-center z-50">
           <motion.div
             variants={textVariants}
             initial="initial"
-            animate={inView ? "animate" : "initial"}
+            // animate={inView ? "animate" : "initial"}
+            animate="animate"
             className="pl-0 sm:pl-20 mr-10 md:mr-0 flex flex-col justify-center z-50"
           >
             <motion.h1

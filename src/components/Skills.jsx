@@ -19,13 +19,13 @@ export const SkillSection = () => {
     },
   };
 
-  const [ref, inView] = useInView();
+  // const [ref, inView] = useInView();
 
-  useEffect(() => {
-    if (inView) {
-      animate("animate");
-    }
-  }, [inView]);
+  // useEffect(() => {
+  //   if (inView) {
+  //     animate("animate");
+  //   }
+  // }, [inView]);
 
   return (
     <>
@@ -34,8 +34,9 @@ export const SkillSection = () => {
         <motion.div
           variants={variants}
           initial={"initial"}
-          animate={inView ? "animate" : "initial"}
-          ref={ref}
+          // animate={inView ? "animate" : "initial"}
+          animate={"animate"}
+          // ref={ref}
           className="parent w-screen px-10 mb-10 h-[900px]"
         >
           <motion.div className="div1 text-6xl font-extrabold text-white mt-10 flex items-center justify-center ">
