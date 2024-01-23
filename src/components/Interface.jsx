@@ -44,7 +44,7 @@ export function Interface() {
       </Section>
 
       <Section id="projects">
-        {/* <ProjectsSection /> */}
+        <ProjectsSection />
       </Section>
 
       <Section id="contact">

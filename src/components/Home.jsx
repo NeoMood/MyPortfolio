@@ -83,7 +83,7 @@ export const Home = () => {
             <motion.div
               initial="initial"
               // animate={inView ? "animate" : "initial"}
-              animate="animate"
+              
               variants={textVariants}
               className="flex pl-10 text-sm lg:text-xl xl:text-2xl 2xl:text-3xl md:text-lg sm:text-md text-start pt-4  h-12 "
             >
@@ -126,13 +126,13 @@ export const Home = () => {
           }}
         ></div>
       </div>
-      {/* <div className="ml-0 absolute w-full h-[1100px]">
+      <div className="ml-0 absolute w-full h-[1100px]">
         <Suspense fallback={null}>
           <Canvas shadows>
             <Deskscene />
           </Canvas>
         </Suspense>
-      </div> */}
+      </div>
     </>
   );
 };

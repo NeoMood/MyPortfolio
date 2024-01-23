@@ -2,6 +2,7 @@ import { motion, animate } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import Lottie from "lottie-react";
+import Image from "next/image";
 
 export const AboutMe = () => {
   const textVariants = {
@@ -85,13 +86,12 @@ export const AboutMe = () => {
         </div>
         {/* <div className="absolute scale-img md:relative md:scale-img md:w-1/2 overflow-hidden"> */}
         <div className="relative pt-[0px] md:pt-[270px] lg:pt-[250px] xl:pt-[220px] pb-0 2xl:pb-[170px] z-0">
-          <Lottie
-            animationData={animationData}
-            className="absolute blobs "
-          />
+          <Lottie animationData={animationData} className="absolute blobs " />
           <img
             src="/images/saad_no_bg2.png"
             alt=""
+            width={"500"}
+            height={"300px"}
             className="relative w-auto max-w-[200px] sm:max-w-[300px] md:max-w-[500px] 2xl:max-w-[600px] min-w-[150px] h-auto"
             style={{ zIndex: 1, overflow: "hidden" }}
           />
