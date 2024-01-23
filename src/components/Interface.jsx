@@ -146,70 +146,70 @@ export const projects = [
   {
     title: "Ft_IRC",
     image: "/images/irc.jpg",
-    url: "https://github.com/NeoMood/ft_transcendence",
+    url: "https://github.com/NeoMood/ft_irc",
     description:
       " a reliable IRC server built in C++, enabling real-time user communication.\n Implemented core features for authentication, message routing, and channel management",
   },
   {
     title: "INCEPTION",
     image: "/images/inception.jpg",
-    url: "https://github.com/NeoMood/ft_transcendence",
+    url: "https://github.com/NeoMood/Inception",
     description:
       "a system administration project that involves setting up a small infrastructure\ncomposed of different services by virtualizing multiple Docker images",
   },
   {
     title: "CUB3D",
     image: "/images/cub3d.jpg",
-    url: "https://github.com/NeoMood/ft_transcendence",
+    url: "https://github.com/NeoMood/cub3D",
     description:
       "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
   },
   {
     title: "Minishell",
     image: "/images/minishell.jpg",
-    url: "https://github.com/NeoMood/ft_transcendence",
+    url: "https://github.com/NeoMood/Minishell",
     description:
       "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
   },
   {
     title: "Philosophers",
     image: "/images/Philo.jpg",
-    url: "https://github.com/NeoMood/ft_transcendence",
+    url: "https://github.com/NeoMood/Philosophers",
     description:
       "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
   },
   {
     title: "Piscine C++",
     image: "/images/cpp.jpg",
-    url: "https://github.com/NeoMood/ft_transcendence",
+    url: "https://github.com/NeoMood/CPP",
     description:
       "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
   },
   {
     title: "So_long",
     image: "/images/solong.jpg",
-    url: "https://github.com/NeoMood/ft_transcendence",
+    url: "https://github.com/NeoMood/so_long",
     description:
       "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
   },
   {
     title: "Pushswap",
     image: "/images/pushswap.jpg",
-    url: "https://github.com/NeoMood/ft_transcendence",
+    url: "https://github.com/NeoMood/Push_swap",
     description:
       "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
   },
   {
     title: "get_next_line",
     image: "/images/getnextline.jpg",
-    url: "https://github.com/NeoMood/ft_transcendence",
+    url: "https://github.com/NeoMood/Get_Next_Line",
     description:
       "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
   },
   {
     title: "Ft_printf",
     image: "/images/ftprintf.jpg",
-    url: "https://github.com/NeoMood/ft_transcendence",
+    url: "https://github.com/NeoMood/ft_printf",
     description:
       "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
   },

@@ -56,7 +56,7 @@ export const Home = () => {
     <>
       <div
         ref={ref}
-        className="relative bg-gradiant flex items-center justify-center sm:justify-start w-screen min-h-[600px] h-[100vh]"
+        className="relative bg-gradiant flex items-center justify-center sm:justify-start w-screen min-h-[900px] h-[100vh]"
       >
         <div ref={containerRef}>
           <motion.div
@@ -66,11 +66,11 @@ export const Home = () => {
             id="mytext"
             className="md:pl-20 md:mt-20 "
           >
-            <motion.div className="pl-10 text-4xl md:text-6xl font-extrabold leading-snug text-white thisis">
+            <motion.div className="pl-10 text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-extrabold leading-snug text-white thisis">
               Hi, This is
             </motion.div>
             <motion.div
-              className="pl-10 text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-extrabold leading-snug name text-[#CD853F]"
+              className="pl-10 text-4xl md:text-6xl lg:text-8xl 2xl:text-9xl font-extrabold leading-snug name text-[#CD853F]"
               initial="initial"
               animate={inView ? "animate" : "initial"}
               variants={textVariants}
@@ -82,7 +82,7 @@ export const Home = () => {
               initial="initial"
               animate={inView ? "animate" : "initial"}
               variants={textVariants}
-              className="flex pl-10 text-sm lg:text-xl xl:text:2xl md:text-lg sm:text-md text-start pt-4  h-12 "
+              className="flex pl-10 text-sm lg:text-xl xl:text-2xl 2xl:text-3xl md:text-lg sm:text-md text-start pt-4  h-12 "
             >
               <div className=" contact_font text-white ">I'm a</div>
               <div className="flip">

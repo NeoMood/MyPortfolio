@@ -36,17 +36,17 @@ export const AboutMe = () => {
   }, [inView]);
 
   return (
-    <div className="relative flex items-start flex-col px-4 mx-auto sm:px-6 lg:px-8 skills-bg-gradiant w-screen ">
+    <div className="relative flex items-center justify-center flex-col px-4 mx-auto sm:px-6 lg:px-8 skills-bg-gradiant w-screen h-[1080px]">
       <div
         ref={ref}
-        className="relative flex flex-col-reverse w-full md:flex-row items-center justify-around z-500"
+        className="relative flex flex-col-reverse w-full md:flex-row items-center justify-around z-500 overflow-hidden"
       >
         <div className="flex justify-center z-50">
           <motion.div
             variants={textVariants}
             initial="initial"
             animate={inView ? "animate" : "initial"}
-            className="pl-0 sm:pl-20 mr-10 md:mr-0"
+            className="pl-0 sm:pl-20 mr-10 md:mr-0 flex flex-col justify-center z-50"
           >
             <motion.h1
               variants={textVariants}
@@ -58,11 +58,11 @@ export const AboutMe = () => {
               variants={textVariants}
               className="max-w-lg mt-3 text-sm sm:text-sm md:text-xl lg:text-2xl contact_font text-center md:text-left leading-relaxed text-white md:mt-8"
             >
-              Innovative software engineering student at 1337 coding school (42Network) skilled in crafting compelling web
-              applications and seamless user interfaces. Proficient in
-              seamlessly integrating captivating 3D environments, with a passion
-              for applying front-end or full-stack skills to cutting-edge
-              projects.
+              Innovative software engineering student at 1337 coding school
+              (42Network) skilled in crafting compelling web applications and
+              seamless user interfaces. Proficient in seamlessly integrating
+              captivating 3D environments, with a passion for applying front-end
+              or full-stack skills to cutting-edge projects.
               <br />
               <span className="text-[peru]">
                 Actively seeking an internship for hands-on experience in a
@@ -74,7 +74,8 @@ export const AboutMe = () => {
             <div className="pb-20">
               <a
                 href="#contact"
-                className={`text-white text-center text-md rounded-xl block py-2 bg-[peru] w-[8rem] mt-5 contact_font hover:bg-[#ffcd9b] hover:text-black transition duration-500 ease-in-out mx-auto md:mx-0 z-[102]`}
+                className={`text-white text-center text-md rounded-xl block py-2 bg-[peru] w-[8rem] mt-5 contact_font hover:bg-[#ffcd9b] hover:text-black transition duration-500 ease-in-out mx-auto md:mx-0`}
+                style={{ zIndex: 1000 }}
               >
                 Let's Talk!
               </a>
@@ -82,8 +83,11 @@ export const AboutMe = () => {
           </motion.div>
         </div>
         {/* <div className="absolute scale-img md:relative md:scale-img md:w-1/2 overflow-hidden"> */}
-        <div className="relative pt-[0px] md:pt-[100px] lg:pt-[100px] xl:pt-[100px] pb-0 2xl:pb-[100px] z-0">
-          <Lottie animationData={animationData} className="absolute " style={{ transform: 'scale(1.2)', bottom: "80px"}}/>
+        <div className="relative pt-[0px] md:pt-[270px] lg:pt-[250px] xl:pt-[220px] pb-0 2xl:pb-[170px] z-0">
+          <Lottie
+            animationData={animationData}
+            className="absolute blobs "
+          />
           <img
             src="/images/saad_no_bg2.png"
             alt=""
@@ -102,6 +106,8 @@ export const AboutMe = () => {
           backgroundPosition: "center",
           backgroundSize: "cover",
           zIndex: 50,
+          pointerEvents: "none",
+          bottom: "-1px",
         }}
       ></div>
     </div>

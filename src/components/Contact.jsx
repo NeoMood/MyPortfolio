@@ -92,7 +92,7 @@ export const Contact = () => {
 
   return (
     <>
-      <div className="relative flex justify-center items-center sm:pl-40 sm:justify-start skills-bg-gradiant w-screen h-[1000px] min-h-[100vh]">
+      <div className="relative flex justify-center items-center sm:pl-40 sm:justify-start skills-bg-gradiant w-screen min-h-[800px] h-[100vh] overflow-hidden">
         <div
           className="absolute top-0 left-0"
           style={{
@@ -109,11 +109,11 @@ export const Contact = () => {
           initial="initial"
           animate={inView ? "animate" : "initial"}
           variants={aboutVariants}
-          className="flex rounded-lg p-5 w-[400px] h-[400px] flex-col z-10"
+          className="flex rounded-lg p-5 w-[500px] xs:w-[200px] h-[400px] flex-col z-10"
         >
           <motion.h1
             variants={aboutVariants}
-            className="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-10 text-white text-center contact_font z-[1]"
+            className="text-6xl sm:text-7xl lg:text-7xl font-extrabold mb-10 text-white text-center contact_font z-[1]"
           >
             {" "}
             Let's <span className="text-[peru]">Talk</span>!
@@ -124,7 +124,7 @@ export const Contact = () => {
                 Your Name
               </label>
               <input
-                className="rounded-lg bg-slate-700 pl-3 shadow-xl block h-[40px] w-full text-white"
+                className="rounded-lg bg-slate-700 pl-3 shadow-xl block h-[50px] w-full text-white"
                 type="text"
                 name="from_name"
                 value={name}
@@ -137,7 +137,7 @@ export const Contact = () => {
                 Your Email
               </label>
               <input
-                className="rounded-lg bg-slate-700 pl-3 shadow-xl block h-[40px] w-full text-white"
+                className="rounded-lg bg-slate-700 pl-3 shadow-xl block h-[50px] w-full text-white"
                 type="text"
                 name="user_email"
                 value={email}
@@ -150,7 +150,7 @@ export const Contact = () => {
                 Your Message
               </label>
               <textarea
-                className="rounded-2xl bg-slate-700 pl-3 shadow-xl block h-[70px] w-full max-h-[150px] min-h-[70px] text-white"
+                className="rounded-2xl bg-slate-700 pl-3 shadow-xl block h-[100px] w-full max-h-[150px] min-h-[70px] text-white"
                 name="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
