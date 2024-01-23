@@ -1,6 +1,6 @@
-import { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect } from "react";
 
-export const Menu = (props) => {
+export function Menu(props) {
 // export const Menu = (props) => {
   //   const { isMenuOpen, setIsMenuOpen } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);

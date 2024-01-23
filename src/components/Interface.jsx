@@ -28,7 +28,7 @@ const Section = (props) => {
   );
 };
 
-export const Interface = () => {
+export function Interface() {
   return (
     <>
       <Section id="home">
@@ -54,86 +54,7 @@ export const Interface = () => {
   );
 };
 
-// const TextEffect = () => {
-//   useEffect(() => {
-//     gsap.registerPlugin(ScrollTrigger);
 
-//     const textElements = gsap.utils.toArray(".textanimation");
-
-//     textElements.forEach((text) => {
-//       gsap.fromTo(
-//         text,
-//         { backgroundSize: "100%" },
-//         {
-//           backgroundSize: "0%",
-//           ease: "none",
-//           scrollTrigger: {
-//             trigger: text,
-//             start: "top top",
-//             end: "bottom bottom",
-//             scrub: true,
-//           },
-//         }
-//       );
-//     });
-//   }, []);
-
-//   return (
-//     <>
-//       <div className="relative flex items-center justify-center flex-col  skills-bg-gradiant w-screen h-screen overflow-hidden">
-//         <Tsparticles />
-//         <div className="text-6xl font-extrabold leading-snug text-white">
-//           <h1 className=""> SKILLS </h1>
-//         </div>
-
-//         <div className="flex">
-//           <div className="flex-wrap px-16  w-1/2 space-y-4">
-//             <h1 className="text-white text-center"> Coding Languages </h1>
-//             <h1 className="textanimation">
-//               C<span className="spananimation">C 90%</span>
-//             </h1>
-//             <h1 className="textanimation">
-//               C++<span className="spananimation">90%</span>
-//             </h1>
-//             <h1 className="textanimation">
-//               Javascript<span className="spananimation">90%</span>
-//             </h1>
-//             <h1 className="textanimation">
-//               ReactJS<span className="spananimation">90%</span>
-//             </h1>
-//             <h1 className="textanimation">
-//               ThreeJS<span className="spananimation">90%</span>
-//             </h1>
-//             <h1 className="textanimation">
-//               ReactJS<span className="spananimation">90%</span>
-//             </h1>
-//           </div>
-//           <div className="flex-wrap px-16   w-1/2 space-y-4">
-//             <h1 className="text-white text-center"> Technologies </h1>
-//             <h1 className="textanimation">
-//               ThreeJS<span className="spananimation">90%</span>
-//             </h1>
-//             <h1 className="textanimation">
-//               ReactJS<span className="spananimation">90%</span>
-//             </h1>
-//             <h1 className="textanimation">
-//               ThreeJS<span className="spananimation">90%</span>
-//             </h1>
-//             <h1 className="textanimation">
-//               ReactJS<span className="spananimation">90%</span>
-//             </h1>
-//             <h1 className="textanimation">
-//               ThreeJS<span className="spananimation">90%</span>
-//             </h1>
-//             <h1 className="textanimation">
-//               ReactJS<span className="spananimation">90%</span>
-//             </h1>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
 
 export const projects = [
   {

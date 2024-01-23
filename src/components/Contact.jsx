@@ -119,7 +119,7 @@ export const Contact = () => {
             Let's <span className="text-[peru]">Talk</span>!
           </motion.h1>
           <form onSubmit={sendEmail} ref={form}>
-            <motion.div variants={formVariants} className="mb-3">
+            <div className="mb-3">
               <label className="font-bold text-sm block mb-3 pl-1 text-white contact_font">
                 Your Name
               </label>
@@ -131,8 +131,8 @@ export const Contact = () => {
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-            </motion.div>
-            <motion.div variants={formVariants} className="mb-3">
+            </div>
+            <div className="mb-3">
               <label className="font-bold text-sm block mb-3 pl-1 text-white contact_font">
                 Your Email
               </label>
@@ -144,8 +144,8 @@ export const Contact = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-            </motion.div>
-            <motion.div variants={formVariants} className="mb-3">
+            </div>
+            <div className="mb-3">
               <label className="font-bold text-sm block mb-3 pl-1 text-white contact_font">
                 Your Message
               </label>
@@ -156,7 +156,7 @@ export const Contact = () => {
                 onChange={(e) => setMessage(e.target.value)}
                 required
               />
-            </motion.div>
+            </div>
             <button
               type="submit"
               className={`text-white rounded-xl block py-2 bg-[peru] w-[10rem] contact_font transition duration-500 ease-in-out ${
@@ -169,7 +169,7 @@ export const Contact = () => {
               Send Message
             </button>
           </form>
-          <motion.div variants={formVariants} className="flex">
+          <div className="flex">
             <a
               className="social-icon social-icon--github"
               href="https://github.com/NeoMood"
@@ -224,7 +224,7 @@ export const Contact = () => {
               <FontAwesomeIcon className="w-[30px] h-[30px]" icon={faPhone} />
               <div className="tooltip">Phone</div>
             </a>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </>

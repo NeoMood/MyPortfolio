@@ -41,7 +41,7 @@ export const SkillSection = () => {
           <motion.div className="div1 text-6xl font-extrabold text-white mt-10 flex items-center justify-center ">
             <h1>SKILLS</h1>
           </motion.div>
-          <motion.div variants={variants} className="div2 bg-[#272730] rounded-3xl">
+          <div className="div2 bg-[#272730] rounded-3xl">
             <h1 className="skills-titles">Front-end Development</h1>
             <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
               <div
@@ -87,8 +87,8 @@ export const SkillSection = () => {
                 }}
               ></div>
             </div>
-          </motion.div>
-          <motion.div variants={variants} className="div3 bg-[#272730] rounded-3xl">
+          </div>
+          <div className="div3 bg-[#272730] rounded-3xl">
             <h1 className="skills-titles">Back-end Development</h1>
             <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
               <div
@@ -120,8 +120,8 @@ export const SkillSection = () => {
                 }}
               ></div>
             </div>
-          </motion.div>
-          <motion.div variants={variants} className="div4 bg-[#272730] rounded-3xl">
+          </div>
+          <div className="div4 bg-[#272730] rounded-3xl">
             <h1 className="skills-titles">Programming Languages</h1>
             <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
               <div
@@ -160,8 +160,8 @@ export const SkillSection = () => {
                 }}
               ></div>
             </div>
-          </motion.div>
-          <motion.div variants={variants} className="div5 bg-[#272730] rounded-3xl">
+          </div>
+          <div className="div5 bg-[#272730] rounded-3xl">
             <h1 className="skills-titles">DevOps and Version Control</h1>
             <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
               <div
@@ -193,8 +193,8 @@ export const SkillSection = () => {
                 }}
               ></div>
             </div>
-          </motion.div>
-          <motion.div variants={variants} className="div6 bg-[#272730] rounded-3xl">
+          </div>
+          <div className="div6 bg-[#272730] rounded-3xl">
             <h1 className="skills-titles">System Proficiency</h1>
             <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
               <div
@@ -219,8 +219,8 @@ export const SkillSection = () => {
                 }}
               ></div>
             </div>
-          </motion.div>
-          <motion.div variants={variants} className="div7 bg-[#272730] rounded-3xl">
+          </div>
+          <div className="div7 bg-[#272730] rounded-3xl">
             <h1 className="skills-titles">Languages</h1>
             <div className=" w-full h-full flex gap-2 place-content-around flex-wrap px-5">
               <div
@@ -245,7 +245,7 @@ export const SkillSection = () => {
                 }}
               ></div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </>

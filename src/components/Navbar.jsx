@@ -1,9 +1,9 @@
 
 
-import React, { useRef, useState, useEffect, forwardRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useScroll } from 'react-use';
 
-export const Navbar = (props) => {
+export function Navbar(props) {
     const ref = useRef(null);
     const { y } = useScroll(ref);
     const [show, setShow] = useState(true);

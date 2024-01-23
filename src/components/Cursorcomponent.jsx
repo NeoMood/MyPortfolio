@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-export default function Cursor() {
+export function Cursor() {
   const [isHovered, setIsHovered] = useState(false);
   const [isCursorInWindow, setIsCursorInWindow] = useState(true);
   const cursorSizeRef = useRef(25);
@@ -38,14 +38,14 @@ export default function Cursor() {
   }, []);
 
   useEffect(() => {
-    if ('ontouchstart' in window || window.innerWidth <= 780) {
+    if ("ontouchstart" in window || window.innerWidth <= 780) {
       setIsCursorInWindow(false);
     }
   }, []);
 
   useEffect(() => {
     const mouseEventListener = document.addEventListener("mouseover", (e) => {
-      if(
+      if (
         e.target.tagName.toLowerCase() === "button" ||
         e.target.tagName.toLowerCase() === "a" ||
         e.target.tagName.toLowerCase() === "input" ||
@@ -54,13 +54,10 @@ export default function Cursor() {
         e.target.tagName.toLowerCase() === "p" ||
         e.target.tagName.toLowerCase() === "textarea" ||
         e.target instanceof SVGElement
-        // e.target.parentElement.tagName.toLowerCase() === "button" 
-      )
-      {
+        // e.target.parentElement.tagName.toLowerCase() === "button"
+      ) {
         setIsHovered(true);
-      }
-      else
-      {
+      } else {
         setIsHovered(false);
       }
     });
