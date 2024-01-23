@@ -14,13 +14,14 @@ import { LoadingScreen } from "./components/LoadingScreen";
 
 function App() {
   const [started, setStarted] = useState(false);
-
+  const isMobile = window.innerWidth <= 768;
+  console.log(isMobile);
   return (
     <>
       <LoadingScreen started={started} setStarted={setStarted}/>
       {started && <Menu />}
       {started && <Navbar />}
-      {started && <Cursor/>}
+      {started && !isMobile && <Cursor/>}
       {started && <Interface/>}
     </>
   );
