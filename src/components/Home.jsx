@@ -123,14 +123,13 @@ export const Home = () => {
           }}
         ></div>
       </div>
-      <div className="ml-0 absolute w-full h-[1100px]">
+      {/* <div className="ml-0 absolute w-full h-[1100px]">
         <Suspense fallback={null}>
           <Canvas shadows>
             <Deskscene />
-            {/* <Perf position="bottom-right" /> */}
           </Canvas>
         </Suspense>
-      </div>
+      </div> */}
     </>
   );
 };
