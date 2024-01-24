@@ -1,60 +1,93 @@
-import React, { useEffect, Suspense, useRef } from "react";
+import React, { useEffect, Suspense, useRef, lazy, useState } from "react";
 import { Experience } from "./Experience";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
 import { atom, useAtom } from "jotai";
 import { Image, Text } from "@react-three/drei";
-import { Home } from "./Home";
-import { AboutMe } from "./Aboutme";
-import { Contact } from "./Contact";
-import { SkillSection } from "./Skills";
 
-const Section = (props) => {
-  const { children } = props;
-  const { id } = props;
+
+// import { Home } from "./Home";
+// import { AboutMe } from "./Aboutme";
+// import { Contact } from "./Contact";
+// import { SkillSection } from "./Skills";
+
+const Home = lazy(() => import("./Home"));
+const AboutMe = lazy(() => import("./Aboutme"));
+const SkillSection = lazy(() => import("./Skills"));
+const Contact = lazy(() => import("./Contact"));
+
+const Section = ({ id, children }) => {
+  const [hasBeenInView, setHasBeenInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasBeenInView(true);
+        }
+      },
+      {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      }
+    );
+
+    observer.observe(document.getElementById(id));
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [id]);
 
   return (
     <section
       id={id}
-      className={`
-     w-full 
-    flex flex-col justify-center items-start overflow-y
-    `}
-      style={{ height: "fit-content" }}
+      className="w-full flex flex-col justify-center items-start overflow-y"
+      style={{ height: 'fit-content' }}
     >
-      {children}
+      {hasBeenInView && children}
     </section>
   );
 };
+
 
 export function Interface() {
   return (
     <>
       <Section id="home">
+        <Suspense fallback={<div>Loading...</div>}>
           <Home />
-        </Section>
+        </Suspense>
+      </Section>
 
       <Section id="about">
-        <AboutMe />
+        <Suspense fallback={<div>Loading...</div>}>
+          <AboutMe />
+        </Suspense>
       </Section>
 
       <Section id="skills">
-        <SkillSection />
+        <Suspense fallback={<div>Loading...</div>}>
+          <SkillSection />
+        </Suspense>
       </Section>
 
       <Section id="projects">
-        <ProjectsSection />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ProjectsSection />
+        </Suspense>
       </Section>
 
       <Section id="contact">
-        <Contact />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Contact />
+        </Suspense>
       </Section>
     </>
   );
-};
-
-
+}
 
 export const projects = [
   {
@@ -191,7 +224,6 @@ export const Project = (props) => {
 
 // export const currentProjectAtom = atom(Math.floor(projects.length / 2));
 export const currentProjectAtom = atom(0);
-
 export const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useAtom(currentProjectAtom);
 

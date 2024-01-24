@@ -6,7 +6,7 @@ import Lottie from "lottie-react";
 import { Loader } from "@react-three/drei";
 import { useInView } from "react-intersection-observer";
 
-export const Home = () => {
+const Home = () => {
   const containerRef = useRef(null);
   const [animationData, setAnimationData] = useState(null);
 
@@ -136,3 +136,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;

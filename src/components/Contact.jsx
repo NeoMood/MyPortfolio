@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
-export const Contact = () => {
+const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -228,3 +228,5 @@ export const Contact = () => {
     </>
   );
 };
+
+export default Contact;

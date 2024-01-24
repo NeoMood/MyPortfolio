@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer";
 import Lottie from "lottie-react";
 import Image from "next/image";
 
-export const AboutMe = () => {
+const AboutMe = () => {
   const textVariants = {
     initial: {
       x: -100,
@@ -114,3 +114,5 @@ export const AboutMe = () => {
     </div>
   );
 };
+
+export default AboutMe;

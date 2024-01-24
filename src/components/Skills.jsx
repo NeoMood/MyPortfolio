@@ -3,7 +3,7 @@ import { Tsparticles } from "./tsparticles";
 import { animate, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-export const SkillSection = () => {
+const SkillSection = () => {
   const variants = {
     initial: {
       x: -100,
@@ -252,3 +252,5 @@ export const SkillSection = () => {
     </>
   );
 };
+
+export default SkillSection;

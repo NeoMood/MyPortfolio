@@ -18,7 +18,7 @@ export const LoadingScreen = (props) => {
         {
             setTimeout(() => {
                 setStarted(true);
-            }, 5000);
+            }, 50);
         }
     }, [progress, total, loaded, items]);
     return (
