@@ -17,77 +17,85 @@ const AboutMe = lazy(() => import("./Aboutme"));
 const SkillSection = lazy(() => import("./Skills"));
 const Contact = lazy(() => import("./Contact"));
 
-const Section = ({ id, children }) => {
-  const [hasBeenInView, setHasBeenInView] = useState(false);
+// const Section = ({ id, children }) => {
+//   // const [hasBeenInView, setHasBeenInView] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHasBeenInView(true);
-        }
-      },
-      {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      }
-    );
+//   // useEffect(() => {
+//   //   const observer = new IntersectionObserver(
+//   //     ([entry]) => {
+//   //       if (entry.isIntersecting) {
+//   //         setHasBeenInView(true);
+//   //       }
+//   //     },
+//   //     {
+//   //       root: null,
+//   //       rootMargin: '0px',
+//   //       threshold: 0.1
+//   //     }
+//   //   );
 
-    observer.observe(document.getElementById(id));
+//   //   observer.observe(document.getElementById(id));
 
-    return () => {
-      observer.disconnect();
-    };
-  }, [id]);
+//   //   return () => {
+//   //     observer.disconnect();
+//   //   };
+//   // }, [id]);
+
+//   return (
+//     <section
+//       // id={id}
+//       className="w-full flex flex-col justify-center items-start overflow-y"
+//       style={{ height: 'fit-content' }}
+//     >
+//       {children}
+//     </section>
+//   );
+// };
+
+
+const Section = (props) => {
+  const { children } = props;
+  const { id } = props;
 
   return (
     <section
       id={id}
-      className="w-full flex flex-col justify-center items-start overflow-y"
-      style={{ height: 'fit-content' }}
+      className={`
+     w-full 
+    flex flex-col justify-center items-start overflow-y
+    `}
+      style={{ height: "fit-content" }}
     >
-      {hasBeenInView && children}
+      {children}
     </section>
   );
 };
 
-
-export function Interface() {
+export const Interface = () => {
   return (
     <>
       <Section id="home">
-        <Suspense fallback={<div>Loading...</div>}>
           <Home />
-        </Suspense>
-      </Section>
+        </Section>
 
       <Section id="about">
-        <Suspense fallback={<div>Loading...</div>}>
-          <AboutMe />
-        </Suspense>
+        <AboutMe />
       </Section>
 
       <Section id="skills">
-        <Suspense fallback={<div>Loading...</div>}>
-          <SkillSection />
-        </Suspense>
+        <SkillSection />
       </Section>
 
       <Section id="projects">
-        <Suspense fallback={<div>Loading...</div>}>
-          <ProjectsSection />
-        </Suspense>
+        <ProjectsSection />
       </Section>
 
       <Section id="contact">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Contact />
-        </Suspense>
+        <Contact />
       </Section>
     </>
   );
-}
+};
 
 export const projects = [
   {

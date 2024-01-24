@@ -80,13 +80,14 @@ const Home = () => {
               Saâd Gmira
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               initial="initial"
               // animate={inView ? "animate" : "initial"}
               
               variants={textVariants}
               className="flex pl-10 text-sm lg:text-xl xl:text-2xl 2xl:text-3xl md:text-lg sm:text-md text-start pt-4  h-12 "
-            >
+            > */}
+            <div className="flex pl-10 text-sm lg:text-xl xl:text-2xl 2xl:text-3xl md:text-lg sm:text-md text-start pt-4  h-12 ">
               <div className=" contact_font text-white ">I'm a</div>
               <div className="flip">
                 <div>
@@ -99,7 +100,8 @@ const Home = () => {
                   <div>Music Producer</div>
                 </div>
               </div>
-            </motion.div>
+            </div>
+            {/* </motion.div> */}
           </motion.div>
           <motion.div
             initial="initial2"
