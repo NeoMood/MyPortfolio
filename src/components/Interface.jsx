@@ -45,7 +45,7 @@ export const Interface = () => {
   return (
     <>
       <Section id="home">
-          {/* <Home /> */}
+          <Home />
         </Section>
 
       <Section id="about">
@@ -57,7 +57,7 @@ export const Interface = () => {
       </Section>
 
       <Section id="projects">
-        {/* <ProjectsSection /> */}
+        <ProjectsSection />
       </Section>
 
       <Section id="contact">
