@@ -237,7 +237,7 @@ export const ProjectsSection = () => {
 
   return (
     <>
-      <div className="flex justify-center bg-gradiant w-screen min-h-[600px] h-[100vh]">
+      <div className="relative flex justify-center bg-gradiant w-screen min-h-[600px] h-[100vh] left-[-1]">
         <div className="text-6xl pt-20 font-extrabold leading-snug drop-shadow-xl text-white">
           <h1 className=""> Projects </h1>
         </div>
