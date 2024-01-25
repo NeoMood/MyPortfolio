@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Tsparticles } from "./tsparticles";
 import { animate, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useMediaQuery } from "react-responsive";
 
 const SkillSection = () => {
   const variants = {
@@ -18,6 +19,11 @@ const SkillSection = () => {
       },
     },
   };
+
+  const isMobileDevice = useMediaQuery({
+    query: "(max-device-width: 1224px)",
+  });
+
   // const [ref, inView] = useInView();
 
   // useEffect(() => {
@@ -29,7 +35,7 @@ const SkillSection = () => {
   return (
     <>
       <div className="skills-bg-gradiant2">
-        <Tsparticles />
+        {!isMobileDevice && (<Tsparticles />)}
         <motion.div
           variants={variants}
           initial={"initial"}

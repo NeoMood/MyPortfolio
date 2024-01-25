@@ -81,7 +81,7 @@ const AboutMe = () => {
         <div className="relative pt-[0px] md:pt-[270px] lg:pt-[250px] xl:pt-[220px] pb-0 2xl:pb-[170px] z-0">
           <Lottie animationData={animationData} className="absolute blobs " />
           <img
-            src="/images/saad_no_bg2.png"
+            src="/images/saad_no_bg22.png"
             alt=""
             // width={"500px"}
             // height={"300px"}
