@@ -43,7 +43,7 @@ const Home = () => {
     },
   };
 
-  // const [ref, inView] = useInView();
+  const [ref, inView] = useInView();
 
   const handleScroll = () => {
     window.scrollTo({
@@ -72,14 +72,14 @@ const Home = () => {
   return (
     <>
       <div
-        // ref={ref}
+        ref={ref}
         className="relative bg-gradiant flex items-center justify-center sm:justify-start w-screen min-h-[900px] h-[100vh]"
       >
         <div ref={containerRef}>
           <motion.div
             initial="initial"
-            // animate={inView ? "animate" : "initial"}
-            animate="animate"
+            animate={inView ? "animate" : "initial"}
+            // animate="animate"
             variants={textVariants}
             id="mytext"
             className="md:pl-20 md:mt-20 "
