@@ -29,7 +29,7 @@ const SkillSection = () => {
   return (
     <>
       <div className="skills-bg-gradiant2">
-        <Tsparticles />
+        {/* <Tsparticles /> */}
         <motion.div
           variants={variants}
           initial={"initial"}
