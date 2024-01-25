@@ -67,7 +67,7 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
 
-  const [dpr, setDpr] = useState(window.devicePixelRatio / 2);
+  const [dpr, setDpr] = useState(window.devicePixelRatio - window.devicePixelRatio / 2);
 
   return (
     <>
@@ -84,11 +84,15 @@ const Home = () => {
             id="mytext"
             className="md:pl-20 md:mt-20 "
           >
-            <motion.div className="pl-10 sm:text-6xl lg:text-7xl 2xl:text-8xl font-extrabold leading-snug text-white thisis">
+            {/* <motion.div className="pl-10 sm:text-6xl lg:text-7xl 2xl:text-8xl font-extrabold leading-snug text-white thisis"> */}
+            {/* <motion.div className="pl-10 text-8xl font-extrabold leading-snug text-white thisis">
               Hi, This is
-            </motion.div>
+            </motion.div> */}
+            <div className="pl-10 leading-snug text-white thisis">
+              Hi, This is
+            </div>
             <motion.div
-              className="pl-10 text-6xl sm:text-6xl lg:text-8xl 2xl:text-9xl font-extrabold leading-snug name text-[#CD853F]"
+              className="pl-10 font-extrabold leading-snug name text-[#CD853F]"
               initial="initial"
               // animate={inView ? "animate" : "initial"}
               animate="animate"
@@ -104,7 +108,7 @@ const Home = () => {
               variants={textVariants}
               className="flex pl-10 text-sm lg:text-xl xl:text-2xl 2xl:text-3xl md:text-lg sm:text-md text-start pt-4  h-12 "
             > */}
-            <div className="flex pl-10 text-sm lg:text-xl xl:text-2xl 2xl:text-3xl md:text-lg sm:text-md text-start pt-4  h-12 ">
+            <div className="flex pl-10 text-sm sm:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl md:text-lg sm:text-md text-start pt-4  h-12 ">
               <div className=" contact_font text-white ">I'm a</div>
               <div className="flip">
                 <div>
@@ -154,8 +158,8 @@ const Home = () => {
             // shadows
           >
             <PerformanceMonitor
-              onIncline={() => setDpr(window.devicePixelRatio / 2)}
-              onDecline={() => setDpr(window.devicePixelRatio / 3)}
+              onIncline={() => setDpr(window.devicePixelRatio - window.devicePixelRatio / 2)}
+              onDecline={() => setDpr(window.devicePixelRatio / 2)}
             >
               <Deskscene />
             </PerformanceMonitor>

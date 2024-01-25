@@ -97,11 +97,12 @@ html {
 
 .thisis{
   font-family: 'Dancing Script', cursive;
+  font-size: 10vw;
 }
 
 .name{
   font-family: 'Barlow', sans-serif;
-  font-size: 5.5rem;
+  font-size: 14vw;
   font-weight: bold;
   letter-spacing: -.03em;
   line-height: 100%;
@@ -109,23 +110,50 @@ html {
   text-shadow: 0 0 20px #171720;
 }
 
-@media (min-width: 901px) {
+@media (min-width: 640px) {
   .name {
-    font-size: 5vw;
+    font-size: 70px;
   }
   .thisis {
-    font-size: 3vw;
+    font-size: 60px;
+  }
+}
+@media (min-width: 	768px) {
+  .name {
+    font-size: 80px;
+  }
+  .thisis {
+    font-size: 60px;
   }
 }
 
-@media (max-width: 900px) {
+
+@media (min-width: 1024px) {
+  .name {
+    font-size: 90px;
+  }
+  .thisis {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .name {
+    font-size: 100px;
+  }
+  .thisis {
+    font-size: 80px;
+  }
+}
+
+/* @media (max-width: 900px) {
   .name {
     font-size: 40px;
   }
   .thisis {
     font-size: 40px;
   }
-}
+} */
 
 
 .bg-gradiant {

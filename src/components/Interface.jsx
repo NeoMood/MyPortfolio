@@ -233,7 +233,7 @@ export const ProjectsSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const [dpr, setDpr] = useState(window.devicePixelRatio / 2);
+  const [dpr, setDpr] = useState(window.devicePixelRatio - window.devicePixelRatio / 2);
 
   return (
     <>
@@ -251,8 +251,8 @@ export const ProjectsSection = () => {
               ref={canvasRef}
             >
               <PerformanceMonitor
-                onIncline={() => setDpr(window.devicePixelRatio / 2)}
-                onDecline={() => setDpr(window.devicePixelRatio / 3)}
+                onIncline={() => setDpr(window.devicePixelRatio - window.devicePixelRatio / 2)}
+                onDecline={() => setDpr(window.devicePixelRatio / 2)}
               >
                 <Experience />
               </PerformanceMonitor>

@@ -44,7 +44,7 @@ const Deskscene = () => {
       {/* <ambientLight intensity={0.3} /> */}
       <perspectiveCamera
         makeDefault
-        position={[1, 0.3, 2]}
+        position={[1.1, 0.3, 2]}
         fov={75}
         lookAt={[0, 0, 0]}
         // near={0.01}
@@ -67,8 +67,8 @@ const Deskscene = () => {
               // position-y={isSmallScreen ? 0.6 : 0.04}
               position-y={isSmallScreen ? -0.65 : 0.04}
               rotation-x={[Math.PI / 9]}
-              rotation-y={[-Math.PI / 4]}
-              scale={isSmallScreen ? DeskScalingFactor*1.6 : DeskScalingFactor}
+              rotation-y={[-Math.PI / 3.3]}
+              scale={isSmallScreen ? DeskScalingFactor*2 : DeskScalingFactor}
             >
               {/* <group castShadow receiveShadow > */}
               <Desk position={[0, -1, 0]} rotation-y={[Math.PI]} />
