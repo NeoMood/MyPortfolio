@@ -245,7 +245,7 @@ export const ProjectsSection = () => {
           <Suspense fallback={null}>
             <Canvas
               // shadows
-              camera={{ fov: 75, position: [-1, 2, 7] }}
+              camera={{ fov: 75, position: [-1, 2, 5] }}
               dpr={dpr}
               frameloop={frameloop}
               ref={canvasRef}

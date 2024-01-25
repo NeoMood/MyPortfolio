@@ -66,7 +66,7 @@ export const Experience = () => {
             <MeshReflectorMaterial
               blur={[300, 30]}
               resolution={1080}
-              mixBlur={0.6}
+              mixBlur={0.5}
               mixStrength={80}
               roughness={1}
               depthScale={1.2}
@@ -78,7 +78,7 @@ export const Experience = () => {
           </mesh>
         )}
         <Environment preset="sunset" />
-        {/* <Stars radius={5} depth={50} count={1000} factor={2} saturation={0} fade /> */}
+        {!isMobileDevice && (<Stars radius={5} depth={50} count={800} factor={2} saturation={0} fade />)}
       </PresentationControls>
       {/* <EffectComposer disableNormalPass>
               <Bloom luminanceThreshold={0} mipmapBlur luminanceSmoothing={0.0} intensity={0.4} />

@@ -29,13 +29,6 @@ const AboutMe = () => {
   }, []);
 
 
-  // const [ref, inView] = useInView();
-
-  // useEffect(() => {
-  //   if (inView) {
-  //     animate("animate");
-  //   }
-  // }, [inView]);
 
   return (
     <div className="relative flex items-center justify-center flex-col skills-bg-gradiant w-screen h-[1080px]">
@@ -73,7 +66,6 @@ const AboutMe = () => {
               </span>
             </motion.p>
 
-            {/* <p className="mt-4 text-sm text-white contact_font md:mt-8"></p> */}
             <div className="pb-20">
               <a
                 href="#contact"
