@@ -38,7 +38,7 @@ const Deskscene = () => {
   const viewport = useThree((state) => state.viewport);
   const DeskScalingFactor = Math.min(window.innerWidth / 1500, 1);
   const DeskPositionFactor = window.innerWidth / 3000;
-  const isSmallScreen = window.innerWidth < 780;
+  const isSmallScreen = window.innerWidth < 640;
   return (
     <>
       {/* <ambientLight intensity={0.3} /> */}
@@ -64,10 +64,11 @@ const Deskscene = () => {
               castShadow
               receiveShadow
               position-x={isSmallScreen ? -1 : DeskPositionFactor - 0.4}
-              position-y={isSmallScreen ? 0.6 : 0.04}
+              // position-y={isSmallScreen ? 0.6 : 0.04}
+              position-y={isSmallScreen ? -0.65 : 0.04}
               rotation-x={[Math.PI / 9]}
               rotation-y={[-Math.PI / 4]}
-              scale={DeskScalingFactor}
+              scale={isSmallScreen ? DeskScalingFactor*1.6 : DeskScalingFactor}
             >
               {/* <group castShadow receiveShadow > */}
               <Desk position={[0, -1, 0]} rotation-y={[Math.PI]} />

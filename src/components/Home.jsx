@@ -73,9 +73,9 @@ const Home = () => {
     <>
       <div
         ref={ref}
-        className="relative bg-gradiant flex items-center justify-center sm:justify-start w-screen min-h-[900px] h-[100vh]"
+        className="relative bg-gradiant flex items-start sm:items-center justify-center sm:justify-start w-screen min-h-[900px] h-[100vh]"
       >
-        <div ref={containerRef}>
+        <div className="pt-[200px] sm:pt-0" ref={containerRef}>
           <motion.div
             initial="initial"
             animate={inView ? "animate" : "initial"}
@@ -84,11 +84,11 @@ const Home = () => {
             id="mytext"
             className="md:pl-20 md:mt-20 "
           >
-            <motion.div className="pl-10 text-4xl md:text-6xl lg:text-7xl 2xl:text-8xl font-extrabold leading-snug text-white thisis">
+            <motion.div className="pl-10 sm:text-6xl lg:text-7xl 2xl:text-8xl font-extrabold leading-snug text-white thisis">
               Hi, This is
             </motion.div>
             <motion.div
-              className="pl-10 text-4xl md:text-6xl lg:text-8xl 2xl:text-9xl font-extrabold leading-snug name text-[#CD853F]"
+              className="pl-10 text-6xl sm:text-6xl lg:text-8xl 2xl:text-9xl font-extrabold leading-snug name text-[#CD853F]"
               initial="initial"
               // animate={inView ? "animate" : "initial"}
               animate="animate"

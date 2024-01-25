@@ -23,7 +23,7 @@ const AboutMe = () => {
   const [animationData, setAnimationData] = useState(null);
 
   useEffect(() => {
-    fetch("/animations/blobs.json")
+    fetch("/animations/blobs-optimized.json")
       .then((response) => response.json())
       .then((data) => setAnimationData(data));
   }, []);
