@@ -1,11 +1,17 @@
-import React, { useEffect, Suspense, useRef, lazy, useState, useCallback } from "react";
+import React, {
+  useEffect,
+  Suspense,
+  useRef,
+  lazy,
+  useState,
+  useCallback,
+} from "react";
 import { Experience } from "./Experience";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
 import { atom, useAtom } from "jotai";
-import { Image, Text } from "@react-three/drei";
-
+import { Image, Text, PerformanceMonitor } from "@react-three/drei";
 
 // import { Home } from "./Home";
 // import { AboutMe } from "./Aboutme";
@@ -17,11 +23,10 @@ const AboutMe = lazy(() => import("./Aboutme"));
 const SkillSection = lazy(() => import("./Skills"));
 const Contact = lazy(() => import("./Contact"));
 
-
 const Section = (props) => {
   const { children } = props;
   const { id } = props;
-  
+
   // useEffect(() => {
   //   console.log(`Section ${id} rendered`);
   // });
@@ -41,12 +46,12 @@ const Section = (props) => {
 };
 
 export const Interface = () => {
-  console.log(`Section rendered`);
+  // console.log(`Section rendered`);
   return (
     <>
       <Section id="home">
-          <Home />
-        </Section>
+        <Home />
+      </Section>
 
       <Section id="about">
         <AboutMe />
@@ -213,6 +218,23 @@ export const ProjectsSection = () => {
     setCurrentProject((currentProject - 1 + projects.length) % projects.length);
   }, [currentProject, setCurrentProject]);
 
+  const canvasRef = useRef();
+  const [frameloop, setFrameloop] = useState("never");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([{ isIntersecting }]) => {
+      setFrameloop(isIntersecting ? "always" : "never");
+    }, {});
+
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const [dpr, setDpr] = useState(window.devicePixelRatio / 2);
+
   return (
     <>
       <div className="flex justify-center bg-gradiant w-screen min-h-[600px] h-[100vh]">
@@ -221,8 +243,19 @@ export const ProjectsSection = () => {
         </div>
         <div className="absolute w-full min-h-[600px] h-[100vh]">
           <Suspense fallback={null}>
-            <Canvas shadows camera={{ fov: 75, position: [-1, 2, 7] }}>
-              <Experience />
+            <Canvas
+              // shadows
+              camera={{ fov: 75, position: [-1, 2, 7] }}
+              dpr={dpr}
+              frameloop={frameloop}
+              ref={canvasRef}
+            >
+              <PerformanceMonitor
+                onIncline={() => setDpr(window.devicePixelRatio / 2)}
+                onDecline={() => setDpr(window.devicePixelRatio / 3)}
+              >
+                <Experience />
+              </PerformanceMonitor>
             </Canvas>
           </Suspense>
           <button

@@ -3,17 +3,17 @@ import Deskscene from "./Deskscene";
 import { Canvas } from "@react-three/fiber";
 import { animate, motion } from "framer-motion";
 import Lottie from "lottie-react";
-import { Loader } from "@react-three/drei";
+import { Loader, PerformanceMonitor } from "@react-three/drei";
 import { useInView } from "react-intersection-observer";
 
 const Home = () => {
   const containerRef = useRef(null);
   const [animationData, setAnimationData] = useState(null);
-  
+
   useEffect(() => {
     fetch("/animations/scroll.json")
-    .then((response) => response.json())
-    .then((data) => setAnimationData(data));
+      .then((response) => response.json())
+      .then((data) => setAnimationData(data));
   }, []);
 
   const textVariants = {
@@ -51,6 +51,23 @@ const Home = () => {
       behavior: "smooth",
     });
   };
+
+  const canvasRef = useRef();
+  const [frameloop, setFrameloop] = useState("never");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([{ isIntersecting }]) => {
+      setFrameloop(isIntersecting ? "always" : "never");
+    }, {});
+
+    if (canvasRef.current) {
+      observer.observe(canvasRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const [dpr, setDpr] = useState(window.devicePixelRatio / 2);
 
   return (
     <>
@@ -130,8 +147,18 @@ const Home = () => {
       </div>
       <div className="ml-0 absolute w-full h-[1100px]">
         <Suspense fallback={null}>
-          <Canvas shadows>
-            <Deskscene />
+          <Canvas
+            dpr={dpr}
+            frameloop={frameloop}
+            ref={canvasRef}
+            // shadows
+          >
+            <PerformanceMonitor
+              onIncline={() => setDpr(window.devicePixelRatio / 2)}
+              onDecline={() => setDpr(window.devicePixelRatio / 3)}
+            >
+              <Deskscene />
+            </PerformanceMonitor>
           </Canvas>
         </Suspense>
       </div>
