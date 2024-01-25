@@ -39,7 +39,7 @@ export const Experience = () => {
                   <Projects/>
                 </group>
               </Float>
-            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.1, 0]}>
+            {/* <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -2.1, 0]}>
               <planeGeometry args={[170, 30]} />
               <MeshReflectorMaterial
                 blur={[300, 30]}
@@ -53,9 +53,9 @@ export const Experience = () => {
                 color="#202020"
                 metalness={0.8}
               />
-            </mesh>
+            </mesh> */}
             <Environment preset="sunset" />
-            <Stars radius={5} depth={50} count={1000} factor={2} saturation={0} fade />
+            {/* <Stars radius={5} depth={50} count={1000} factor={2} saturation={0} fade /> */}
             </PresentationControls>
             {/* <EffectComposer disableNormalPass>
               <Bloom luminanceThreshold={0} mipmapBlur luminanceSmoothing={0.0} intensity={0.4} />
