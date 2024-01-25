@@ -3,7 +3,7 @@ import { Macbook } from "./Macbook";
 import { Avatar } from "./Avatar";
 import { Projects } from "./Interface";
 import { Canvas, useThree } from "@react-three/fiber";
-import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";
+// import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";
 
 
 

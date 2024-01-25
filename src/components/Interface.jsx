@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense, useRef, lazy, useState } from "react";
+import React, { useEffect, Suspense, useRef, lazy, useState, useCallback } from "react";
 import { Experience } from "./Experience";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { animate, useMotionValue } from "framer-motion";
@@ -17,45 +17,14 @@ const AboutMe = lazy(() => import("./Aboutme"));
 const SkillSection = lazy(() => import("./Skills"));
 const Contact = lazy(() => import("./Contact"));
 
-// const Section = ({ id, children }) => {
-//   // const [hasBeenInView, setHasBeenInView] = useState(false);
-
-//   // useEffect(() => {
-//   //   const observer = new IntersectionObserver(
-//   //     ([entry]) => {
-//   //       if (entry.isIntersecting) {
-//   //         setHasBeenInView(true);
-//   //       }
-//   //     },
-//   //     {
-//   //       root: null,
-//   //       rootMargin: '0px',
-//   //       threshold: 0.1
-//   //     }
-//   //   );
-
-//   //   observer.observe(document.getElementById(id));
-
-//   //   return () => {
-//   //     observer.disconnect();
-//   //   };
-//   // }, [id]);
-
-//   return (
-//     <section
-//       // id={id}
-//       className="w-full flex flex-col justify-center items-start overflow-y"
-//       style={{ height: 'fit-content' }}
-//     >
-//       {children}
-//     </section>
-//   );
-// };
-
 
 const Section = (props) => {
   const { children } = props;
   const { id } = props;
+  
+  // useEffect(() => {
+  //   console.log(`Section ${id} rendered`);
+  // });
 
   return (
     <section
@@ -72,10 +41,11 @@ const Section = (props) => {
 };
 
 export const Interface = () => {
+  console.log(`Section rendered`);
   return (
     <>
       <Section id="home">
-          <Home />
+          {/* <Home /> */}
         </Section>
 
       <Section id="about">
@@ -87,7 +57,7 @@ export const Interface = () => {
       </Section>
 
       <Section id="projects">
-        <ProjectsSection />
+        {/* <ProjectsSection /> */}
       </Section>
 
       <Section id="contact">
@@ -235,30 +205,17 @@ export const currentProjectAtom = atom(0);
 export const ProjectsSection = () => {
   const [currentProject, setCurrentProject] = useAtom(currentProjectAtom);
 
-  const nextProject = () => {
+  const nextProject = useCallback(() => {
     setCurrentProject((currentProject + 1) % projects.length);
-  };
+  }, [currentProject, setCurrentProject]);
 
-  const previousProject = () => {
+  const previousProject = useCallback(() => {
     setCurrentProject((currentProject - 1 + projects.length) % projects.length);
-  };
+  }, [currentProject, setCurrentProject]);
 
   return (
     <>
       <div className="flex justify-center bg-gradiant w-screen min-h-[600px] h-[100vh]">
-        {/* <div
-          className="absolute bottom-0 left-0"
-          style={{
-            // bottom: "-15px",
-            // backgroundImage: `url(/wave-top.svg)`,
-            backgroundColor: "#fff",
-            aspectRatio: 960 / 300,
-            width: "100%",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-          }}
-        ></div> */}
         <div className="text-6xl pt-20 font-extrabold leading-snug drop-shadow-xl text-white">
           <h1 className=""> Projects </h1>
         </div>
@@ -292,19 +249,21 @@ export const Projects = () => {
   return (
     <group>
       {projects.map((project, index) => {
+        const isCurrentProject = currentProject === index;
+        const xPosition = 0 + (index - currentProject) * 0.25;
         return (
           <motion.group
             key={"project_" + index}
             position={[index * 0.25, 0, 0]}
             animate={{
-              x: 0 + (index - currentProject) * 0.25,
-              y: currentProject === index ? 0 : 0.02,
-              z: currentProject === index ? 0 : 0,
-              rotateX: currentProject === index ? 0 : -Math.PI / 12,
-              rotateZ: currentProject === index ? 0 : (-0.1 * Math.PI) / 12,
+              x: xPosition,
+              y: isCurrentProject ? 0 : 0.02,
+              z: isCurrentProject ? 0 : 0,
+              rotateX: isCurrentProject ? 0 : -Math.PI / 12,
+              rotateZ: isCurrentProject ? 0 : (-0.1 * Math.PI) / 12,
             }}
           >
-            <Project project={project} highlighted={index === currentProject} />
+            <Project project={project} highlighted={isCurrentProject} />
           </motion.group>
         );
       })}

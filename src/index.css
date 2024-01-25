@@ -7,7 +7,6 @@
 @tailwind utilities;
 
 #root {
-  /* min-height: 100vh; */
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -19,6 +18,7 @@
 body {
   margin: 0;
   overflow-x: hidden;
+  background-color: #000000;
 }
 
 html {
@@ -101,8 +101,6 @@ html {
 
 .name{
   font-family: 'Barlow', sans-serif;
-  /* font-family: 'Poppins', sans-serif; */
-  /* font-family: 'Dancing Script', cursive; */
   font-size: 5.5rem;
   font-weight: bold;
   letter-spacing: -.03em;
@@ -120,37 +118,28 @@ html {
   }
 }
 
-/* For screens 900px or smaller */
 @media (max-width: 900px) {
   .name {
-    font-size: 40px; /* adjust as needed */
+    font-size: 40px;
   }
   .thisis {
-    font-size: 40px; /* adjust as needed */
+    font-size: 40px;
   }
 }
 
-/* @media (max-width: 1300px) {
-  .name {
-    font-size: 4rem; 
-  }
-  .thisis{
-    font-size: 3rem;
-  }
-} */
 
 .bg-gradiant {
   background: radial-gradient(at 50% 100%, #272730 40%, #171720 80%, #070710 100%);
+  /* background: #070710; */
 }
 
 .skills-bg-gradiant {
-  /* background: radial-gradient(at 50% 100%, #272730 40%, #171720 80%, #070710 100%); */
   background: radial-gradient(at 50% 90%, #272730 5%, #171720 50%);
+  /* background: #070710; */
 }
 
 .skills-bg-gradiant2 {
   background: #171720;
-  /* background: #fff; */
 }
 
 .skillscontainer {
@@ -186,43 +175,6 @@ html {
   justify-content: center;
   position: relative;
 }
-
-
-/* .spananimation {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #4246ce;
-  color: #0D0D0D;
-  
-  clip-path: polygon(0 50%, 100% 50%, 100% 50%, 0 50%);
-  transform-origin: center;
-  transition: all cubic-bezier(.1,.5,.5,1) 1s;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-} */
-
-/* .spananimation {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: peru;
-  color: #ffffff;
-  
-  clip-path: polygon(0 0, 0 100%, 0% 100%, 0% 0%);
-  transform-origin: center;
-  transition: all cubic-bezier(.1,.5,.5,1) 0.5s;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.textanimation:hover > .spananimation {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-} */
 
 .spananimation {
   position: absolute;
@@ -301,16 +253,6 @@ a {
 .flip div:first-child {
   animation: show 5s linear infinite;
 }
-/* 
-.flip div div {
-  background:peru;
-}
-.flip div:first-child div {
-  background:peru;
-}
-.flip div:last-child div {
-  background:peru;
-} */
 
 @keyframes show {
   0% {margin-top:-270px;}

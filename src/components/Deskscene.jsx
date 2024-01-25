@@ -11,7 +11,7 @@ import { Desk } from "./Desk";
 import { Typing } from "./Typing";
 // import { Typing } from "./test2";
 import { Suspense } from "react";
-import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";
+// import { Bloom, DepthOfField, EffectComposer } from "@react-three/postprocessing";
 import { useThree } from "@react-three/fiber";
 import { motion } from "framer-motion";
 

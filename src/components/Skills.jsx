@@ -18,7 +18,6 @@ const SkillSection = () => {
       },
     },
   };
-
   // const [ref, inView] = useInView();
 
   // useEffect(() => {

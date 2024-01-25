@@ -9,11 +9,11 @@ import { useInView } from "react-intersection-observer";
 const Home = () => {
   const containerRef = useRef(null);
   const [animationData, setAnimationData] = useState(null);
-
+  
   useEffect(() => {
     fetch("/animations/scroll.json")
-      .then((response) => response.json())
-      .then((data) => setAnimationData(data));
+    .then((response) => response.json())
+    .then((data) => setAnimationData(data));
   }, []);
 
   const textVariants = {

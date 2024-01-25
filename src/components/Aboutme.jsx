@@ -28,6 +28,7 @@ const AboutMe = () => {
       .then((data) => setAnimationData(data));
   }, []);
 
+
   // const [ref, inView] = useInView();
 
   // useEffect(() => {

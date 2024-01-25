@@ -23,6 +23,7 @@ export function Typing(props) {
         <group>
           <primitive object={nodes.Hips} />
           <skinnedMesh
+            frustumCulled={false}
             castShadow
             receiveShadow
             name="EyeLeft"
@@ -33,6 +34,7 @@ export function Typing(props) {
             morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
             />
           <skinnedMesh
+            frustumCulled={false}
             castShadow
             receiveShadow
             name="EyeRight"
@@ -43,6 +45,7 @@ export function Typing(props) {
             morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
             />
           <skinnedMesh
+            frustumCulled={false}
             castShadow
             receiveShadow
             name="Wolf3D_Head"
@@ -53,6 +56,7 @@ export function Typing(props) {
             morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
             />
           <skinnedMesh
+            frustumCulled={false}
             castShadow
             receiveShadow
             name="Wolf3D_Teeth"
@@ -63,6 +67,7 @@ export function Typing(props) {
             morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
             />
           <skinnedMesh
+            frustumCulled={false}
             castShadow
             receiveShadow
             geometry={nodes.Wolf3D_Hair.geometry}
@@ -70,6 +75,7 @@ export function Typing(props) {
             skeleton={nodes.Wolf3D_Hair.skeleton}
             />
           <skinnedMesh
+            frustumCulled={false}
             castShadow
             receiveShadow
             geometry={nodes.Wolf3D_Body.geometry}
@@ -77,6 +83,7 @@ export function Typing(props) {
             skeleton={nodes.Wolf3D_Body.skeleton}
             />
           <skinnedMesh
+            frustumCulled={false}
             castShadow
             receiveShadow
             geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
@@ -84,6 +91,7 @@ export function Typing(props) {
             skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
             />
           <skinnedMesh
+            frustumCulled={false}
             castShadow
             receiveShadow
             geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
@@ -91,6 +99,7 @@ export function Typing(props) {
             skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
             />
           <skinnedMesh
+            frustumCulled={false}
             castShadow
             receiveShadow
             geometry={nodes.Wolf3D_Outfit_Top.geometry}
