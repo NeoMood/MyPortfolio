@@ -73,7 +73,7 @@ const Home = () => {
     <>
       <div
         ref={ref}
-        className="relative bg-gradiant flex items-start sm:items-center justify-center sm:justify-start w-screen min-h-[900px] h-[100vh]"
+        className="relative bg-gradiant flex items-start sm:items-center justify-center sm:justify-start w-screen min-h-[700px] h-[100vh]"
       >
         <div className="pt-[200px] sm:pt-0" ref={containerRef}>
           <motion.div

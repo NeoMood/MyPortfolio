@@ -92,7 +92,7 @@ const Contact = () => {
   
     return (
       <>
-        <div className="relative flex justify-center items-center sm:pl-40 sm:justify-start skills-bg-gradiant w-screen h-[1000px] min-h-[100vh]">
+        <div className="relative flex justify-center items-center sm:pl-40 pb-10 sm:justify-start skills-bg-gradiant w-screen h-[800px] min-h-[100vh]">
           <div
             className="absolute top-0 left-0"
             style={{
@@ -109,7 +109,7 @@ const Contact = () => {
             initial="initial"
             animate={inView ? "animate" : "initial"}
             variants={aboutVariants}
-            className="flex rounded-lg p-5 w-[400px] h-[400px] flex-col z-10"
+            className="flex rounded-lg p-5 w-[350px] md:w-[400px] lg:w-[500px] xl:w-[700px] h-[400px] flex-col z-10"
           >
             <motion.h1
               variants={aboutVariants}
@@ -118,13 +118,13 @@ const Contact = () => {
               {" "}
               Let's <span className="text-[peru]">Talk</span>!
             </motion.h1>
-            <form onSubmit={sendEmail} ref={form}>
+            <form onSubmit={sendEmail} ref={form} className="px-2">
               <motion.div variants={formVariants} className="mb-3">
                 <label className="font-bold text-sm block mb-3 pl-1 text-white contact_font">
                   Your Name
                 </label>
                 <input
-                  className="rounded-lg bg-slate-700 pl-3 shadow-xl block h-[40px] w-full text-white"
+                  className="rounded-lg bg-slate-700 pl-3 shadow-xl block h-[40px] xl:h-[50px] w-full text-white"
                   type="text"
                   name="from_name"
                   value={name}
@@ -137,7 +137,7 @@ const Contact = () => {
                   Your Email
                 </label>
                 <input
-                  className="rounded-lg bg-slate-700 pl-3 shadow-xl block h-[40px] w-full text-white"
+                  className="rounded-lg bg-slate-700 pl-3 shadow-xl block h-[40px] xl:h-[50px] w-full text-white"
                   type="text"
                   name="user_email"
                   value={email}
@@ -150,7 +150,7 @@ const Contact = () => {
                   Your Message
                 </label>
                 <textarea
-                  className="rounded-2xl bg-slate-700 pl-3 shadow-xl block h-[70px] w-full max-h-[150px] min-h-[70px] text-white"
+                  className="rounded-2xl bg-slate-700 pl-3 shadow-xl block h-[70px] xl:h-[90px] w-full max-h-[150px] min-h-[70px] text-white"
                   name="message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
@@ -176,7 +176,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon className="w-[30px] h-[30px]" icon={faGithub} />
+                <FontAwesomeIcon className="w-[25px] h-[25px]" icon={faGithub} />
                 <div className="tooltip">Github</div>
               </a>
               <a
@@ -186,7 +186,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
-                  className="w-[30px] h-[30px]"
+                  className="w-[25px] h-[25px]"
                   icon={faLinkedin}
                 />
                 <div className="tooltip">LinkedIn</div>
@@ -198,7 +198,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
-                  className="w-[30px] h-[30px]"
+                  className="w-[25px] h-[25px]"
                   icon={faInstagram}
                 />
                 <div className="tooltip">Instagram</div>
@@ -210,7 +210,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
               >
                 <FontAwesomeIcon
-                  className="w-[30px] h-[30px]"
+                  className="w-[25px] h-[25px]"
                   icon={faEnvelope}
                 />
                 <div className="tooltip">Mail</div>
@@ -221,11 +221,12 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon className="w-[30px] h-[30px]" icon={faPhone} />
+                <FontAwesomeIcon className="w-[25px] h-[25px]" icon={faPhone} />
                 <div className="tooltip">Phone</div>
               </a>
             </motion.div>
           </motion.div>
+          <footer className="absolute bottom-0 left-0 w-full text-white  text-[12px] p-3 text-center flex justify-center items-center">©2024 by Saâd Gmira</footer>
         </div>
       </>
     );

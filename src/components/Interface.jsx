@@ -78,21 +78,21 @@ export const projects = [
     image: "/images/transcendance.jpg",
     url: "https://github.com/NeoMood/ft_transcendence",
     description:
-      "A modern twist on classic Pong with 3D gameplay,\nprofile creation, friend connection, real-time chat, and\nmultiplayer matches.",
+      "A full-stack website showcasing a modern twist\non classic Pong with 3D gameplay,profile creation,\nfriend connection, real-time chat,\nand multiplayer matches.",
   },
   {
     title: "Ft_IRC",
     image: "/images/irc.jpg",
     url: "https://github.com/NeoMood/ft_irc",
     description:
-      " a reliable IRC server built in C++, enabling real-time user communication.\n Implemented core features for authentication, message routing, and channel management",
+      " a reliable IRC server built in C++, enabling real-time user communication.Implemented core features for authentication, message routing, and channel management",
   },
   {
     title: "INCEPTION",
     image: "/images/inception.jpg",
     url: "https://github.com/NeoMood/Inception",
     description:
-      "a system administration project that involves setting up a small infrastructure\ncomposed of different services by virtualizing multiple Docker images",
+      "a system administration project that involves setting up a small infrastructure composed of different services by virtualizing multiple Docker images",
   },
   {
     title: "CUB3D",
@@ -106,14 +106,14 @@ export const projects = [
     image: "/images/minishell.jpg",
     url: "https://github.com/NeoMood/Minishell",
     description:
-      "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
+      "A C based Unix shell recreation, inspired by the functionalities of Bash, with essential features for command-line interaction and process management.",
   },
   {
     title: "Philosophers",
     image: "/images/Philo.jpg",
     url: "https://github.com/NeoMood/Philosophers",
     description:
-      "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
+      "A C-based project delving into thread creation, mutexes, processes, and semaphores. Emphasizes the essentials of process threading while simulating the classic Dining Philosophers problem.",
   },
   {
     title: "Piscine C++",
@@ -187,15 +187,19 @@ export const Project = (props) => {
             color={"#fff"}
             scale={0.16}
             fontSize={0.2}
-            position={[-0, 0.13, 0]}
+            position={[-0, 0.14, 0]}
           >
             {project.title}
           </Text>
           <Text
             color={"#fff"}
             scale={0.1}
-            fontSize={0.1}
+            fontSize={0.11}
             position={[-0, 0.09, 0]}
+            lineHeight={1.3}
+            textAlign="center"
+            maxWidth={3}
+            overflowWrap="break-word"
           >
             {project.description}
           </Text>

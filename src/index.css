@@ -88,6 +88,7 @@ html {
   color: peru;
   margin: 0;
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+  transition: opacity 0.1s ease-in-out 0.1s;
 }
 
 .logo:hover{
@@ -366,8 +367,8 @@ a {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   margin: 0 0.5rem;
   margin-top: 50px;
   border-radius: 50%;
