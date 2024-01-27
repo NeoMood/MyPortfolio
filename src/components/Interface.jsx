@@ -249,7 +249,8 @@ export const ProjectsSection = () => {
         <div className="absolute z-10 flex justify-between items-start space-x-2 md:space-x-10 pt-10 xl:pt-[100px] font-extrabold leading-snug drop-shadow-xl text-white">
           <button
             onClick={previousProject}
-            className="text-xl  hover:backdrop-blur-[10px] text-white font-bold px-4 rounded backdrop-blur-[6px]"
+            className=""
+            id="slider-button"
           >
             {/* &larr; Previous */}
             <FontAwesomeIcon
@@ -260,7 +261,8 @@ export const ProjectsSection = () => {
           <h1 className="contact_font text-3xl md:text-6xl 2xl:text-7xl"> Projects </h1>
           <button
             onClick={nextProject}
-            className="text-xl   hover:backdrop-blur-[10px] text-white font-bold px-4 rounded backdrop-blur-[6px] "
+            className=""
+            id="slider-button"
           >
             {/* Next &rarr; */}
             <FontAwesomeIcon

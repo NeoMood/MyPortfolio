@@ -11,99 +11,109 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import Lottie from "lottie-react";
 
 const Contact = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
-  
-    const form = useRef();
-  
-    const sendEmail = (e) => {
-      e.preventDefault();
-  
-      emailjs
-        .sendForm(
-          "service_9md62lb",
-          "template_ouwuwee",
-          form.current,
-          "AuV6J6DkkXzcu1cCJ"
-        )
-        .then(
-          (result) => {
-            if (result.text === "OK") {
-              Swal.fire({
-                title: "Thank You!",
-                text: "Message sent successfully!",
-                icon: "success",
-              });
-              setName("");
-              setEmail("");
-              setMessage("");
-            }
-          },
-          (error) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_9md62lb",
+        "template_ouwuwee",
+        form.current,
+        "AuV6J6DkkXzcu1cCJ"
+      )
+      .then(
+        (result) => {
+          if (result.text === "OK") {
             Swal.fire({
-              title: "Oops...",
-              text: "Something went wrong!",
-              icon: "error",
+              title: "Thank You!",
+              text: "Message sent successfully!",
+              icon: "success",
             });
+            setName("");
+            setEmail("");
+            setMessage("");
           }
-        );
-    };
-  
-    const aboutVariants = {
-      initial: {
-        x: -200,
-        opacity: 0,
-      },
-      animate: {
-        x: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-          staggerChildren: 0.2,
         },
+        (error) => {
+          Swal.fire({
+            title: "Oops...",
+            text: "Something went wrong!",
+            icon: "error",
+          });
+        }
+      );
+  };
+
+  const aboutVariants = {
+    initial: {
+      x: -200,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.2,
       },
-    };
-  
-    const formVariants = {
-      initial: {
-        x: -100,
-        opacity: 0,
+    },
+  };
+
+  const formVariants = {
+    initial: {
+      x: -100,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 1,
       },
-      animate: {
-        x: 0,
-        opacity: 1,
-        transition: {
-          duration: 0.5,
-          staggerChildren: 1,
-        },
-      },
-    };
-  
-    const [ref, inView] = useInView();
-  
-    useEffect(() => {
-      if (inView) {
-        animate("animate");
-      }
-    }, [inView]);
-  
-    return (
-      <>
-        <div className="relative flex justify-center items-center sm:pl-40 pb-10 sm:justify-start skills-bg-gradiant w-screen h-[800px] min-h-[100vh]">
-          <div
-            className="absolute top-0 left-0"
-            style={{
-              backgroundImage: `url(/wave-contact.svg)`,
-              aspectRatio: 960 / 300,
-              width: "100%",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          ></div>
+    },
+  };
+
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      animate("animate");
+    }
+  }, [inView]);
+
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch("/animations/paperplane2.json")
+      .then((response) => response.json())
+      .then((data) => setAnimationData(data));
+  }, []);
+
+  return (
+    <>
+      <div className="relative flex justify-center items-center sm:pl-40 pb-10 sm:justify-start skills-bg-gradiant w-screen h-[800px] min-h-[100vh] overflow-hidden">
+        <div
+          className="absolute top-0 left-0"
+          style={{
+            backgroundImage: `url(/wave-contact.svg)`,
+            aspectRatio: 960 / 300,
+            width: "100%",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        ></div>
+        <div className="flex items-center justify-center xl:justify-around w-full">
           <motion.div
             ref={ref}
             initial="initial"
@@ -176,7 +186,10 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FontAwesomeIcon className="w-[25px] h-[25px]" icon={faGithub} />
+                <FontAwesomeIcon
+                  className="w-[25px] h-[25px]"
+                  icon={faGithub}
+                />
                 <div className="tooltip">Github</div>
               </a>
               <a
@@ -226,10 +239,14 @@ const Contact = () => {
               </a>
             </motion.div>
           </motion.div>
-          <footer className="absolute bottom-0 left-0 w-full text-white  text-[12px] p-3 text-center flex justify-center items-center">©2024 by Saâd Gmira</footer>
+      <Lottie animationData={animationData} className="mt-[150px] scale-[0.7] hidden lg:block" />
         </div>
-      </>
-    );
-  };
+        <footer className="absolute bottom-0 left-0 w-full text-white  text-[12px] p-3 text-center flex justify-center items-center">
+          ©2024 by Saâd Gmira
+        </footer>
+      </div>
+    </>
+  );
+};
 
 export default Contact;
