@@ -12,6 +12,7 @@ import {
 } from "@react-three/drei";
 import { Macbook } from "./Macbook";
 import { Avatar } from "./Avatar";
+// import { Avatar } from "./test";
 import { Projects } from "./Interface";
 import { Canvas, useThree } from "@react-three/fiber";
 import { MeshBasicMaterial } from "three";
