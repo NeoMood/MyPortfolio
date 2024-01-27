@@ -113,42 +113,42 @@ export const projects = [
     image: "/images/Philo.jpg",
     url: "https://github.com/NeoMood/Philosophers",
     description:
-      "A C-based project delving into thread creation, mutexes, processes, and semaphores. Emphasizes the essentials of process threading while simulating the classic Dining Philosophers problem.",
+      "A C based project diving into thread creation, mutexes, processes, and semaphores. Emphasizes the essentials of process threading while simulating the classic Dining Philosophers problem.",
   },
   {
     title: "Piscine C++",
     image: "/images/cpp.jpg",
     url: "https://github.com/NeoMood/CPP",
     description:
-      "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
+      "An immersive program designed to provide hands-on experience with C++ concepts and programming",
   },
   {
     title: "So_long",
     image: "/images/solong.jpg",
     url: "https://github.com/NeoMood/so_long",
     description:
-      "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
+      "A graphic project in C for developing a 2D game using 42minilbx library.",
   },
   {
     title: "Pushswap",
     image: "/images/pushswap.jpg",
     url: "https://github.com/NeoMood/Push_swap",
     description:
-      "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
+      "A C based project requiring the efficient organization of two stacks, A and B. The goal is to sort Stack A, initially containing a random list of numbers, using a minimal number of predefined actions.",
   },
   {
-    title: "get_next_line",
+    title: "Get_Next_Line",
     image: "/images/getnextline.jpg",
     url: "https://github.com/NeoMood/Get_Next_Line",
     description:
-      "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
+      "A C function that reads lines ending with newline characters from a file descriptor. Upon successive calls, the function fetches the next line",
   },
   {
     title: "Ft_printf",
     image: "/images/ftprintf.jpg",
     url: "https://github.com/NeoMood/ft_printf",
     description:
-      "a 3D game in C, employing ray-casting, inspired by the iconic Wolfenstein3D.",
+      "A C project focused on replicating the well-known printf function from the C library. Gaining a comprehensive understanding of variadic arguments",
   },
 ];
 
@@ -198,7 +198,7 @@ export const Project = (props) => {
             position={[-0, 0.09, 0]}
             lineHeight={1.3}
             textAlign="center"
-            maxWidth={3}
+            maxWidth={2.5}
             overflowWrap="break-word"
           >
             {project.description}

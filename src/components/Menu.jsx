@@ -82,7 +82,7 @@ export function Menu(props) {
             >
               My resume
             </a>
-            <div className="flex items-center">
+            <div className="absolute flex bottom-10 justify-center">
               <a
                 className="social-icon social-icon--github"
                 href="https://github.com/NeoMood"
