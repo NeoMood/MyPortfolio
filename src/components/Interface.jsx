@@ -12,6 +12,8 @@ import { animate, useMotionValue } from "framer-motion";
 import { motion } from "framer-motion-3d";
 import { atom, useAtom } from "jotai";
 import { Image, Text, PerformanceMonitor } from "@react-three/drei";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleLeft, faCircleRight } from "@fortawesome/free-solid-svg-icons";
 
 // import { Home } from "./Home";
 // import { AboutMe } from "./Aboutme";
@@ -237,13 +239,35 @@ export const ProjectsSection = () => {
     return () => observer.disconnect();
   }, []);
 
-  const [dpr, setDpr] = useState(window.devicePixelRatio - window.devicePixelRatio / 2);
+  const [dpr, setDpr] = useState(
+    window.devicePixelRatio - window.devicePixelRatio / 2
+  );
 
   return (
     <>
       <div className="relative flex justify-center bg-gradiant w-screen min-h-[600px] h-[100vh] left-[-1]">
-        <div className="text-6xl pt-20 font-extrabold leading-snug drop-shadow-xl text-white">
+        <div className="absolute z-10 flex justify-between items-start space-x-10 text-6xl pt-20 font-extrabold leading-snug drop-shadow-xl text-white">
+          <button
+            onClick={previousProject}
+            className="text-xl  hover:backdrop-blur-[10px] text-white font-bold px-4 rounded backdrop-blur-[6px]"
+          >
+            {/* &larr; Previous */}
+            <FontAwesomeIcon
+              className="w-[60px] h-[60px]"
+              icon={faCircleLeft}
+            />
+          </button>
           <h1 className=""> Projects </h1>
+          <button
+            onClick={nextProject}
+            className="text-xl   hover:backdrop-blur-[10px] text-white font-bold px-4 rounded backdrop-blur-[6px] "
+          >
+            {/* Next &rarr; */}
+            <FontAwesomeIcon
+              className="w-[60px] h-[60px]"
+              icon={faCircleRight}
+            />
+          </button>
         </div>
         <div className="absolute w-full min-h-[600px] h-[100vh]">
           <Suspense fallback={null}>
@@ -255,25 +279,15 @@ export const ProjectsSection = () => {
               ref={canvasRef}
             >
               <PerformanceMonitor
-                onIncline={() => setDpr(window.devicePixelRatio - window.devicePixelRatio / 2)}
+                onIncline={() =>
+                  setDpr(window.devicePixelRatio - window.devicePixelRatio / 2)
+                }
                 onDecline={() => setDpr(window.devicePixelRatio / 2)}
               >
                 <Experience />
               </PerformanceMonitor>
             </Canvas>
           </Suspense>
-          <button
-            onClick={previousProject}
-            className="absolute text-xl left-0 top-1/4 transform -translate-y-1/2 hover:backdrop-blur-[10px] text-white font-bold px-4 rounded backdrop-blur-[6px] ml-8"
-          >
-            &larr; Previous
-          </button>
-          <button
-            onClick={nextProject}
-            className="absolute text-xl right-0 top-1/4 transform -translate-y-1/2 hover:backdrop-blur-[10px] text-white font-bold px-4 rounded backdrop-blur-[6px] mr-8"
-          >
-            Next &rarr;
-          </button>
         </div>
       </div>
     </>
