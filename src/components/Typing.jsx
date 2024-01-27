@@ -97,4 +97,4 @@ export function Typing(props) {
   );
 }
 
-useGLTF.preload("/avatar.glb");
+useGLTF.preload("/models/avatar.glb");
