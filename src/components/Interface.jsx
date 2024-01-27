@@ -246,25 +246,25 @@ export const ProjectsSection = () => {
   return (
     <>
       <div className="relative flex justify-center bg-gradiant w-screen min-h-[600px] h-[100vh] left-[-1]">
-        <div className="absolute z-10 flex justify-between items-start space-x-10 text-6xl pt-20 font-extrabold leading-snug drop-shadow-xl text-white">
+        <div className="absolute z-10 flex justify-between items-start space-x-2 md:space-x-10 pt-10 xl:pt-[100px] font-extrabold leading-snug drop-shadow-xl text-white">
           <button
             onClick={previousProject}
             className="text-xl  hover:backdrop-blur-[10px] text-white font-bold px-4 rounded backdrop-blur-[6px]"
           >
             {/* &larr; Previous */}
             <FontAwesomeIcon
-              className="w-[60px] h-[60px]"
+              className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] 2xl:w-[70px] 2xl:h-[70px]"
               icon={faCircleLeft}
             />
           </button>
-          <h1 className=""> Projects </h1>
+          <h1 className="contact_font text-3xl md:text-6xl 2xl:text-7xl"> Projects </h1>
           <button
             onClick={nextProject}
             className="text-xl   hover:backdrop-blur-[10px] text-white font-bold px-4 rounded backdrop-blur-[6px] "
           >
             {/* Next &rarr; */}
             <FontAwesomeIcon
-              className="w-[60px] h-[60px]"
+              className="w-[40px] h-[40px] md:w-[60px] md:h-[60px] 2xl:w-[70px] 2xl:h-[70px]"
               icon={faCircleRight}
             />
           </button>

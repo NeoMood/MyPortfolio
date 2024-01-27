@@ -21,7 +21,7 @@ import { useMediaQuery } from "react-responsive";
 
 export const Experience = () => {
   const viewport = useThree((state) => state.viewport);
-  const SceneScalingFactor = Math.min(window.innerWidth / 12, 21);
+  const SceneScalingFactor = Math.min(window.innerWidth / 19, 26);
   const isMobileDevice = useMediaQuery({
     query: "(max-device-width: 1224px)",
   });

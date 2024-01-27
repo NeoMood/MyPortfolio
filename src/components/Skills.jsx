@@ -41,7 +41,7 @@ const SkillSection = () => {
           ref={ref}
           className="parent w-screen px-10 mb-10 h-[900px]"
         >
-          <motion.div className="div1 text-6xl font-extrabold text-white mt-10 flex items-center justify-center ">
+          <motion.div className="div1 contact_font text-6xl 2xl:text-7xl font-extrabold text-white mt-10 flex items-center justify-center ">
             <h1>SKILLS</h1>
           </motion.div>
           <motion.div variants={variants} className="div2 bg-[#272730] rounded-3xl">
