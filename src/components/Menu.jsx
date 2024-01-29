@@ -56,7 +56,7 @@ export function Menu(props) {
         </button>
         <div
           className={`z-10 fixed top-0 right-0 bottom-0 transition-all overflow-hidden flex flex-col ${
-            isMenuOpen ? "w-96  bg-[peru]" : "w-0"
+            isMenuOpen ? "w-96  backdrop-blur-xl" : "w-0"
           }`}
         >
           <div className="menu flex-1 flex items-center justify-center flex-col gap-10 p-8 text-white text-xl contact_font">

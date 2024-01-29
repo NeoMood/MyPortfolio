@@ -113,7 +113,7 @@ const Contact = () => {
             backgroundSize: "cover",
           }}
         ></div>
-        <div className="flex items-center justify-center xl:justify-around w-full">
+        <div className="flex items-center justify-center xl:justify-around w-full pb-20">
           <motion.div
             ref={ref}
             initial="initial"
