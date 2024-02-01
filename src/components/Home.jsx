@@ -67,7 +67,7 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
 
-  const [dpr, setDpr] = useState(window.devicePixelRatio - window.devicePixelRatio / 2);
+  const [dpr, setDpr] = useState(window.devicePixelRatio);
 
   return (
     <>
@@ -158,8 +158,8 @@ const Home = () => {
             // shadows
           >
             <PerformanceMonitor
-              onIncline={() => setDpr(window.devicePixelRatio - window.devicePixelRatio / 2)}
-              onDecline={() => setDpr(window.devicePixelRatio / 2)}
+              onIncline={() => setDpr(window.devicePixelRatio)}
+              onDecline={() => setDpr(window.devicePixelRatio - window.devicePixelRatio / 2)}
             >
               <Deskscene />
             </PerformanceMonitor>

@@ -3,6 +3,7 @@ import { Desk } from "./components/Desk";
 import { Typing } from "./components/Typing";
 // import ProjectsSection from "./components/Interface";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 
 
 import { Canvas } from "@react-three/fiber";
@@ -30,12 +31,13 @@ function App() {
   const isMobile = window.innerWidth <= 768;
   return (
     <>
-      <SpeedInsights/>
       <LoadingScreen started={started} setStarted={setStarted}/>
       {started && <Menu />}
       {started && <Navbar />}
       {started && !isMobile && <Cursor/>}
       {started && <Interface/>}
+      <SpeedInsights/>
+      <Analytics />
     </>
   );
 }
